@@ -57,7 +57,7 @@ export default function Compare() {
   }, []);
 
   const candidates = useMemo(() => {
-    return rankServices(catalog, { goal, budget: "any", skill: "any", feature: "all" }).slice(0, 3).map((item) => ({ ...item.service, score: item.score, reasons: item.reasons || [] }));
+    return rankServices(catalog, { goal, budget: "any", skill: "any", feature: "all" }).slice(0, 4).map((item) => ({ ...item.service, score: item.score, reasons: item.reasons || [] }));
   }, [goal]);
 
   const ranked = useMemo(() => {
