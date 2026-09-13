@@ -1,0 +1,41 @@
+name: Fix compare selection limit
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    if: ${{ !contains(github.event.head_commit.message, 'Fix compare selection limit') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Change comparison candidates from 3 to 4
+        run: |
+          # 비교 후보를 3개만 노출하던 제한을 4개로 변경합니다.
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('app/compare/page.js')
+          text = path.read_text(encoding='utf-8')
+          old = 'rankServices(catalog, { goal, budget: "any", skill: "any", feature: "all" }).slice(0, 3)'
+          new = 'rankServices(catalog, { goal, budget: "any", skill: "any", feature: "all" }).slice(0, 4)'
+          if old not in text:
+              raise SystemExit('Expected comparison candidate limit was not found.')
+          path.write_text(text.replace(old, new, 1), encoding='utf-8')
+          PY
+
+          # 이 일회성 패치 워크플로도 함께 제거합니다.
+          rm -f .github/workflows/fix-compare-limit.yml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add app/compare/page.js .github/workflows/fix-compare-limit.yml
+          git commit -m "Fix compare selection limit"
+          git push
