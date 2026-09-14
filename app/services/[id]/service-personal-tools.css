@@ -1,0 +1,2 @@
+.servicePersonalTools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.servicePersonalTools button,.servicePersonalTools a{border:1px solid #ddd;background:#fff;color:inherit;border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer;font:inherit}.servicePersonalTools button.active{border-color:#111;background:#111;color:#fff}
+@media(max-width:700px){.servicePersonalTools{width:100%}.servicePersonalTools button,.servicePersonalTools a{flex:1;text-align:center}}
