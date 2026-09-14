@@ -7,6 +7,7 @@ import HubOutboundLink from "../../components/hub-outbound-link";
 import CompareServiceLink from "../../components/compare-service-link";
 import { ServicePersonalTools } from "../../components/service-personal-tools";
 import "./service.css";
+import "./service-personal-tools.css";
 
 export function generateStaticParams() {
   return catalog.map((service) => ({ id: service.id }));
@@ -16,10 +17,7 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   const service = catalogMap[id];
   if (!service) return { title: "서비스를 찾을 수 없습니다. | MOVA" };
-  return {
-    title: `${service.name} — 기능·비용·추천 용도 | MOVA`,
-    description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.`
-  };
+  return { title: `${service.name} — 기능·비용·추천 용도 | MOVA`, description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.` };
 }
 
 function getPrimaryGoal(service) {
@@ -42,11 +40,7 @@ export default async function ServiceDetail({ params }) {
   const related = catalog.filter((item) => item.id !== service.id).map((item) => {
     const categoryMatch = item.category === service.category ? 3 : 0;
     const useMatch = (item.uses || []).filter((use) => (service.uses || []).includes(use)).length;
-    const featureMatch = Object.keys(service.features || {}).filter((key) => {
-      const serviceSupports = service.features?.[key] || service.uses?.includes(key);
-      const itemSupports = item.features?.[key] || item.uses?.includes(key);
-      return serviceSupports && itemSupports;
-    }).length;
+    const featureMatch = Object.keys(service.features || {}).filter((key) => (service.features?.[key] || service.uses?.includes(key)) && (item.features?.[key] || item.uses?.includes(key))).length;
     return { item, score: categoryMatch + useMatch * 2 + featureMatch };
   }).sort((a, b) => b.score - a.score).slice(0, 3).map(({ item }) => item);
 
@@ -71,8 +65,7 @@ export default async function ServiceDetail({ params }) {
       <section className="relatedSection"><div className="relatedHeading"><div><div className="eyebrow">ALTERNATIVES</div><h2>함께 살펴볼 서비스</h2></div><Link href="/catalog">전체 보기</Link></div><div className="relatedGrid">{related.map((item) => <Link className="relatedCard" href={`/services/${item.id}`} key={item.id}><img src={item.icon} alt="" /><div><strong>{item.name}</strong><span>{item.category}</span><p>{item.bestFor}</p></div></Link>)}</div></section>
       <section className="serviceGuideLinks"><div><div className="eyebrow">NEXT STEP</div><h2>더 비교해보고 결정하세요.</h2><p>목적별 추천과 전체 서비스 비교에서 다른 선택지를 확인할 수 있습니다.</p></div><div className="guideLinkGrid"><Link href={`/recommend?goal=${primaryGoal.id}`}>내 조건으로 추천받기</Link><Link href="/compare">서비스 비교하기</Link><Link href="/guides">선택 가이드 보기</Link></div></section>
       <section className={`serviceBottom ${affiliateReady ? "affiliateBottom" : ""}`}>
-        <Link href="/recommend">맞춤 추천 다시 받기</Link>
-        <CompareServiceLink serviceId={service.id}>이 서비스 비교하기</CompareServiceLink>
+        <Link href="/recommend">맞춤 추천 다시 받기</Link><CompareServiceLink serviceId={service.id}>이 서비스 비교하기</CompareServiceLink>
         <HubOutboundLink service={service} href={outboundUrl} className="serviceOutbound" source="service-detail" rel="nofollow sponsored noopener noreferrer">{affiliateReady ? "서비스 시작하기" : "공식 사이트 방문"}</HubOutboundLink>
         {affiliateReady && <p className="affiliateDisclosure">{getAffiliateDisclosure(service)}</p>}
       </section>
