@@ -5,6 +5,7 @@ import { scoreService } from "../../lib/recommendation";
 import { getAffiliateDisclosure, getOutboundUrl, hasAffiliateLink } from "../../lib/affiliate-programs";
 import HubOutboundLink from "../../components/hub-outbound-link";
 import CompareServiceLink from "../../components/compare-service-link";
+import { ServicePersonalTools } from "../../components/service-personal-tools";
 import "./service.css";
 
 export function generateStaticParams() {
@@ -22,10 +23,7 @@ export async function generateMetadata({ params }) {
 }
 
 function getPrimaryGoal(service) {
-  const goals = [
-    ["shorts", "쇼츠 제작"], ["image", "AI 이미지"], ["video", "AI 영상"],
-    ["voice", "AI 음성"], ["chat", "AI 챗봇"], ["api", "개발용 API"]
-  ];
+  const goals = [["shorts", "쇼츠 제작"], ["image", "AI 이미지"], ["video", "AI 영상"], ["voice", "AI 음성"], ["chat", "AI 챗봇"], ["api", "개발용 API"]];
   return goals.map(([id, label]) => ({ id, label, score: scoreService(service, { goal: id }).score })).sort((a, b) => b.score - a.score)[0];
 }
 
@@ -41,7 +39,6 @@ export default async function ServiceDetail({ params }) {
   const outboundUrl = getOutboundUrl(service);
   const supportedFeatureKeys = features.filter(([key]) => key === "api" ? service.api : Boolean(service.features?.[key] || service.uses?.includes(key))).map(([key]) => key);
 
-  // 같은 목적과 기능을 공유하는 서비스를 계산해 상세 페이지의 대안으로 보여줍니다.
   const related = catalog.filter((item) => item.id !== service.id).map((item) => {
     const categoryMatch = item.category === service.category ? 3 : 0;
     const useMatch = (item.uses || []).filter((use) => (service.uses || []).includes(use)).length;
@@ -63,6 +60,7 @@ export default async function ServiceDetail({ params }) {
         <p>{service.bestFor}</p>
         <div className="serviceBadges"><span>{service.price}</span><span>{service.difficulty}</span><span>{service.free ? "무료 시작 가능" : "무료 시작 정보 없음"}</span><span>{service.api ? "API 제공" : "API 없음"}</span></div>
         <div className="heroFeatureRow"><strong>핵심 기능</strong>{supportedFeatureKeys.slice(0, 5).map((key) => <span key={key}>{features.find(([featureKey]) => featureKey === key)?.[1]}</span>)}</div>
+        <ServicePersonalTools serviceId={service.id} />
       </section>
       <section className="serviceVerdict"><div><div className="eyebrow">MOVA QUICK VERDICT</div><h2>{primaryGoal.label} 목적에 특히 잘 맞습니다.</h2><p>{service.bestFor}. {service.api ? "개발 단계에서 API로 연결하기에도 적합합니다." : "개발용 API가 핵심이라면 API 제공 서비스를 함께 비교하는 것이 좋습니다."}</p></div><div className="verdictScore"><strong>{primaryResult.score}</strong><span>추천 기준점</span></div></section>
       <section className="suitableSection"><div className="sectionTitle"><div><div className="eyebrow">GOOD FOR</div><h2>이럴 때 먼저 살펴보세요</h2></div></div><div className="suitableGrid">{suitableFor.map((item) => <span key={item}>{item} 제작</span>)}{service.free && <span>비용을 아끼며 테스트</span>}{service.difficulty === "쉬움" && <span>처음 시작하는 경우</span>}{service.api && <span>서비스에 API 연결</span>}</div></section>
