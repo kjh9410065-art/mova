@@ -12,15 +12,24 @@ import "./catalog-typography.css";
 import "./catalog-mobile-final.css";
 
 const filters = categoryGroups.map((group) => [group.id, group.label]);
-const featureFilters = [["전체", "전체"], ["image", "이미지"], ["video", "영상"], ["voice", "음성"], ["chat", "챗봇"], ["search", "검색"], ["text", "텍스트"]];
-const featureLabels = { text: "텍스트", image: "이미지", video: "영상", voice: "음성", search: "검색", chat: "챗봇" };
+// 서비스 유형은 기존 데이터의 기능·용도·카테고리를 기준으로 분류해 별도 데이터를 만들지 않습니다.
+const featureFilters = [["전체", "전체"], ["image", "이미지"], ["video", "영상"], ["music", "음악"], ["text", "글/문서"], ["voice", "음성"], ["chat", "챗봇"], ["search", "검색"], ["developer", "코딩"], ["productivity", "생산성"], ["other", "기타"]];
+const featureLabels = { text: "글/문서", image: "이미지", video: "영상", voice: "음성", search: "검색", chat: "챗봇", developer: "코딩", music: "음악", productivity: "생산성" };
 
 function readStoredList(key) {
   try { const value = JSON.parse(localStorage.getItem(key) || "[]"); return Array.isArray(value) ? value : []; }
   catch { return []; }
 }
-function serviceSupportsFeature(service, feature) { return Boolean(service.features?.[feature] || service.uses?.includes(feature)); }
-function getSupportedFeatures(service) { return Object.keys(featureLabels).filter((key) => Boolean(service.features?.[key] || service.uses?.includes(key))).slice(0, 3); }
+
+function serviceSupportsFeature(service, feature) {
+  if (feature === "other") return !["image", "video", "music", "text", "voice", "chat", "search", "developer", "productivity"].some((type) => serviceSupportsFeature(service, type));
+  if (feature === "music") return /음악/i.test(service.category || "") || (service.tags || []).some((tag) => /음악/i.test(tag));
+  if (feature === "developer") return Boolean(service.api) || /개발|코딩|API|인프라|클라우드/i.test(`${service.category} ${(service.tags || []).join(" ")}`);
+  if (feature === "productivity") return /생산성|업무|자동화|워크플로|문서|검색/i.test(`${service.category} ${service.bestFor} ${(service.tags || []).join(" ")}`);
+  return Boolean(service.features?.[feature] || service.uses?.includes(feature));
+}
+
+function getSupportedFeatures(service) { return Object.keys(featureLabels).filter((key) => serviceSupportsFeature(service, key)).slice(0, 3); }
 
 export default function CatalogPage() {
   const [query, setQuery] = useState("");
@@ -52,6 +61,13 @@ export default function CatalogPage() {
       return true;
     });
     if (sort === "recommended") return filtered;
+    // 실제 메타데이터가 있는 서비스만 최신/인기 정렬을 적용합니다. 없는 데이터는 추천순을 유지합니다.
+    if (sort === "latest" && filtered.some((service) => service.updatedAt)) {
+      return [...filtered].sort((a, b) => String(b.updatedAt || "").localeCompare(String(a.updatedAt || "")));
+    }
+    if (sort === "popular" && filtered.some((service) => Number.isFinite(Number(service.popularity)))) {
+      return [...filtered].sort((a, b) => Number(b.popularity || 0) - Number(a.popularity || 0));
+    }
     return [...filtered].sort((a, b) => {
       if (sort === "name") return a.name.localeCompare(b.name);
       if (sort === "easy") return (a.difficulty === "쉬움" ? 0 : 1) - (b.difficulty === "쉬움" ? 0 : 1);
@@ -76,7 +92,7 @@ export default function CatalogPage() {
     <header className="header catalogHeader"><Link className="logo" href="/">MOVA</Link><nav><Link href="/recommend">추천받기</Link><Link href="/tools">무료 도구</Link><Link href="/compare">비교하기</Link></nav></header>
     <section className="catalogHero"><div className="eyebrow">MOVA SERVICE CATALOG</div><h1>필요한 서비스를<br/><span>직접 찾아보세요.</span></h1><p>AI 모델부터 영상·이미지·음성·검색·인프라까지 한 곳에서 탐색할 수 있습니다.</p><div className="catalogSearch"><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="서비스 이름, 기능, 용도로 검색" aria-label="서비스 검색"/><strong>{list.length}개</strong></div></section>
     <section className="catalogBody">
-      <div className="filterBlock"><div><b>분류</b><div className="filterScroll">{filters.map(([id, label]) => <button key={id} className={category === id ? "active" : ""} onClick={() => setCategory(id)}>{label}</button>)}</div></div><div><b>기능</b><div className="filterScroll">{featureFilters.map(([id, label]) => <button key={id} className={feature === id ? "active" : ""} onClick={() => setFeature(id)}>{label}</button>)}</div></div><div className="catalogOptions"><label><input type="checkbox" checked={onlyFree} onChange={(e) => setOnlyFree(e.target.checked)}/> 무료 시작</label><label><input type="checkbox" checked={onlyApi} onChange={(e) => setOnlyApi(e.target.checked)}/> API 제공</label><select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="정렬 방식"><option value="recommended">추천순</option><option value="free">무료 우선</option><option value="api">API 우선</option><option value="easy">쉬운 서비스 우선</option><option value="name">이름순</option></select></div></div>
+      <div className="filterBlock"><div><b>분류</b><div className="filterScroll">{filters.map(([id, label]) => <button key={id} className={category === id ? "active" : ""} onClick={() => setCategory(id)}>{label}</button>)}</div></div><div><b>서비스 유형</b><div className="filterScroll">{featureFilters.map(([id, label]) => <button key={id} className={feature === id ? "active" : ""} onClick={() => setFeature(id)}>{label}</button>)}</div></div><div className="catalogOptions"><label><input type="checkbox" checked={onlyFree} onChange={(e) => setOnlyFree(e.target.checked)}/> 무료 시작</label><label><input type="checkbox" checked={onlyApi} onChange={(e) => setOnlyApi(e.target.checked)}/> API 제공</label><select value={sort} onChange={(e) => setSort(e.target.value)} aria-label="정렬 방식"><option value="recommended">추천순</option><option value="popular">인기순</option><option value="latest">최신순</option><option value="free">무료 우선</option><option value="api">API 우선</option><option value="easy">쉬운 서비스 우선</option><option value="name">이름순</option></select></div></div>
       <div className="catalogState"><span>{activeCategory}</span><span>{feature}</span>{onlyFree && <span>무료</span>}{onlyApi && <span>API</span>}<button type="button" className={`catalogFavoritesToggle ${showFavorites ? "active" : ""}`} onClick={() => setShowFavorites((current) => !current)} aria-pressed={showFavorites}>♥ 즐겨찾기 {favorites.length}</button><b>{list.length}개 결과</b>{(query || category !== "all" || feature !== "전체" || onlyFree || onlyApi || showFavorites) && <button type="button" onClick={resetFilters}>필터 초기화</button>}</div>
       {list.length > 0 && <div className="catalogGrid">{list.map((s, index) => {
         const affiliate = hasAffiliateLink(s); const supportedFeatures = getSupportedFeatures(s); const isFavorite = favorites.includes(s.id); const isCompared = compare.includes(s.id);
