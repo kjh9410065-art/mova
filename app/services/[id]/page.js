@@ -36,6 +36,9 @@ export default async function ServiceDetail({ params }) {
   const affiliateReady = hasAffiliateLink(service);
   const outboundUrl = getOutboundUrl(service);
   const supportedFeatureKeys = features.filter(([key]) => key === "api" ? service.api : Boolean(service.features?.[key] || service.uses?.includes(key))).map(([key]) => key);
+  const description = service.description || service.bestFor || "서비스 설명 정보가 없습니다.";
+  const strengths = service.strengths || [];
+  const caveat = service.caveat || "확인된 주의사항 정보가 없습니다.";
 
   const related = catalog.filter((item) => item.id !== service.id).map((item) => {
     const categoryMatch = item.category === service.category ? 3 : 0;
@@ -51,17 +54,21 @@ export default async function ServiceDetail({ params }) {
       <header className="header serviceHeader"><Link className="logo" href="/">MOVA</Link><nav><Link href="/catalog">전체 서비스</Link><Link href="/recommend">추천받기</Link><Link href="/compare">비교하기</Link></nav></header>
       <section className="serviceHero">
         <div className="serviceIdentity"><img src={service.icon} alt="" /><div><div className="eyebrow">{service.category}</div><h1>{service.name}</h1></div></div>
-        <p>{service.bestFor}</p>
+        <p>{description}</p>
         <div className="serviceBadges"><span>{service.price}</span><span>{service.difficulty}</span><span>{service.free ? "무료 시작 가능" : "무료 시작 정보 없음"}</span><span>{service.api ? "API 제공" : "API 없음"}</span></div>
         <div className="heroFeatureRow"><strong>핵심 기능</strong>{supportedFeatureKeys.slice(0, 5).map((key) => <span key={key}>{features.find(([featureKey]) => featureKey === key)?.[1]}</span>)}</div>
         <ServicePersonalTools serviceId={service.id} />
       </section>
-      <section className="serviceVerdict"><div><div className="eyebrow">MOVA QUICK VERDICT</div><h2>{primaryGoal.label} 목적에 특히 잘 맞습니다.</h2><p>{service.bestFor}. {service.api ? "개발 단계에서 API로 연결하기에도 적합합니다." : "개발용 API가 핵심이라면 API 제공 서비스를 함께 비교하는 것이 좋습니다."}</p></div><div className="verdictScore"><strong>{primaryResult.score}</strong><span>추천 기준점</span></div></section>
-      <section className="suitableSection"><div className="sectionTitle"><div><div className="eyebrow">GOOD FOR</div><h2>이럴 때 먼저 살펴보세요</h2></div></div><div className="suitableGrid">{suitableFor.map((item) => <span key={item}>{item} 제작</span>)}{service.free && <span>비용을 아끼며 테스트</span>}{service.difficulty === "쉬움" && <span>처음 시작하는 경우</span>}{service.api && <span>서비스에 API 연결</span>}</div></section>
+
+      <section className="serviceVerdict"><div><div className="eyebrow">MOVA QUICK VERDICT</div><h2>{primaryGoal.label} 목적에 특히 잘 맞습니다.</h2><p>{service.bestFor || description}. {service.api ? "개발 단계에서 API로 연결하기에도 적합합니다." : "개발용 API가 핵심이라면 API 제공 서비스를 함께 비교하는 것이 좋습니다."}</p></div><div className="verdictScore"><strong>{primaryResult.score}</strong><span>추천 기준점</span></div></section>
+
+      <section className="suitableSection"><div className="sectionTitle"><div><div className="eyebrow">GOOD FOR</div><h2>추천 대상</h2><p>{service.bestFor || description}</p></div></div><div className="suitableGrid">{suitableFor.map((item) => <span key={item}>{item} 제작</span>)}{service.free && <span>비용을 아끼며 테스트</span>}{service.difficulty === "쉬움" && <span>처음 시작하는 경우</span>}{service.api && <span>서비스에 API 연결</span>}</div></section>
+
       <section className="serviceDetailGrid">
-        <article><h2>왜 추천하나요?</h2><ul>{service.strengths.map((item) => <li key={item}>{item}</li>)}</ul><div className="detailReason"><b>주의할 점</b><p>{service.caveat}</p></div></article>
-        <article><h2>지원 기능</h2><div className="featureList">{features.map(([key, label]) => { const supported = key === "api" ? Boolean(service.api) : Boolean(service.features?.[key] || service.uses?.includes(key)); return <div key={key} className={supported ? "supported" : "disabled"}><span>{label}</span><b>{supported ? "지원" : "미지원"}</b></div>; })}</div></article>
+        <article><h2>서비스 설명</h2><p>{description}</p><h2>장점</h2>{strengths.length > 0 ? <ul>{strengths.map((item) => <li key={item}>{item}</li>)}</ul> : <p>확인된 장점 정보가 없습니다.</p>}<div className="detailReason"><b>단점·주의할 점</b><p>{caveat}</p></div></article>
+        <article><h2>지원 기능</h2><div className="featureList">{features.map(([key, label]) => { const supported = key === "api" ? Boolean(service.api) : Boolean(service.features?.[key] || service.uses?.includes(key)); return <div key={key} className={supported ? "supported" : "disabled"}><span>{label}</span><b>{supported ? "지원" : "미지원"}</b></div>; })}</div><div className="detailReason"><b>가격</b><p>{service.price || "가격 정보 없음"} · {service.free ? "무료 시작 가능" : "무료 시작 정보 없음"}</p></div></article>
       </section>
+
       <section className="relatedSection"><div className="relatedHeading"><div><div className="eyebrow">ALTERNATIVES</div><h2>함께 살펴볼 서비스</h2></div><Link href="/catalog">전체 보기</Link></div><div className="relatedGrid">{related.map((item) => <Link className="relatedCard" href={`/services/${item.id}`} key={item.id}><img src={item.icon} alt="" /><div><strong>{item.name}</strong><span>{item.category}</span><p>{item.bestFor}</p></div></Link>)}</div></section>
       <section className="serviceGuideLinks"><div><div className="eyebrow">NEXT STEP</div><h2>더 비교해보고 결정하세요.</h2><p>목적별 추천과 전체 서비스 비교에서 다른 선택지를 확인할 수 있습니다.</p></div><div className="guideLinkGrid"><Link href={`/recommend?goal=${primaryGoal.id}`}>내 조건으로 추천받기</Link><Link href="/compare">서비스 비교하기</Link><Link href="/guides">선택 가이드 보기</Link></div></section>
       <section className={`serviceBottom ${affiliateReady ? "affiliateBottom" : ""}`}>
