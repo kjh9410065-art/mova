@@ -25,7 +25,8 @@ export const metadata = {
   description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
-  icons: { icon: "/icon.svg", shortcut: "/icon.svg", apple: "/icon.svg" },
+  // 업로드한 MOVA-og-image.jpg를 사이트 아이콘으로 사용합니다.
+  icons: { icon: "/MOVA-og-image.jpg", shortcut: "/MOVA-og-image.jpg", apple: "/MOVA-og-image.jpg" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "MOVA — 목적에 맞는 AI·개발 서비스 찾기",
