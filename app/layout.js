@@ -12,6 +12,7 @@ import "./ui-visibility-polish.css";
 import "./button-clarity.css";
 import "./catalog-icon-scale.css";
 import "./mobile-card-readability.css";
+import "./nerding-redesign.css";
 import Script from "next/script";
 import HubTutorial from "./components/hub-tutorial";
 import HubTheme from "./components/hub-theme";
@@ -48,7 +49,7 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="/illustrations.css" />
         {/* 네이버 소유확인용 메타 태그를 head에 직접 넣습니다. */}
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
-        {/* 기존 화면에 남아 있는 이전 브랜드 표기를 새 브랜드로 치환합니다. */}
+        {/* 기존 데이터와 기능에는 영향을 주지 않고 화면에 남은 이전 브랜드명을 새 이름으로 표시합니다. */}
         <script dangerouslySetInnerHTML={{ __html: `(() => { const start = () => { const replaceBrand = () => { if (!document.body) return; const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode); nodes.forEach((node) => { if (node.nodeValue.includes("MOVA")) node.nodeValue = node.nodeValue.replaceAll("MOVA", "NERDING"); if (node.nodeValue.includes("HUB")) node.nodeValue = node.nodeValue.replaceAll("HUB", "NERDING"); }); document.querySelectorAll("[aria-label], [title]").forEach((el) => { ["aria-label", "title"].forEach((attr) => { const value = el.getAttribute(attr); if (value) el.setAttribute(attr, value.replaceAll("MOVA", "NERDING").replaceAll("HUB", "NERDING")); }); }); }; replaceBrand(); new MutationObserver(replaceBrand).observe(document.body, { childList: true, subtree: true, characterData: true }); }; if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true }); else start(); })();` }} />
       </head>
       <body>
