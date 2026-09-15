@@ -22,25 +22,26 @@ import SiteFooter from "./components/site-footer";
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim();
 
 export const metadata = {
-  title: "NERDING — 목적에 맞는 AI·개발 서비스 찾기",
-  description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
+  title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
+  description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교할 수 있습니다.",
+  keywords: ["NERDING", "너딩", "AI 서비스", "AI 도구", "AI 추천", "AI 비교", "생성형 AI", "이미지 생성 AI", "영상 생성 AI", "개발 도구", "개발 서비스"],
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: { icon: "/icon.svg?v=3", shortcut: "/icon.svg?v=3", apple: "/icon.svg?v=3" },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "NERDING — 목적에 맞는 AI·개발 서비스 찾기",
-    description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
+    title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
+    description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교해보세요.",
     url: "https://mova.tcflick.com",
     siteName: "NERDING",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", width: 716, height: 716, alt: "NERDING" }]
+    images: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", width: 716, height: 716, alt: "NERDING AI 서비스 찾기" }]
   },
   twitter: {
     card: "summary_large_image",
-    title: "NERDING — 목적에 맞는 AI·개발 서비스 찾기",
-    description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
+    title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
+    description: "AI 서비스와 개발 도구를 목적에 맞게 찾고 비교하는 NERDING.",
     images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"]
   },
   verification: { google: "hAHkcvWFhoATFOdphua3yECySUCnJXT2IC9gfm0cYew" }
