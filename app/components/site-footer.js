@@ -6,7 +6,7 @@ export default function SiteFooter() {
     <footer className="siteFooter">
       <div className="siteFooterInner">
         <div className="siteFooterBrand">
-          <Link href="/" className="siteFooterLogo">MOVA</Link>
+          <Link href="/" className="siteFooterLogo">NERDING</Link>
           <p>목적에 맞는 AI·개발 서비스를 찾고 비교하는 서비스</p>
         </div>
         <nav className="siteFooterLinks" aria-label="사이트 정책 및 안내">
@@ -19,8 +19,8 @@ export default function SiteFooter() {
           <span>운영 문의</span>
           <a href="mailto:kjh9410065@gmail.com">kjh9410065@gmail.com</a>
         </div>
-        <p className="siteFooterNotice">MOVA는 외부 서비스의 공식 사이트로 연결되는 링크를 제공하며, 외부 서비스의 가격·정책·운영 내용은 각 서비스의 최신 정보를 기준으로 합니다.</p>
-        <p className="siteFooterCopyright">© 2026 MOVA. All rights reserved.</p>
+        <p className="siteFooterNotice">NERDING은 외부 서비스의 공식 사이트로 연결되는 링크를 제공하며, 외부 서비스의 가격·정책·운영 내용은 각 서비스의 최신 정보를 기준으로 합니다.</p>
+        <p className="siteFooterCopyright">© 2026 NERDING. All rights reserved.</p>
       </div>
     </footer>
   );
