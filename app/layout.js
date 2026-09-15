@@ -26,7 +26,7 @@ export const metadata = {
   description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
-  icons: { icon: "/icon.svg?v=2", shortcut: "/icon.svg?v=2", apple: "/icon.svg?v=2" },
+  icons: { icon: "/icon.svg?v=3", shortcut: "/icon.svg?v=3", apple: "/icon.svg?v=3" },
   robots: { index: true, follow: true },
   openGraph: {
     title: "NERDING — 목적에 맞는 AI·개발 서비스 찾기",
@@ -35,7 +35,13 @@ export const metadata = {
     siteName: "NERDING",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: "/MOVA-og-image.jpg", width: 1199, height: 675, alt: "NERDING AI 서비스 찾기" }]
+    images: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", width: 716, height: 716, alt: "NERDING" }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NERDING — 목적에 맞는 AI·개발 서비스 찾기",
+    description: "만들고 싶은 목적에 맞는 AI·개발 서비스를 빠르게 찾고 비교할 수 있습니다.",
+    images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"]
   },
   verification: { google: "hAHkcvWFhoATFOdphua3yECySUCnJXT2IC9gfm0cYew" }
 };
