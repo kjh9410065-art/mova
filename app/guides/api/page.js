@@ -3,15 +3,15 @@ import { catalog } from "../../lib/catalog";
 import "../guide.css";
 
 export const metadata = {
-  title: "개발용 AI API 선택 가이드 | HUB",
-  description: "챗봇, 검색, 이미지, 음성 등 개발 목적에 맞는 AI API 선택 기준을 정리한 HUB 가이드입니다."
+  title: "개발용 AI API 선택 가이드 | NERDING",
+  description: "챗봇, 검색, 이미지, 음성 등 개발 목적에 맞는 AI API 선택 기준을 정리한 NERDING 가이드입니다."
 };
 
 const services = catalog.filter((service) => service.api).slice(0, 10);
 
 export default function ApiGuide() {
   return <main className="guideArticle">
-    <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/guides">가이드</Link></nav></header>
+    <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/guides">가이드</Link></nav></header>
     <section className="guideArticleHero"><div className="eyebrow">API GUIDE</div><h1>API는 가격만 보지 말고<br /><span>무엇을 연결할지부터 보세요.</span></h1><p>지원 기능, 난이도, 무료 구간, 모델 범위를 함께 비교해야 실제 개발에서 선택이 쉬워집니다.</p></section>
     <section className="guideArticleBody">
       <article><h2>API 선택 순서</h2><p>먼저 텍스트·이미지·영상·음성·검색 중 필요한 기능을 정합니다. 그다음 무료 테스트 가능 여부와 API 제공 방식, 마지막으로 모델별 비용과 사용량 제한을 확인하는 방식이 가장 효율적입니다.</p></article>
