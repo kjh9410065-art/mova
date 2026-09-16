@@ -4,7 +4,7 @@ import "./home-typography.css";
 import "./readable-ui.css";
 import "./components/adsense.css";
 import "./components/ad-slot.css";
-import "./components/hub-floating-controls.css";
+import "./components/nerding-floating-controls.css";
 import "./dark-mode-hardening.css";
 import "./light-mode-cleanup.css";
 import "./components/compare-bar-unified.css";
