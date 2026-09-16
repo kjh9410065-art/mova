@@ -1,3 +1,5 @@
+@import "./desktop-choice-size-fix.css";
+
 /* NERDING 추천 결과의 PC TOP MATCH와 후보 카드가 화면을 과도하게 차지하지 않도록 정리합니다. */
 @media (min-width: 761px) {
   /* TOP MATCH 본문을 가로형 카드로 정리합니다. */
