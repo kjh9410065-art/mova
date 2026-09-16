@@ -1,4 +1,4 @@
-name: HUB build check
+name: NERDING build check
 
 on:
   push:
