@@ -40,23 +40,23 @@
     flex:0 0 43px !important;
   }
 
-  /* 추천 카드에서는 실제 아이콘 이미지만 약 1.7배 확대합니다. */
+  /* 추천 카드에서는 실제 아이콘 이미지만 1.5배 확대합니다. */
   .homePage .serviceIconImage{
     width:30px !important;
     height:30px !important;
     object-fit:contain !important;
-    transform:scale(1.7) !important;
+    transform:scale(1.5) !important;
     transform-origin:center !important;
   }
 
-  /* 추천 카드 제목은 진하고 선명하게 표시합니다. */
+  /* 추천 카드 제목은 기존 20px에서 약 1.2배인 24px로 확대하고 진하게 표시합니다. */
   .homePage .serviceName{
-    font-size:20px !important;
+    font-size:24px !important;
     font-weight:900 !important;
     color:#111118 !important;
   }
 
-  /* 추천 카드의 서비스 설명을 진하게 표시합니다. */
+  /* 추천 카드의 서비스 설명도 제목과 함께 조금 더 진하게 표시합니다. */
   .homePage .serviceBest{
     color:#4f4d58 !important;
     font-weight:650 !important;
