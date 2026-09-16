@@ -1,6 +1,6 @@
-# MOVA
+# NERDING
 
-MOVA is an AI service discovery and comparison site.
+NERDING is an AI service discovery and comparison site.
 
 ## Main pages
 
