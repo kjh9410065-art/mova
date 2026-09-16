@@ -1,2 +1,25 @@
 .servicePersonalTools{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.servicePersonalTools button,.servicePersonalTools a{border:1px solid #ddd;background:#fff;color:inherit;border-radius:10px;padding:10px 14px;text-decoration:none;cursor:pointer;font:inherit}.servicePersonalTools button.active{border-color:#111;background:#111;color:#fff}
 @media(max-width:700px){.servicePersonalTools{width:100%}.servicePersonalTools button,.servicePersonalTools a{flex:1;text-align:center}}
+
+/* 다크모드에서도 즐겨찾기와 최근 본 서비스 버튼의 배경·글자 대비를 유지합니다. */
+html[data-theme="dark"] .servicePersonalTools button,
+html[data-theme="dark"] .servicePersonalTools a{
+  background:#211e29 !important;
+  border-color:#3a3545 !important;
+  color:#eeeaf3 !important;
+}
+
+/* 선택된 즐겨찾기는 기존 강조색으로 표시합니다. */
+html[data-theme="dark"] .servicePersonalTools button.active{
+  background:#7055e8 !important;
+  border-color:#7055e8 !important;
+  color:#fff !important;
+}
+
+/* 마우스를 올렸을 때도 어두운 배경에서 충분한 대비를 유지합니다. */
+html[data-theme="dark"] .servicePersonalTools button:hover,
+html[data-theme="dark"] .servicePersonalTools a:hover{
+  background:#2a2633 !important;
+  border-color:#7055e8 !important;
+  color:#fff !important;
+}
