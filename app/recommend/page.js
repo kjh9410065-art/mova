@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import "./recommend.css";
 import "./recommend-next.css";
 import "./mobile-ui-fix.css";
+import "./final-ui-fix.css";
 import { catalog, catalogMap } from "../lib/catalog";
 import { rankServices } from "../lib/recommendation";
 import { rankSearchResults, scoreSearch } from "../lib/search";
