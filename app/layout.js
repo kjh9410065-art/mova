@@ -29,7 +29,11 @@ export const metadata = {
   keywords: ["NERDING", "너딩", "AI 서비스", "AI 도구", "AI 추천", "AI 비교", "생성형 AI", "이미지 생성 AI", "영상 생성 AI", "개발 도구", "개발 서비스"],
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
-  icons: { icon: "/icon.svg?v=3", shortcut: "/icon.svg?v=3", apple: "/icon.svg?v=3" },
+  icons: {
+    icon: "/icon.svg?v=4",
+    shortcut: "/icon.svg?v=4",
+    apple: "/icon.svg?v=4"
+  },
   robots: { index: true, follow: true },
   openGraph: {
     title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
