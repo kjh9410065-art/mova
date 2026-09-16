@@ -1,7 +1,7 @@
 /* 모바일에서 고정 비교 바와 공통 플로팅 버튼이 겹치지 않도록 위치를 계단식으로 분리합니다. */
 @media (max-width: 760px) {
   .hubTutorialHelp { bottom: 82px !important; }
-  .hubThemeToggle { bottom: 132px !important; }
+  .nerdingThemeToggle { bottom: 132px !important; }
   .homePage,
   .catalogPage { padding-bottom: 170px !important; }
 }
@@ -51,7 +51,7 @@ html[data-theme="dark"] .comparePage .compareGoalTabs button,
 html[data-theme="dark"] .comparePage .toolbarActions button,
 html[data-theme="dark"] .comparePage .mobileCompareCard header button,
 html[data-theme="dark"] .hubTutorialHelp,
-html[data-theme="dark"] .hubThemeToggle { border-color: #7659d6 !important; }
+html[data-theme="dark"] .nerdingThemeToggle { border-color: #7659d6 !important; }
 
 /* 입력창도 같은 보라색 테두리를 사용합니다. */
 html[data-theme="dark"] .recommendPage input,
