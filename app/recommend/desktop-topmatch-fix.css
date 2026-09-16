@@ -13,56 +13,58 @@
   .recommendPage .topReason { margin:14px 0 0 !important; line-height:1.6 !important; }
   .recommendPage .topMatchActions { display:flex !important; flex:0 0 auto !important; align-items:center !important; gap:8px !important; }
   .recommendPage .topMatchActions a { min-height:46px !important; padding:0 16px !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; box-sizing:border-box !important; white-space:nowrap !important; }
-
-  /* ALTERNATIVES 후보를 PC에서 2열로 나눠 한 카드가 화면 전체를 차지하지 않게 합니다. */
   .recommendPage .resultGrid { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:14px !important; align-items:stretch !important; }
-
-  /* 2열 후보 카드는 서비스 정보와 태그를 좌우로 배치합니다. */
   .recommendPage .resultGrid .resultCard { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; grid-template-areas:"service chips" "reason reason" "actions actions" "disclosure disclosure" !important; column-gap:16px !important; row-gap:10px !important; min-width:0 !important; margin:0 !important; padding:18px !important; border-radius:20px !important; box-sizing:border-box !important; align-items:center !important; }
   .recommendPage .resultGrid .resultServiceTop { grid-area:service !important; min-width:0 !important; }
   .recommendPage .resultGrid .resultCard > .chips { grid-area:chips !important; width:auto !important; max-width:220px !important; margin:0 !important; justify-content:flex-end !important; align-self:center !important; }
   .recommendPage .resultGrid .resultCard .reason { grid-area:reason !important; margin:0 !important; }
   .recommendPage .resultGrid .resultCard .resultActions { grid-area:actions !important; margin-top:2px !important; display:flex !important; gap:7px !important; flex-wrap:wrap !important; }
   .recommendPage .resultGrid .resultCard .miniDisclosure { grid-area:disclosure !important; }
-
-  /* 후보 서비스 아이콘도 일정 크기로 제한합니다. */
   .recommendPage .resultGrid .resultIcon { width:56px !important; height:56px !important; min-width:56px !important; max-width:56px !important; min-height:56px !important; max-height:56px !important; object-fit:contain !important; }
   .recommendPage .resultGrid .resultTitle { font-size:17px !important; line-height:1.25 !important; }
   .recommendPage .resultGrid .resultCategory { font-size:12px !important; line-height:1.35 !important; }
   .recommendPage .resultGrid .resultActions > * { flex:1 1 0 !important; min-width:0 !important; }
-
-  /* 상세 보기와 서비스 시작하기를 버튼 형태로 통일합니다. */
   .recommendPage .resultGrid .resultActions .officialBtn,
-  .recommendPage .resultGrid .resultActions .affiliateMiniBtn {
-    min-height:42px !important;
-    padding:0 14px !important;
-    border-radius:11px !important;
-    display:inline-flex !important;
-    align-items:center !important;
-    justify-content:center !important;
-    box-sizing:border-box !important;
-    font-size:13px !important;
-    font-weight:850 !important;
-    line-height:1 !important;
-    text-decoration:none !important;
-    white-space:nowrap !important;
-  }
-
-  /* 상세 보기 버튼은 밝은 보조 버튼으로 표시합니다. */
-  .recommendPage .resultGrid .resultActions .officialBtn {
-    background:#f3f1f8 !important;
-    color:#292633 !important;
-    border:1px solid #e4e0ed !important;
-  }
-
-  /* 서비스 시작하기는 기존 강조색을 유지한 주요 버튼으로 표시합니다. */
-  .recommendPage .resultGrid .resultActions .affiliateMiniBtn {
-    background:#25232d !important;
-    color:#fff !important;
-    border:1px solid #25232d !important;
-  }
-
-  /* 마우스를 올렸을 때도 버튼의 역할이 명확하게 보이도록 합니다. */
+  .recommendPage .resultGrid .resultActions .affiliateMiniBtn { min-height:42px !important; padding:0 14px !important; border-radius:11px !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; box-sizing:border-box !important; font-size:13px !important; font-weight:850 !important; line-height:1 !important; text-decoration:none !important; white-space:nowrap !important; }
+  .recommendPage .resultGrid .resultActions .officialBtn { background:#f3f1f8 !important; color:#292633 !important; border:1px solid #e4e0ed !important; }
+  .recommendPage .resultGrid .resultActions .affiliateMiniBtn { background:#25232d !important; color:#fff !important; border:1px solid #25232d !important; }
   .recommendPage .resultGrid .resultActions .officialBtn:hover { background:#e9e6f1 !important; }
   .recommendPage .resultGrid .resultActions .affiliateMiniBtn:hover { background:#3a3744 !important; }
 }
+
+/* 추천 화면 다크모드 최종 대비 보정: 기존 테마보다 마지막에 적용해 흐린 글자를 제거합니다. */
+html[data-theme="dark"] .recommendPage { background:linear-gradient(180deg,#0d0b12 0%,#121017 50%,#0d0b12 100%) !important; color:#f5f1fa !important; }
+html[data-theme="dark"] .recommendPage .recommendIntro h1,
+html[data-theme="dark"] .recommendPage .recommendIntro p,
+html[data-theme="dark"] .recommendPage .resultHead h2,
+html[data-theme="dark"] .recommendPage .resultHead h3,
+html[data-theme="dark"] .recommendPage .topMatchService h3,
+html[data-theme="dark"] .recommendPage .resultTitle,
+html[data-theme="dark"] .recommendPage .conditionCard h2 { color:#f5f1fa !important; }
+html[data-theme="dark"] .recommendPage .recommendIntro p,
+html[data-theme="dark"] .recommendPage .topMatchService p,
+html[data-theme="dark"] .recommendPage .topReason,
+html[data-theme="dark"] .recommendPage .reason,
+html[data-theme="dark"] .recommendPage .resultCategory,
+html[data-theme="dark"] .recommendPage .recommendQuickActions strong { color:#c0bac9 !important; }
+html[data-theme="dark"] .recommendPage .recommendSearch,
+html[data-theme="dark"] .recommendPage .conditionCard,
+html[data-theme="dark"] .recommendPage .recommendResult,
+html[data-theme="dark"] .recommendPage .topMatch,
+html[data-theme="dark"] .recommendPage .resultCard,
+html[data-theme="dark"] .recommendPage .recommendQuickActions { background:#18161d !important; border-color:#3b3158 !important; color:#f5f1fa !important; }
+html[data-theme="dark"] .recommendPage .choiceGrid button,
+html[data-theme="dark"] .recommendPage .pills button,
+html[data-theme="dark"] .recommendPage .recommendQuickActions button { background:#211e29 !important; border-color:#393342 !important; color:#d2ccd9 !important; }
+html[data-theme="dark"] .recommendPage .choiceGrid button.active,
+html[data-theme="dark"] .recommendPage .pills button.active { background:#7055e8 !important; border-color:#7055e8 !important; color:#fff !important; }
+html[data-theme="dark"] .recommendPage .recommendSearch input { background:#111016 !important; border-color:#393342 !important; color:#f5f1fa !important; }
+html[data-theme="dark"] .recommendPage .chips span { background:#28242f !important; color:#c7c0cf !important; }
+html[data-theme="dark"] .recommendPage .chips span.good { background:#30285a !important; color:#d0c7ff !important; }
+html[data-theme="dark"] .recommendPage .topMatchActions .primaryAction,
+html[data-theme="dark"] .recommendPage .topMatchActions .secondaryAction,
+html[data-theme="dark"] .recommendPage .resultActions .affiliateMiniBtn { background:#7055e8 !important; border-color:#7055e8 !important; color:#fff !important; }
+html[data-theme="dark"] .recommendPage .resultActions .officialBtn { background:#28242f !important; border-color:#393342 !important; color:#f0ebf5 !important; }
+html[data-theme="dark"] .recommendPage .recommendHero>span,
+html[data-theme="dark"] .recommendPage .eyebrow,
+html[data-theme="dark"] .recommendPage .resultHead .eyebrow { color:#a99aff !important; }
