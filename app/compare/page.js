@@ -1,4 +1,4 @@
-/* MOVA 비교 화면: 선택한 서비스의 차이를 빠르게 판단할 수 있도록 구성합니다. */
+/* NERDING 비교 화면: 선택한 서비스의 차이를 빠르게 판단할 수 있도록 구성합니다. */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -43,7 +43,7 @@ function StarRating({ score, size = "normal" }) {
     const type = rating >= value ? "filled" : rating >= value - 0.5 ? "half" : "emptyStar";
     return <span className={`ratingStar ${type}`} key={value} aria-hidden="true">★</span>;
   });
-  return <div className={`starRating ${size}`} role="img" aria-label={`MOVA 추천 별점 ${rating.toFixed(1)}점 / 5점`}>{stars}</div>;
+  return <div className={`starRating ${size}`} role="img" aria-label={`NERDING 추천 별점 ${rating.toFixed(1)}점 / 5점`}>{stars}</div>;
 }
 
 export default function Compare() {
@@ -77,7 +77,7 @@ export default function Compare() {
   const winners = useMemo(() => {
     const top = ranked[0];
     return [
-      { key: "goal", label: "목적 적합도", description: "현재 선택한 제작 목적을 기준으로 주요 기능, 추천 용도, API 지원 여부 등을 종합해 가장 높은 MOVA 기준 추천 결과를 받은 서비스입니다.", service: top },
+      { key: "goal", label: "목적 적합도", description: "현재 선택한 제작 목적을 기준으로 주요 기능, 추천 용도, API 지원 여부 등을 종합해 가장 높은 NERDING 기준 추천 결과를 받은 서비스입니다.", service: top },
       { key: "free", label: "무료 시작", description: "무료로 시작할 수 있는 후보만 놓고 비교했을 때 현재 목적에 가장 잘 맞는 서비스입니다.", service: findWinner(ranked, (item) => item.free) },
       { key: "api", label: "API 활용", description: "API를 제공하는 후보 중 현재 목적에 대한 적합도가 가장 높은 서비스입니다.", service: findWinner(ranked, (item) => item.api) },
       { key: "easy", label: "쉬운 시작", description: "사용 난이도가 '쉬움'으로 분류된 후보 중 현재 목적 점수가 가장 높은 서비스입니다.", service: findWinner(ranked, (item) => item.difficulty === "쉬움") }
@@ -108,14 +108,14 @@ export default function Compare() {
 
   return <main className="page comparePage compareModern">
     <header className="header">
-      <Link className="logo" href="/">MOVA</Link>
+      <Link className="logo" href="/">NERDING</Link>
       <nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/tools">무료 도구</Link></nav>
     </header>
 
     <section className="guideHero compareHero">
-      <div className="eyebrow">SERVICE COMPARE · MOVA</div>
+      <div className="eyebrow">SERVICE COMPARE · NERDING</div>
       <h1>{selected.length ? <>선택한 서비스를<br /><span>내 목적에 맞게 비교하세요.</span></> : <>무엇을 만들고 싶으세요?<br /><span>목적부터 선택해보세요.</span></>}</h1>
-      <p>{selected.length ? <><strong>{comparisonTitle}</strong>을 현재 목적 기준으로 비교합니다. 가격, 기능, 무료 여부, 추천 대상과 장단점을 한 번에 확인할 수 있습니다.</> : "비교할 서비스를 먼저 정하는 대신, 만들고 싶은 목적을 고르면 MOVA가 잘 맞는 후보를 먼저 보여드립니다."}</p>
+      <p>{selected.length ? <><strong>{comparisonTitle}</strong>을 현재 목적 기준으로 비교합니다. 가격, 기능, 무료 여부, 추천 대상과 장단점을 한 번에 확인할 수 있습니다.</> : "비교할 서비스를 먼저 정하는 대신, 만들고 싶은 목적을 고르면 NERDING이 잘 맞는 후보를 먼저 보여드립니다."}</p>
     </section>
 
     <section className="section compareSection">
@@ -166,10 +166,10 @@ export default function Compare() {
           </div>
           <div className="compareWinnerActions">
             {ranked[0] && <Link href={`/services/${ranked[0].id}`}>상세 정보 보기 <span>→</span></Link>}
-            <div className="compareWinnerActionLinks"><span>MOVA 추천 결과</span><span>서비스 상세에서 더 확인</span></div>
+            <div className="compareWinnerActionLinks"><span>NERDING 추천 결과</span><span>서비스 상세에서 더 확인</span></div>
           </div>
         </div>
-        <p className="scoreNotice">MOVA 추천 별점 · 선택한 목적과 서비스 데이터를 기반으로 계산한 내부 추천 결과입니다. 객관적인 시장 평가 점수는 아닙니다.</p>
+        <p className="scoreNotice">NERDING 추천 별점 · 선택한 목적과 서비스 데이터를 기반으로 계산한 내부 추천 결과입니다. 객관적인 시장 평가 점수는 아닙니다.</p>
 
         <section className="decisionGrid" aria-label="조건별 비교 결과">
           <div className="decisionSectionIntro"><span>비교 결과</span><strong>어떤 조건에서 누가 앞서는지</strong><p>4가지 조건을 각각 보여줍니다. 한 서비스가 여러 조건에서 1위일 수 있습니다.</p></div>
@@ -194,14 +194,14 @@ export default function Compare() {
 
         <div className="compareDesktop">
           <div className="compareMatrixHead"><div className="matrixLabel">비교 항목</div>{ranked.map((service) => <div className="matrixService" key={service.id}><img src={service.icon} alt=""/><strong>{service.name}</strong><button type="button" onClick={() => remove(service.id)} aria-label={`${service.name} 제거`}>제거</button></div>)}</div>
-          <div className="compareMatrixRow compareScoreRow"><div className="matrixLabel">MOVA 추천 별점</div>{ranked.map((service) => <div key={service.id} className="matrixScore"><StarRating score={service.score}/><small>내부 추천 결과</small></div>)}</div>
+          <div className="compareMatrixRow compareScoreRow"><div className="matrixLabel">NERDING 추천 별점</div>{ranked.map((service) => <div key={service.id} className="matrixScore"><StarRating score={service.score}/><small>내부 추천 결과</small></div>)}</div>
           {rows.map(([key, label]) => <div className="compareMatrixRow" key={key}><div className="matrixLabel">{label}</div>{ranked.map((service) => <div key={service.id} className={key === "bestFor" ? "matrixStrong" : ""}>{featureValue(service, key)}</div>)}</div>)}
           <div className="compareMatrixRow"><div className="matrixLabel">공식 사이트</div>{ranked.map((service) => <div key={service.id}><a href={service.url} target="_blank" rel="noopener noreferrer">공식 사이트 방문</a></div>)}</div>
         </div>
 
         <div className="compareMobile">{ranked.map((service, index) => <article className={`mobileCompareCard ${index === 0 ? "featured" : ""}`} key={service.id}>
           <header><div className="mobileServiceIcon"><img src={service.icon} alt="" /></div><div><strong>{service.name}</strong><small>{service.category}</small></div><button type="button" onClick={() => remove(service.id)} aria-label={`${service.name} 제거`}>제거</button></header>
-          <div className="mobileScore"><span>{index === 0 ? "현재 목적 추천 1위" : "MOVA 추천 별점"}</span><StarRating score={service.score} size="large" /></div>
+          <div className="mobileScore"><span>{index === 0 ? "현재 목적 추천 1위" : "NERDING 추천 별점"}</span><StarRating score={service.score} size="large" /></div>
           <div className="mobileSnapshotBadges">{service.supportedFeatures.map((feature) => <span key={feature}>{feature}</span>)}<span>{service.api ? "API 제공" : "API 없음"}</span><span>{service.free ? "무료 시작" : "무료 시작 정보 없음"}</span></div>
           <p className="mobileCompareReason">{service.reasons?.slice(0, 3).join(" · ") || "현재 목적과 주요 기능을 기준으로 비교했습니다."}</p>
           <dl>{rows.map(([key, label]) => <div key={key}><dt>{label}</dt><dd>{featureValue(service, key)}</dd></div>)}</dl>
