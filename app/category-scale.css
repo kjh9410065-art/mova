@@ -1,6 +1,20 @@
-/* STEP 03 카테고리 카드의 카드 크기는 그대로 두고 아이콘 이미지와 글씨만 조정합니다. */
+/* STEP 03 카테고리의 카드 크기는 그대로 유지하고 카테고리별 이미지만 정확히 교체합니다. */
 @media(min-width:761px){
-  /* 아이콘 슬롯은 그대로 두고 실제 이미지 자체만 1.3배 확대해 카드 안에 자연스럽게 맞춥니다. */
+  /* 각 카테고리에 맞는 전용 SVG 아이콘을 사용합니다. */
+  .homePage .categoryCard:nth-child(1) > img{content:url('/category-icons/llm.svg') !important;}
+  .homePage .categoryCard:nth-child(2) > img{content:url('/category-icons/image.svg') !important;}
+  .homePage .categoryCard:nth-child(3) > img{content:url('/category-icons/video.svg') !important;}
+  .homePage .categoryCard:nth-child(4) > img{content:url('/category-icons/music.svg') !important;}
+  .homePage .categoryCard:nth-child(5) > img{content:url('/category-icons/voice.svg') !important;}
+  .homePage .categoryCard:nth-child(6) > img{content:url('/category-icons/text.svg') !important;}
+  .homePage .categoryCard:nth-child(7) > img{content:url('/category-icons/coding.svg') !important;}
+  .homePage .categoryCard:nth-child(8) > img{content:url('/category-icons/productivity.svg') !important;}
+  .homePage .categoryCard:nth-child(9) > img{content:url('/category-icons/search.svg') !important;}
+  .homePage .categoryCard:nth-child(10) > img{content:url('/category-icons/developer.svg') !important;}
+  .homePage .categoryCard:nth-child(11) > img{content:url('/category-icons/infra.svg') !important;}
+  .homePage .categoryCard:nth-child(12) > img{content:url('/category-icons/other.svg') !important;}
+
+  /* 아이콘 슬롯은 그대로 두고 실제 이미지 크기는 현재 맞춰둔 1.3배를 유지합니다. */
   .homePage .categoryCard > img{
     width:23px !important;
     height:23px !important;
@@ -14,7 +28,7 @@
     transform-origin:center !important;
   }
 
-  /* 카테고리 이름은 기존 10px에서 1.5배인 15px로 키우고 진하게 표시합니다. */
+  /* 카테고리 이름 크기와 굵기는 현재 값을 그대로 유지합니다. */
   .homePage .categoryCard > span{
     font-size:15px !important;
     line-height:1.15 !important;
@@ -22,13 +36,13 @@
     color:#111118 !important;
   }
 
-  /* 서비스 개수 배지는 글씨를 조금 더 선명하게 표시합니다. */
+  /* 서비스 개수 배지는 기존 크기를 유지합니다. */
   .homePage .categoryCard > b{
     font-size:8px !important;
     font-weight:800 !important;
   }
 
-  /* 우측 화살표는 카드 크기에 영향을 주지 않도록 유지합니다. */
+  /* 우측 화살표도 현재 크기를 유지합니다. */
   .homePage .categoryCard > i{
     font-size:19px !important;
     font-weight:700 !important;
@@ -42,7 +56,7 @@
     flex:0 0 43px !important;
   }
 
-  /* STEP 02 추천 카드의 실제 아이콘 이미지는 요청대로 1.5배를 유지합니다. */
+  /* STEP 02 추천 카드의 실제 아이콘은 현재 맞춰둔 1.5배를 유지합니다. */
   .homePage .serviceIconImage{
     width:30px !important;
     height:30px !important;
@@ -52,7 +66,7 @@
     transform-origin:center !important;
   }
 
-  /* 추천 카드 서비스명은 기존 20px에서 1.2배인 24px로 유지합니다. */
+  /* 추천 카드 서비스명은 현재 맞춰둔 24px를 유지합니다. */
   .homePage .serviceName{
     font-size:24px !important;
     font-weight:900 !important;
@@ -60,33 +74,9 @@
   }
 
   /* 추천 카드 설명을 진하게 표시합니다. */
-  .homePage .serviceBest{
-    color:#4f4d58 !important;
-    font-weight:650 !important;
-  }
-
-  /* 가격·난이도·기능 태그를 진하게 표시합니다. */
-  .homePage .serviceMetaRow span,
-  .homePage .tagList span{
-    color:#55525e !important;
-    font-weight:750 !important;
-  }
-
-  /* 추천 이유 영역을 선명하게 표시합니다. */
-  .homePage .recommendReason{
-    color:#4b4855 !important;
-    font-weight:650 !important;
-  }
-
-  /* 추천 이유 제목은 파란색을 유지하면서 진하게 표시합니다. */
-  .homePage .recommendReasonLabel{
-    color:#165dff !important;
-    font-weight:900 !important;
-  }
-
-  /* 저장 버튼 글씨를 진하게 표시합니다. */
-  .homePage .favoriteButton{
-    color:#55525e !important;
-    font-weight:800 !important;
-  }
+  .homePage .serviceBest{color:#4f4d58 !important;font-weight:650 !important;}
+  .homePage .serviceMetaRow span,.homePage .tagList span{color:#55525e !important;font-weight:750 !important;}
+  .homePage .recommendReason{color:#4b4855 !important;font-weight:650 !important;}
+  .homePage .recommendReasonLabel{color:#165dff !important;font-weight:900 !important;}
+  .homePage .favoriteButton{color:#55525e !important;font-weight:800 !important;}
 }
