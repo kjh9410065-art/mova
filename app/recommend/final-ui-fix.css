@@ -1,0 +1,70 @@
+/* NERDING 추천 화면의 최종 UI 보정입니다. 기존 기능과 모바일 레이아웃은 유지합니다. */
+
+/* PC에서 조건 초기화 버튼을 04번 제목 오른쪽에 배치합니다. */
+@media (min-width: 761px) {
+  .recommendPage .featureCondition .conditionTitleRow {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    margin-bottom: 14px !important;
+  }
+
+  .recommendPage .featureCondition .conditionTitleRow h2 {
+    margin: 0 !important;
+  }
+
+  .recommendPage .featureCondition .conditionTitleRow button {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    border: 1px solid #cfcbd8 !important;
+    border-radius: 7px !important;
+    background: #ebe9ee !important;
+    color: #4f4b58 !important;
+    font: inherit !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+  }
+
+  /* 검색 입력창이 한 줄 전체를 차지하도록 확장합니다. */
+  .recommendPage .recommendSearchRow {
+    display: flex !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .recommendPage .recommendSearchRow input {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    background: #e5e7eb !important;
+    border: 1px solid #cfd3da !important;
+    color: #20232a !important;
+  }
+
+  .recommendPage .recommendSearchRow input::placeholder {
+    color: #6b7280 !important;
+    opacity: 1 !important;
+  }
+}
+
+/* 다크모드에서도 새 UI의 대비를 유지합니다. */
+html[data-theme="dark"] .recommendPage .featureCondition .conditionTitleRow button {
+  background: #28242f !important;
+  border-color: #514568 !important;
+  color: #d2ccd9 !important;
+}
+
+html[data-theme="dark"] .recommendPage .recommendSearchRow input {
+  background: #2b2930 !important;
+  border-color: #514b5c !important;
+  color: #f5f1fa !important;
+}
+
+html[data-theme="dark"] .recommendPage .recommendSearchRow input::placeholder {
+  color: #aaa5b2 !important;
+  opacity: 1 !important;
+}
