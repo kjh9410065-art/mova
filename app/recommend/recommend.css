@@ -32,3 +32,23 @@ html[data-theme="dark"] .recommendPage .conditionCard,html[data-theme="dark"] .r
 /* 추천 결과 빠른 조건 변경: 기존 화면을 유지하면서 결과 영역 아래에 작게 노출합니다. */
 .recommendQuickActions{margin:18px 0 28px;padding:16px 18px;border-radius:18px;background:#f6f4ff;display:flex;align-items:center;justify-content:space-between;gap:14px}.recommendQuickActions strong{font-size:13px}.recommendQuickActions>div{display:flex;flex-wrap:wrap;gap:8px}.recommendQuickActions button{border:1px solid #ded9f3;background:#fff;border-radius:999px;padding:9px 13px;font:inherit;font-size:12px;font-weight:800;cursor:pointer}.recommendQuickActions button:hover{border-color:#9a8ce3;transform:translateY(-1px)}.recommendQuickActions button:disabled{opacity:.5;cursor:default;transform:none}
 @media(max-width:760px){.recommendQuickActions{display:block;margin:14px 0 22px;padding:14px;border-radius:16px}.recommendQuickActions strong{display:block;margin-bottom:10px}.recommendQuickActions>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.recommendQuickActions button{width:100%;padding:10px 8px;font-size:11px}}
+
+/* PC 선택 카드의 일러스트가 카드 높이를 과도하게 키우지 않도록 줄입니다. */
+@media (min-width: 761px) {
+  .recommendPage .conditionGrid .conditionCard:first-child .choiceGrid .choice img {
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    object-fit: contain !important;
+    display: block !important;
+    margin: 0 auto 12px !important;
+  }
+  .recommendPage .conditionGrid .conditionCard:first-child .choiceGrid .choice {
+    min-height: 128px !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+}
