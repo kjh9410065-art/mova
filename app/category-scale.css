@@ -1,6 +1,6 @@
 /* STEP 03 아이콘 이미지만 크게 확대하고 카드 크기와 배치는 절대 변경하지 않습니다. */
 @media(min-width:761px){
-  /* 카테고리 카드의 이미지 슬롯은 23px 그대로 두고 이미지 자체만 2.7배 확대합니다. */
+  /* 카테고리 카드의 이미지 슬롯은 23px 그대로 두고 이미지 자체만 정확히 2배 확대합니다. */
   .homePage .categoryCard > img{
     width:23px !important;
     height:23px !important;
@@ -9,7 +9,7 @@
     object-fit:contain !important;
     padding:0 !important;
     border-radius:7px !important;
-    transform:scale(2.7) !important;
+    transform:scale(2) !important;
     transform-origin:center !important;
   }
 
