@@ -5,7 +5,7 @@ import "./home-visibility.css";
 import "./readable-ui.css";
 import "./components/adsense.css";
 import "./components/ad-slot.css";
-import "./components/nerding-floating-controls.css";
+import "./nerding-floating-controls.css";
 import "./dark-mode-hardening.css";
 import "./light-mode-cleanup.css";
 import "./components/compare-bar-unified.css";
@@ -30,10 +30,10 @@ export const metadata = {
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
-    // 브라우저가 SVG 내부의 외부 PNG를 해석하지 못하는 문제를 피하기 위해 실제 PNG를 favicon으로 직접 지정합니다.
-    icon: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%일%20오후%2011_34_22.png",
-    shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%월%2015%EC%일%20오후%2011_34_22.png",
-    apple: "/ChatGPT%20Image%202026%EB%85%년%209%EC%월%2015%EC%일%20오후%2011_34_22.png"
+    // 실제 PNG 파일을 favicon으로 직접 지정해 브라우저 호환성을 확보합니다.
+    icon: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
+    shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
+    apple: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"
   },
   robots: { index: true, follow: true },
   openGraph: {
@@ -49,7 +49,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
     description: "AI 서비스와 개발 도구를 목적에 맞게 찾고 비교하는 NERDING.",
-    images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9일%20오후%2011_34_22.png"]
+    images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"]
   },
   verification: { google: "hAHkcvWFhoATFOdphua3yECySUCnJXT2IC9gfm0cYew" }
 };
