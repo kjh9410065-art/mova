@@ -14,6 +14,7 @@ import "./catalog-icon-scale.css";
 import "./category-scale.css";
 import "./mobile-card-readability.css";
 import "./nerding-redesign.css";
+import "./recommend/desktop-topmatch-fix.css";
 import Script from "next/script";
 import NerdingTutorial from "./components/nerding-tutorial";
 import NerdingTheme from "./components/nerding-theme";
