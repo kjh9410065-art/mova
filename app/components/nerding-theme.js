@@ -26,7 +26,7 @@ export default function NerdingTheme() {
 
   return (
     <button
-      className="nerdingThemeToggle"
+      className="hubThemeToggle"
       type="button"
       onClick={toggleTheme}
       aria-label={theme === "dark" ? "밝은 화면으로 변경" : "어두운 화면으로 변경"}
