@@ -1,0 +1,284 @@
+/* 모바일에서 고정 비교 바와 공통 플로팅 버튼이 겹치지 않도록 위치를 계단식으로 분리합니다. */
+@media (max-width: 760px) {
+  .hubTutorialHelp { bottom: 82px !important; }
+  .hubThemeToggle { bottom: 132px !important; }
+  .homePage,
+  .catalogPage { padding-bottom: 170px !important; }
+}
+
+/* 다크모드의 주요 카드/패널 외곽선을 대표 보라색으로 통일합니다. */
+html[data-theme="dark"] .recommendPage .conditionCard,
+html[data-theme="dark"] .recommendPage .recommendResult,
+html[data-theme="dark"] .recommendPage .topMatch,
+html[data-theme="dark"] .recommendPage .resultCard,
+html[data-theme="dark"] .recommendPage .recommendCandidate,
+html[data-theme="dark"] .recommendPage .recommendSearch,
+html[data-theme="dark"] .recommendPage .compareBar,
+html[data-theme="dark"] .catalogPage .catalogHero,
+html[data-theme="dark"] .catalogPage .catalogSearch,
+html[data-theme="dark"] .catalogPage .catalogCard,
+html[data-theme="dark"] .catalogPage .searchSuggestionCard,
+html[data-theme="dark"] .catalogPage .catalogCompareBar,
+html[data-theme="dark"] .serviceDetail .serviceHero,
+html[data-theme="dark"] .serviceDetail .serviceVerdict,
+html[data-theme="dark"] .serviceDetail .serviceDetailGrid article,
+html[data-theme="dark"] .serviceDetail .relatedCard,
+html[data-theme="dark"] .homePage .hero,
+html[data-theme="dark"] .homePage .taskCard,
+html[data-theme="dark"] .homePage .serviceCard,
+html[data-theme="dark"] .homePage .miniCard,
+html[data-theme="dark"] .homePage .categoryCard,
+html[data-theme="dark"] .comparePage .compareGoalBox,
+html[data-theme="dark"] .comparePage .compareWinner,
+html[data-theme="dark"] .comparePage .decisionCard,
+html[data-theme="dark"] .comparePage .comparisonSnapshot,
+html[data-theme="dark"] .comparePage .snapshotCard,
+html[data-theme="dark"] .comparePage .mobileCompareCard,
+html[data-theme="dark"] .comparePage .compareDesktop,
+html[data-theme="dark"] .comparePage .compareMatrixHead,
+html[data-theme="dark"] .comparePage .compareMatrixRow { border-color: #7659d6 !important; }
+
+/* 보조 컨트롤도 같은 보라색 외곽선 규칙으로 통일합니다. */
+html[data-theme="dark"] .recommendPage .choice,
+html[data-theme="dark"] .recommendPage .filterButton,
+html[data-theme="dark"] .recommendPage .recommendSearchRow button,
+html[data-theme="dark"] .catalogPage .catalogFavorite,
+html[data-theme="dark"] .catalogPage .catalogActions a:last-child,
+html[data-theme="dark"] .catalogPage .catalogActions button,
+html[data-theme="dark"] .serviceDetail .serviceActions button,
+html[data-theme="dark"] .serviceDetail .guideLinkGrid a,
+html[data-theme="dark"] .comparePage .compareGoalTabs button,
+html[data-theme="dark"] .comparePage .toolbarActions button,
+html[data-theme="dark"] .comparePage .mobileCompareCard header button,
+html[data-theme="dark"] .hubTutorialHelp,
+html[data-theme="dark"] .hubThemeToggle { border-color: #7659d6 !important; }
+
+/* 입력창도 같은 보라색 테두리를 사용합니다. */
+html[data-theme="dark"] .recommendPage input,
+html[data-theme="dark"] .catalogPage input,
+html[data-theme="dark"] .catalogPage select,
+html[data-theme="dark"] .serviceDetail input,
+html[data-theme="dark"] .serviceDetail textarea,
+html[data-theme="dark"] .serviceDetail select { border-color: #7659d6 !important; }
+
+/* 비교 결과 카드의 내부 색상을 상태에 따라 달라지지 않게 하나로 통일합니다. */
+.comparePage .decisionCard,
+.comparePage .decisionCard.primary { background: #fff !important; }
+html[data-theme="dark"] .comparePage .decisionCard,
+html[data-theme="dark"] .comparePage .decisionCard.primary { background: #211e29 !important; }
+
+/* 별점: 채워진 별은 골드, 깎인 부분은 회색입니다. */
+.comparePage .ratingStar.filled,
+.comparePage .compareWinner .ratingStar.filled { color: #f5b72e !important; }
+.comparePage .ratingStar.emptyStar,
+.comparePage .ratingStar.empty { color: #b8b4bf !important; opacity: 1; }
+.comparePage .ratingStar.half,
+.comparePage .compareWinner .ratingStar.half { background: linear-gradient(90deg,#f5b72e 50%,#b8b4bf 50%) !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; }
+html[data-theme="dark"] .comparePage .ratingStar.filled,
+html[data-theme="dark"] .comparePage .compareWinner .ratingStar.filled { color: #f5b72e !important; }
+html[data-theme="dark"] .comparePage .ratingStar.emptyStar,
+html[data-theme="dark"] .comparePage .ratingStar.empty { color: #77727f !important; opacity: 1; }
+html[data-theme="dark"] .comparePage .ratingStar.half,
+html[data-theme="dark"] .comparePage .compareWinner .ratingStar.half { background: linear-gradient(90deg,#f5b72e 50%,#77727f 50%) !important; -webkit-background-clip:text !important; background-clip:text !important; -webkit-text-fill-color:transparent !important; }
+
+/* 밝은 모드의 비교 페이지는 보라색 테두리를 사용하지 않습니다. */
+html:not([data-theme="dark"]) .comparePage .compareGoalBox,
+html:not([data-theme="dark"]) .comparePage .compareCandidate,
+html:not([data-theme="dark"]) .comparePage .compareCandidate.recommended,
+html:not([data-theme="dark"]) .comparePage .compareWinner,
+html:not([data-theme="dark"]) .comparePage .decisionCard,
+html:not([data-theme="dark"]) .comparePage .comparisonSnapshot,
+html:not([data-theme="dark"]) .comparePage .snapshotCard,
+html:not([data-theme="dark"]) .comparePage .mobileCompareCard,
+html:not([data-theme="dark"]) .comparePage .compareDesktop,
+html:not([data-theme="dark"]) .comparePage .compareMatrixHead,
+html:not([data-theme="dark"]) .comparePage .compareMatrixRow,
+html:not([data-theme="dark"]) .comparePage .compareStartActions a,
+html:not([data-theme="dark"]) .comparePage .toolbarActions a,
+html:not([data-theme="dark"]) .comparePage .toolbarActions button,
+html:not([data-theme="dark"]) .comparePage .compareBottomLink { border-color: transparent !important; }
+
+/* 밝은 모드에서 내부 구분선도 중립색으로 통일합니다. */
+html:not([data-theme="dark"]) .comparePage .compareWinnerIdentity,
+html:not([data-theme="dark"]) .comparePage .compareWinnerActions { border-color: #e8e5ed !important; }
+
+/* 밝은 모드 추천 후보 강조 배경은 유지하되 테두리는 제거합니다. */
+html:not([data-theme="dark"]) .comparePage .compareCandidate.recommended { border-color: transparent !important; }
+
+/* 밝은 모드 추천 카드의 그림자만으로 영역을 구분합니다. */
+html:not([data-theme="dark"]) .comparePage .compareCandidate,
+html:not([data-theme="dark"]) .comparePage .compareWinner,
+html:not([data-theme="dark"]) .comparePage .decisionCard,
+html:not([data-theme="dark"]) .comparePage .snapshotCard,
+html:not([data-theme="dark"]) .comparePage .mobileCompareCard { box-shadow: 0 8px 28px rgba(32,25,67,.045) !important; }
+
+/* 밝은 모드 홈 화면의 카드도 테두리 없이 배경과 그림자로만 구분합니다. */
+html:not([data-theme="dark"]) .homePage .taskCard,
+html:not([data-theme="dark"]) .homePage .serviceCard,
+html:not([data-theme="dark"]) .homePage .categoryCard,
+html:not([data-theme="dark"]) .homePage .miniCard,
+html:not([data-theme="dark"]) .homePage .searchBox,
+html:not([data-theme="dark"]) .homePage .featureFilters button,
+html:not([data-theme="dark"]) .homePage .compareCta,
+html:not([data-theme="dark"]) .homePage .compareBar { border-color: transparent !important; }
+
+/* 비교 화면 별점을 살짝 키워 카드 안에서 더 선명하게 보이게 합니다. */
+.comparePage .ratingStar { font-size: 22px !important; }
+.comparePage .compareWinner .ratingStar { font-size: 27px !important; }
+.comparePage .snapshotTop .ratingStar { font-size: 16px !important; }
+.comparePage .matrixScore .ratingStar { font-size: 19px !important; }
+
+@media (max-width: 760px) {
+  .comparePage .ratingStar { font-size: 21px !important; }
+  .comparePage .compareWinner .ratingStar { font-size: 23px !important; }
+}
+
+/* 추천 페이지 하단 고정 비교함의 크기와 위치를 데스크톱에서 고정합니다. */
+@media (min-width: 761px) {
+  .recommendPage .compareBar {
+    position: fixed !important;
+    left: 24px !important;
+    right: 24px !important;
+    bottom: 24px !important;
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    min-height: 148px !important;
+    margin: 0 !important;
+    padding: 28px 34px !important;
+    box-sizing: border-box !important;
+    z-index: 100 !important;
+    border-radius: 26px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 32px !important;
+    background: #fff !important;
+    box-shadow: 0 18px 50px rgba(40,30,80,.16) !important;
+  }
+
+  .recommendPage .compareBarInfo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .recommendPage .compareBarTitle {
+    display: flex !important;
+    align-items: baseline !important;
+    gap: 12px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .recommendPage .compareBarTitle strong {
+    font-size: 28px !important;
+    line-height: 1.2 !important;
+    color: #20202b !important;
+  }
+
+  .recommendPage .compareBarTitle span {
+    font-size: 17px !important;
+    color: #777181 !important;
+    white-space: nowrap !important;
+  }
+
+  .recommendPage .compareBarHint {
+    font-size: 15px !important;
+    color: #777181 !important;
+    white-space: nowrap !important;
+  }
+
+  .recommendPage .compareSelectedIcons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-left: 4px !important;
+  }
+
+  .recommendPage .compareSelectedIcon {
+    width: 52px !important;
+    height: 52px !important;
+    flex: 0 0 52px !important;
+    display: grid !important;
+    place-items: center !important;
+    border-radius: 15px !important;
+    background: #f3f0ff !important;
+    overflow: hidden !important;
+  }
+
+  .recommendPage .compareSelectedIcon img {
+    width: 34px !important;
+    height: 34px !important;
+    object-fit: contain !important;
+  }
+
+  .recommendPage .compareAddIcon {
+    color: #6049cf !important;
+    font-size: 30px !important;
+    font-weight: 700 !important;
+  }
+
+  .recommendPage .compareBarActions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex: 0 0 auto !important;
+  }
+
+  .recommendPage .compareReset,
+  .recommendPage .compareGo {
+    min-height: 58px !important;
+    padding: 0 24px !important;
+    border-radius: 15px !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+  }
+
+  .recommendPage .compareReset {
+    border: 0 !important;
+    background: #f2f0f6 !important;
+    color: #4d4857 !important;
+  }
+
+  .recommendPage .compareGo {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 190px !important;
+    background: #6049cf !important;
+    color: #fff !important;
+  }
+
+  html[data-theme="dark"] .recommendPage .compareBar {
+    background: #211e29 !important;
+    border: 1px solid #7659d6 !important;
+    box-shadow: 0 18px 50px rgba(0,0,0,.38) !important;
+  }
+
+  html[data-theme="dark"] .recommendPage .compareBarTitle strong,
+  html[data-theme="dark"] .recommendPage .compareBarTitle span,
+  html[data-theme="dark"] .recommendPage .compareBarHint {
+    color: #eeeaf3 !important;
+  }
+
+  html[data-theme="dark"] .recommendPage .compareSelectedIcon { background: #30285a !important; }
+  html[data-theme="dark"] .recommendPage .compareReset { background: #28242f !important; color: #bdb7c7 !important; }
+}
+
+/* 모바일에서는 기존의 별도 비교함 레이아웃을 유지합니다. */
+@media (max-width: 760px) {
+  .recommendPage .compareBar {
+    position: fixed !important;
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 10px !important;
+    transform: none !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    z-index: 100 !important;
+  }
+}
