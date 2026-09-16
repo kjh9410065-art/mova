@@ -1,0 +1,36 @@
+/* STEP 03 카테고리 카드 내부 요소만 확대합니다. 카드 자체의 크기와 그리드 간격은 유지합니다. */
+
+@media(min-width:761px){
+  /* 아이콘 영역을 약 2배로 키우되 카드 높이는 기존 값을 유지합니다. */
+  .homePage .categoryCard{
+    grid-template-columns:52px minmax(0,1fr) 28px !important;
+    column-gap:12px !important;
+  }
+
+  /* 카테고리 아이콘을 크게 표시합니다. */
+  .homePage .categoryCard img{
+    width:52px !important;
+    height:52px !important;
+    padding:8px !important;
+    border-radius:14px !important;
+  }
+
+  /* 카테고리 이름을 기존보다 크게 표시합니다. */
+  .homePage .categoryCard span{
+    font-size:20px !important;
+    line-height:1.1 !important;
+    letter-spacing:-.5px !important;
+  }
+
+  /* 서비스 개수 글씨도 함께 키웁니다. */
+  .homePage .categoryCard b{
+    font-size:14px !important;
+    line-height:1 !important;
+    padding:5px 8px !important;
+  }
+
+  /* 우측 이동 화살표도 내부 요소 비율에 맞춰 키웁니다. */
+  .homePage .categoryCard i{
+    font-size:30px !important;
+  }
+}
