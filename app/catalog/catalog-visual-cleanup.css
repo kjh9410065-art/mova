@@ -82,3 +82,27 @@ html:not([data-theme="dark"]) .catalogPage input:focus-visible { outline:3px sol
   .catalogPage .catalogTop strong{font-size:17px !important;}
   .catalogPage .catalogFeatureRow span,.catalogPage .catalogMeta span,.catalogPage .catalogTags span{font-size:7.5px !important;padding:5px 6px !important;}
 }
+
+/* 현재 카탈로그 JSX의 실제 클래스(catalogIdentity/catalogServiceIcon)에 맞춰 서비스 아이콘 크기를 고정합니다. */
+.catalogPage .catalogIdentity{display:flex !important;align-items:center !important;gap:15px !important;min-width:0 !important;}
+.catalogPage .catalogIdentityText{min-width:0 !important;flex:1 !important;}
+.catalogPage .catalogIdentityText strong{display:block !important;font-size:20px !important;line-height:1.25 !important;overflow-wrap:anywhere !important;}
+.catalogPage .catalogIdentityText small{display:block !important;margin-top:5px !important;font-size:11px !important;line-height:1.45 !important;color:#85808d !important;}
+.catalogPage .catalogServiceIcon{display:block !important;width:60px !important;height:60px !important;min-width:60px !important;max-width:60px !important;min-height:60px !important;max-height:60px !important;flex:0 0 60px !important;padding:9px !important;box-sizing:border-box !important;border-radius:16px !important;background:#f1eeff !important;object-fit:contain !important;object-position:center !important;}
+
+/* 데스크톱에서는 실제 카드 크기를 키우지 않고 아이콘만 60px로 제한합니다. */
+@media (min-width:761px){
+  .catalogPage .catalogIdentity{min-height:60px !important;}
+  .catalogPage .catalogServiceIcon{width:60px !important;height:60px !important;min-width:60px !important;max-width:60px !important;min-height:60px !important;max-height:60px !important;padding:9px !important;}
+}
+
+/* 모바일에서도 아이콘이 원본 SVG 크기 때문에 카드를 밀어내지 않도록 동일하게 제한합니다. */
+@media (max-width:760px){
+  .catalogPage .catalogIdentity{gap:11px !important;}
+  .catalogPage .catalogServiceIcon{width:56px !important;height:56px !important;min-width:56px !important;max-width:56px !important;min-height:56px !important;max-height:56px !important;padding:8px !important;border-radius:15px !important;}
+  .catalogPage .catalogIdentityText strong{font-size:18px !important;}
+  .catalogPage .catalogIdentityText small{font-size:10px !important;}
+}
+
+/* 다크모드 카탈로그에서도 아이콘 배경과 카드 대비를 유지합니다. */
+html[data-theme="dark"] .catalogPage .catalogServiceIcon{background:#30285a !important;}
