@@ -78,25 +78,13 @@ html:not([data-theme="dark"]) .catalogPage input:focus-visible { outline:3px sol
   .catalogPage .catalogFeatureRow span,.catalogPage .catalogMeta span,.catalogPage .catalogTags span{font-size:7.5px !important;padding:5px 6px !important;}
 }
 
-/* 현재 카탈로그 JSX의 실제 클래스에 맞춰 서비스 아이콘 크기를 고정합니다. */
 .catalogPage .catalogIdentity{display:flex !important;align-items:center !important;gap:15px !important;min-width:0 !important;}
 .catalogPage .catalogIdentityText{min-width:0 !important;flex:1 !important;}
 .catalogPage .catalogIdentityText strong{display:block !important;font-size:20px !important;line-height:1.25 !important;overflow-wrap:anywhere !important;}
 .catalogPage .catalogIdentityText small{display:block !important;margin-top:5px !important;font-size:11px !important;line-height:1.45 !important;color:#85808d !important;}
 .catalogPage .catalogServiceIcon{display:block !important;width:60px !important;height:60px !important;min-width:60px !important;max-width:60px !important;min-height:60px !important;max-height:60px !important;flex:0 0 60px !important;padding:9px !important;box-sizing:border-box !important;border-radius:16px !important;background:#f1eeff !important;object-fit:contain !important;object-position:center !important;}
-
-@media (min-width:761px){
-  .catalogPage .catalogIdentity{min-height:60px !important;}
-  .catalogPage .catalogServiceIcon{width:60px !important;height:60px !important;min-width:60px !important;max-width:60px !important;min-height:60px !important;max-height:60px !important;padding:9px !important;}
-}
-
-@media (max-width:760px){
-  .catalogPage .catalogIdentity{gap:11px !important;}
-  .catalogPage .catalogServiceIcon{width:56px !important;height:56px !important;min-width:56px !important;max-width:56px !important;min-height:56px !important;max-height:56px !important;padding:8px !important;border-radius:15px !important;}
-  .catalogPage .catalogIdentityText strong{font-size:18px !important;}
-  .catalogPage .catalogIdentityText small{font-size:10px !important;}
-}
-
+@media (min-width:761px){.catalogPage .catalogIdentity{min-height:60px !important;}.catalogPage .catalogServiceIcon{width:60px !important;height:60px !important;min-width:60px !important;max-width:60px !important;min-height:60px !important;max-height:60px !important;padding:9px !important;}}
+@media (max-width:760px){.catalogPage .catalogIdentity{gap:11px !important;}.catalogPage .catalogServiceIcon{width:56px !important;height:56px !important;min-width:56px !important;max-width:56px !important;min-height:56px !important;max-height:56px !important;padding:8px !important;border-radius:15px !important;}.catalogPage .catalogIdentityText strong{font-size:18px !important;}.catalogPage .catalogIdentityText small{font-size:10px !important;}}
 html[data-theme="dark"] .catalogPage .catalogServiceIcon{background:#30285a !important;}
 
 /* 카탈로그 상단 헤더/히어로: 화면 위쪽의 빈 공간과 낮은 대비를 줄여 자연스럽게 정리합니다. */
@@ -106,3 +94,69 @@ html[data-theme="dark"] .catalogPage .catalogServiceIcon{background:#30285a !imp
   .catalogPage .catalogHero{margin-top:24px !important;padding:52px 42px 42px !important;}
 }
 html[data-theme="dark"] .catalogPage .catalogHeader .logo{color:#a99aff !important;}
+
+/* 다크모드의 흰색 UI 요소를 주변 배경과 어울리는 짙은 보라색 계열로 통일합니다. */
+html[data-theme="dark"] .catalogPage .filterScroll button:not(.active),
+html[data-theme="dark"] .catalogPage .catalogOptions label,
+html[data-theme="dark"] .catalogPage .catalogOptions select,
+html[data-theme="dark"] .catalogPage .catalogState span,
+html[data-theme="dark"] .catalogPage .catalogFavorite,
+html[data-theme="dark"] .catalogPage .catalogActions a:last-child,
+html[data-theme="dark"] .catalogPage .catalogActions button,
+html[data-theme="dark"] .catalogPage .emptyCatalog button {
+  background:#24202e !important;
+  color:#d8d2e8 !important;
+  border-color:#403750 !important;
+}
+html[data-theme="dark"] .catalogPage .catalogFeatureRow span {
+  background:#30285a !important;
+  color:#cfc5ff !important;
+}
+html[data-theme="dark"] .catalogPage .catalogMeta span {
+  background:#282431 !important;
+  color:#bdb5cc !important;
+}
+html[data-theme="dark"] .catalogPage .catalogMeta .catalogFreeBadge {
+  background:#21392f !important;
+  color:#83d8b1 !important;
+}
+html[data-theme="dark"] .catalogPage .catalogTags span {
+  background:#211e29 !important;
+  color:#aaa4b5 !important;
+  border-color:#393342 !important;
+}
+html[data-theme="dark"] .catalogPage .catalogSearch,
+html[data-theme="dark"] .catalogPage .catalogSearch input {
+  background:#211e29 !important;
+  color:#eeeaf3 !important;
+}
+html[data-theme="dark"] .catalogPage .catalogSearch strong {
+  background:#30285a !important;
+  color:#cfc5ff !important;
+}
+html[data-theme="dark"] .catalogPage .catalogServiceIcon,
+html[data-theme="dark"] .catalogPage .searchSuggestionCard img {
+  background:#30285a !important;
+}
+html[data-theme="dark"] .catalogPage .catalogActions a:first-child {
+  background:#6049cf !important;
+  color:#fff !important;
+}
+html[data-theme="dark"] .catalogPage .catalogActions a.affiliateCatalogLink {
+  background:#6854d9 !important;
+  color:#fff !important;
+}
+html[data-theme="dark"] .catalogPage .catalogCompareBar {
+  background:#211e29 !important;
+  border-color:#403750 !important;
+  color:#eeeaf3 !important;
+}
+html[data-theme="dark"] .catalogPage .catalogCompareBar a {
+  background:#6049cf !important;
+  color:#fff !important;
+}
+html[data-theme="dark"] .catalogPage .searchSuggestionCard {
+  background:#211e29 !important;
+  color:#eeeaf3 !important;
+  border-color:#403750 !important;
+}
