@@ -2,7 +2,7 @@
 
 /* 검색창은 PC에서 전체 폭을 사용합니다. */
 @media (min-width: 761px) {
-  .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; min-width: 0 !important; }
+  .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; min-width: 0 !important; gap: 8px !important; }
   .recommendPage .recommendSearchRow input {
     flex: 1 1 auto !important;
     width: 100% !important;
@@ -15,41 +15,57 @@
   .recommendPage .recommendSearchRow input::placeholder { color: #6b7280 !important; opacity: 1 !important; }
 }
 
-/* 초기화 버튼은 결과 제목 줄 끝에 배치할 수 있도록 기준 영역을 잡습니다. */
-.recommendPage .featureCondition { position: relative !important; }
-
-/* 기존 04번 제목 옆 버튼을 결과 제목 줄 끝으로 시각 이동합니다. */
-.recommendPage .featureCondition .conditionTitleRow button {
-  position: absolute !important;
-  right: 0 !important;
-  bottom: -58px !important;
-  z-index: 5 !important;
-  margin: 0 !important;
-  padding: 7px 10px !important;
-  border: 1px solid #514568 !important;
-  border-radius: 7px !important;
-  background: #28242f !important;
-  color: #d2ccd9 !important;
+/* 검색과 조건 초기화 버튼은 검색창 오른쪽에 나란히 배치합니다. */
+.recommendPage .recommendSearchButton,
+.recommendPage .recommendResetButton {
+  flex: 0 0 auto !important;
+  min-height: 42px !important;
+  padding: 0 18px !important;
+  border-radius: 9px !important;
   font: inherit !important;
-  font-size: 11px !important;
+  font-size: 13px !important;
   font-weight: 800 !important;
-  line-height: 1.2 !important;
+  line-height: 1 !important;
   white-space: nowrap !important;
   cursor: pointer !important;
 }
 
+/* 검색 버튼은 기존 NERDING의 포인트 컬러를 사용합니다. */
+.recommendPage .recommendSearchButton {
+  border: 1px solid #7055e8 !important;
+  background: #7055e8 !important;
+  color: #ffffff !important;
+}
+
+.recommendPage .recommendSearchButton:hover {
+  background: #6049cf !important;
+  border-color: #6049cf !important;
+}
+
+/* 초기화 버튼은 검색 버튼과 구분되는 중립색으로 표시합니다. */
+.recommendPage .recommendResetButton {
+  border: 1px solid #cfd3da !important;
+  background: #f3f4f6 !important;
+  color: #30343b !important;
+}
+
+.recommendPage .recommendResetButton:hover {
+  background: #e5e7eb !important;
+  border-color: #b8bdc6 !important;
+}
+
+/* 기존 04번 조건 제목 옆 초기화 버튼 스타일은 새 검색 영역 버튼 구조와 충돌하지 않도록 무력화합니다. */
+.recommendPage .featureCondition .conditionTitleRow button { display: none !important; }
+
+/* 결과 제목에는 더 이상 초기화 버튼이 없으므로 기존 시각 이동 규칙도 제거합니다. */
 .recommendPage .recommendResult > .resultHead:first-child { position: relative !important; }
 
 @media (max-width: 760px) {
-  /* 모바일에서도 결과 제목 줄 끝에 초기화 버튼을 둡니다. */
-  .recommendPage .featureCondition .conditionTitleRow { display: block !important; width: 100% !important; margin: 0 0 14px !important; }
-  .recommendPage .featureCondition .conditionTitleRow h2 { display: block !important; width: 100% !important; margin: 0 !important; white-space: nowrap !important; }
-  .recommendPage .featureCondition .conditionTitleRow button { right: 0 !important; bottom: -56px !important; padding: 6px 8px !important; font-size: 10px !important; }
-
-  /* 결과 제목과 전체 보기 링크는 같은 줄을 유지합니다. */
-  .recommendPage .recommendResult > .resultHead:first-child { display: flex !important; align-items: flex-end !important; justify-content: space-between !important; gap: 8px !important; width: 100% !important; }
-  .recommendPage .recommendResult > .resultHead:first-child > div:first-child { flex: 1 1 auto !important; min-width: 0 !important; }
-  .recommendPage .recommendResult > .resultHead:first-child .catalogLink { flex: 0 0 auto !important; margin: 0 0 2px !important; white-space: nowrap !important; font-size: 12px !important; }
+  /* 모바일에서는 검색창과 두 버튼이 한 줄에서 자연스럽게 줄어들 수 있도록 합니다. */
+  .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; gap: 6px !important; }
+  .recommendPage .recommendSearchRow input { flex: 1 1 auto !important; min-width: 0 !important; }
+  .recommendPage .recommendSearchButton,
+  .recommendPage .recommendResetButton { min-height: 40px !important; padding: 0 10px !important; font-size: 11px !important; }
 
   /* 모바일 TOP MATCH 아이콘은 72px로 제한합니다. */
   .recommendPage .topMatchService > img { width: 72px !important; height: 72px !important; min-width: 72px !important; max-width: 72px !important; min-height: 72px !important; max-height: 72px !important; flex: 0 0 72px !important; object-fit: contain !important; border-radius: 18px !important; }
@@ -59,10 +75,11 @@
   .recommendPage .resultCard .resultServiceTop > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
 }
 
-/* 다크모드 검색창과 초기화 버튼의 대비를 맞춥니다. */
+/* 다크모드 검색창과 버튼의 대비를 맞춥니다. */
 html[data-theme="dark"] .recommendPage .recommendSearchRow input { background: #2b2930 !important; border-color: #514b5c !important; color: #f5f1fa !important; }
 html[data-theme="dark"] .recommendPage .recommendSearchRow input::placeholder { color: #aaa5b2 !important; opacity: 1 !important; }
-html[data-theme="dark"] .recommendPage .featureCondition .conditionTitleRow button { background: #28242f !important; border-color: #514568 !important; color: #d2ccd9 !important; }
+html[data-theme="dark"] .recommendPage .recommendResetButton { background: #28242f !important; border-color: #514568 !important; color: #d2ccd9 !important; }
+html[data-theme="dark"] .recommendPage .recommendResetButton:hover { background: #342e40 !important; border-color: #625775 !important; }
 
 /* 다크모드의 불필요한 대형 외곽선은 제거합니다. */
 html[data-theme="dark"] .recommendPage .conditionCard,
