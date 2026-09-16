@@ -1,4 +1,4 @@
-/* MOVA 추천 화면: 목적, 예산, 난이도, 핵심 기능과 자연어 요구사항을 함께 반영합니다. */
+/* NERDING 추천 화면: 목적, 예산, 난이도, 핵심 기능과 자연어 요구사항을 함께 반영합니다. */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -17,7 +17,7 @@ const skillOptions = [["easy", "초보"], ["medium", "보통"], ["hard", "개발
 const featureOptions = [["all", "상관없음"], ["이미지", "이미지"], ["영상", "영상"], ["음성", "음성"], ["챗봇", "챗봇"], ["검색", "검색"]];
 
 function getStarRating(score) { const normalized = Math.max(0, Math.min(5, Number(score || 0) / 20)); return Math.round(normalized * 2) / 2; }
-function StarRating({ score }) { const rating = getStarRating(score); return <div className="recommendStarRating" role="img" aria-label={`MOVA 추천 별점 ${rating.toFixed(1)}점 / 5점`}>{Array.from({ length: 5 }, (_, index) => { const value = index + 1; const type = rating >= value ? "filled" : rating >= value - 0.5 ? "half" : "emptyStar"; return <span className={`recommendRatingStar ${type}`} key={value} aria-hidden="true">★</span>; })}</div>; }
+function StarRating({ score }) { const rating = getStarRating(score); return <div className="recommendStarRating" role="img" aria-label={`NERDING 추천 별점 ${rating.toFixed(1)}점 / 5점`}>{Array.from({ length: 5 }, (_, index) => { const value = index + 1; const type = rating >= value ? "filled" : rating >= value - 0.5 ? "half" : "emptyStar"; return <span className={`recommendRatingStar ${type}`} key={value} aria-hidden="true">★</span>; })}</div>; }
 function readCompare() { try { const raw = JSON.parse(localStorage.getItem("hub-compare") || "[]"); return Array.isArray(raw) ? raw.filter((id) => catalogMap[id]).slice(0, 4) : []; } catch { return []; } }
 
 export default function RecommendPage() {
@@ -55,8 +55,8 @@ export default function RecommendPage() {
   const openService = (service, source) => trackOutboundClick(service, source);
 
   return <main className="recommendPage"><div className="recommendShell">
-    <header className="recommendTop"><a className="recommendBrand" href="/">MOVA</a><nav className="recommendNav" aria-label="주요 메뉴"><a href="/catalog">서비스 찾기</a><a href="/tools">무료 도구</a><a href="/compare">비교</a><a href="/favorites">즐겨찾기</a><a className="recommendBack" href="/">홈으로</a></nav></header>
-    <section className="recommendIntro"><div className="eyebrow">MOVA 2.0 · PERSONAL RECOMMEND</div><h1>조건까지 반영해서<br/><span>{selectedGoal[2]}</span>을 찾아보세요.</h1><p>{selectedGoal[3]}</p></section>
+    <header className="recommendTop"><a className="recommendBrand" href="/">NERDING</a><nav className="recommendNav" aria-label="주요 메뉴"><a href="/catalog">서비스 찾기</a><a href="/tools">무료 도구</a><a href="/compare">비교</a><a href="/favorites">즐겨찾기</a><a className="recommendBack" href="/">홈으로</a></nav></header>
+    <section className="recommendIntro"><div className="eyebrow">NERDING · PERSONAL RECOMMEND</div><h1>조건까지 반영해서<br/><span>{selectedGoal[2]}</span>을 찾아보세요.</h1><p>{selectedGoal[3]}</p></section>
     <section className="recommendSearch recommendIntentSearch"><label htmlFor="recommend-query">원하는 조건을 한 문장으로 입력해도 됩니다.</label><div className="recommendSearchRow"><input id="recommend-query" value={query} onChange={(event) => { setQuery(event.target.value); setResultLimit(5); }} placeholder="예: 무료로 쇼츠 만들고 싶어" autoComplete="off"/>{query && <button type="button" onClick={() => setQuery("")}>지우기</button>}</div>{intent.labels.length > 0 && <div className="intentLabels" aria-label="검색어에서 인식한 조건">{intent.labels.map((label) => <span key={label}>{label}</span>)}</div>}</section>
     <section className="conditionGrid"><div className="conditionCard"><h2>01. 만들고 싶은 것</h2><div className="choiceGrid">{goals.map(([id, icon, label]) => <button type="button" className={`choice ${effectiveGoal === id ? "active" : ""}`} key={id} onClick={() => { setGoal(id); setQuery(""); setResultLimit(5); }}><img src={icon} alt=""/><span>{label}</span></button>)}</div></div><div className="conditionCard"><h2>02. 예산</h2><div className="choiceGrid">{budgetOptions.map(([id, label]) => <button type="button" className={`choice ${effectiveBudget === id ? "active" : ""}`} key={id} onClick={() => { setBudget(id); setQuery(""); setResultLimit(5); }}>{label}</button>)}</div></div><div className="conditionCard"><h2>03. 개발 경험</h2><div className="choiceGrid">{skillOptions.map(([id, label]) => <button type="button" className={`choice ${effectiveSkill === id ? "active" : ""}`} key={id} onClick={() => { setSkill(id); setQuery(""); setResultLimit(5); }}>{label}</button>)}</div></div></section>
     <section className="conditionCard featureCondition"><div className="conditionTitleRow"><h2>04. 가장 중요한 기능</h2><button type="button" onClick={resetConditions}>조건 초기화</button></div><div className="choiceGrid">{featureOptions.map(([id, label]) => <button type="button" className={`choice ${effectiveFeature === id ? "active" : ""}`} key={id} onClick={() => { setFeature(id); setQuery(""); setResultLimit(5); }}>{label}</button>)}</div></section>
