@@ -1,6 +1,7 @@
 import "./globals.css";
 import "./responsive.css";
 import "./home-typography.css";
+import "./home-visibility.css";
 import "./readable-ui.css";
 import "./components/adsense.css";
 import "./components/ad-slot.css";
