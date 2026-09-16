@@ -1,28 +1,7 @@
 /* NERDING 추천 화면의 최종 UI 보정입니다. 기존 기능은 유지합니다. */
 
-/* PC에서는 조건 초기화 버튼을 04번 제목 오른쪽에 배치합니다. */
+/* PC에서는 검색창을 전체 폭으로 확장합니다. */
 @media (min-width: 761px) {
-  .recommendPage .featureCondition .conditionTitleRow {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 16px !important;
-    margin-bottom: 14px !important;
-  }
-  .recommendPage .featureCondition .conditionTitleRow h2 { margin: 0 !important; }
-  .recommendPage .featureCondition .conditionTitleRow button {
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    padding: 8px 12px !important;
-    border: 1px solid #cfcbd8 !important;
-    border-radius: 7px !important;
-    background: #ebe9ee !important;
-    color: #4f4b58 !important;
-    font: inherit !important;
-    font-size: 12px !important;
-    font-weight: 800 !important;
-    cursor: pointer !important;
-  }
   .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; min-width: 0 !important; }
   .recommendPage .recommendSearchRow input {
     flex: 1 1 auto !important;
@@ -36,48 +15,61 @@
   .recommendPage .recommendSearchRow input::placeholder { color: #6b7280 !important; opacity: 1 !important; }
 }
 
-/* 모바일에서는 초기화 버튼을 제목 아래로 내려서 별도 행으로 깔끔하게 배치합니다. */
-@media (max-width: 760px) {
-  .recommendPage .featureCondition .conditionTitleRow {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 0 14px !important;
-  }
-  .recommendPage .featureCondition .conditionTitleRow h2 {
-    display: block !important;
-    width: 100% !important;
-    margin: 0 0 10px !important;
-    white-space: nowrap !important;
-  }
-  .recommendPage .featureCondition .conditionTitleRow button {
-    display: block !important;
-    width: auto !important;
-    margin: 0 !important;
-    padding: 7px 10px !important;
-    border: 1px solid #514568 !important;
-    border-radius: 7px !important;
-    background: #28242f !important;
-    color: #d2ccd9 !important;
-    font: inherit !important;
-    font-size: 11px !important;
-    font-weight: 800 !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-  }
+/* 결과 제목 오른쪽에 전체 보기와 초기화 버튼을 한 묶음으로 배치합니다. */
+.recommendPage .resultHeadActions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 8px !important;
+  flex: 0 0 auto !important;
+  white-space: nowrap !important;
+}
+.recommendPage .resultResetButton {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 7px 10px !important;
+  border: 1px solid #cfcbd8 !important;
+  border-radius: 7px !important;
+  background: #ebe9ee !important;
+  color: #4f4b58 !important;
+  font: inherit !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+}
 
-  /* 모바일 결과 제목과 전체 보기 링크는 같은 줄에 배치합니다. */
+/* 모바일에서는 결과 제목 오른쪽 끝에 초기화 버튼을 둡니다. */
+@media (max-width: 760px) {
   .recommendPage .recommendResult > .resultHead:first-child {
     display: flex !important;
     align-items: flex-end !important;
     justify-content: space-between !important;
-    gap: 12px !important;
+    gap: 8px !important;
     width: 100% !important;
   }
-  .recommendPage .recommendResult > .resultHead:first-child > div { flex: 1 1 auto !important; min-width: 0 !important; }
-  .recommendPage .recommendResult > .resultHead:first-child .catalogLink {
+  .recommendPage .recommendResult > .resultHead:first-child > div:first-child {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+  }
+  .recommendPage .resultHeadActions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 6px !important;
     flex: 0 0 auto !important;
-    margin: 0 0 2px !important;
+    max-width: 48% !important;
+  }
+  .recommendPage .resultHeadActions .catalogLink {
+    flex: 0 1 auto !important;
+    margin: 0 !important;
     white-space: nowrap !important;
+    font-size: 12px !important;
+  }
+  .recommendPage .resultResetButton {
+    padding: 6px 8px !important;
+    font-size: 10px !important;
   }
 
   /* 모바일 TOP MATCH 아이콘은 과도하게 커지지 않게 제한합니다. */
@@ -88,7 +80,7 @@
     flex: 0 0 72px !important; object-fit: contain !important; border-radius: 18px !important;
   }
 
-  /* 모바일 후보 카드 아이콘도 화면을 과도하게 차지하지 않게 제한합니다. */
+  /* 모바일 후보 카드 아이콘은 64px로 제한합니다. */
   .recommendPage .resultCard .resultServiceTop .resultIcon,
   .recommendPage .resultCard .resultServiceTop > img {
     width: 64px !important; height: 64px !important;
@@ -99,11 +91,15 @@
 }
 
 /* 다크모드에서도 새 UI의 대비를 유지합니다. */
-html[data-theme="dark"] .recommendPage .featureCondition .conditionTitleRow button {
-  background: #28242f !important; border-color: #514568 !important; color: #d2ccd9 !important;
+html[data-theme="dark"] .recommendPage .resultResetButton {
+  background: #28242f !important;
+  border-color: #514568 !important;
+  color: #d2ccd9 !important;
 }
 html[data-theme="dark"] .recommendPage .recommendSearchRow input {
-  background: #2b2930 !important; border-color: #514b5c !important; color: #f5f1fa !important;
+  background: #2b2930 !important;
+  border-color: #514b5c !important;
+  color: #f5f1fa !important;
 }
 html[data-theme="dark"] .recommendPage .recommendSearchRow input::placeholder { color: #aaa5b2 !important; opacity: 1 !important; }
 
