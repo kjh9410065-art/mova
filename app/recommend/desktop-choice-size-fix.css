@@ -1,0 +1,28 @@
+/* NERDING 추천 페이지 PC 선택 카드의 아이콘이 카드 높이를 과도하게 키우지 않도록 크기를 제한합니다. */
+@media (min-width: 761px) {
+  /* 만들고 싶은 것 카드의 일러스트만 컴팩트하게 줄입니다. */
+  .recommendPage .conditionCard .choiceGrid .choice img {
+    width: 76px !important;
+    height: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+    min-height: 76px !important;
+    max-height: 76px !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    display: block !important;
+    margin: 0 auto 12px !important;
+  }
+
+  /* 아이콘 카드 자체도 여백을 줄여 PC 화면에서 한눈에 들어오게 합니다. */
+  .recommendPage .conditionCard .choiceGrid .choice {
+    min-height: 128px !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 아이콘이 없는 예산/개발 경험/기능 카드는 기존처럼 낮게 유지합니다. */
+  .recommendPage .conditionCard:not(:first-child) .choiceGrid .choice {
+    min-height: 0 !important;
+  }
+}
