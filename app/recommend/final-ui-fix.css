@@ -68,3 +68,40 @@ html[data-theme="dark"] .recommendPage .recommendSearchRow input::placeholder {
   color: #aaa5b2 !important;
   opacity: 1 !important;
 }
+
+/* 다크모드의 보라색 외곽선이 모든 영역을 감싸 번잡해 보이지 않도록 정리합니다. */
+html[data-theme="dark"] .recommendPage .conditionCard,
+html[data-theme="dark"] .recommendPage .recommendResult,
+html[data-theme="dark"] .recommendPage .recommendSearch,
+html[data-theme="dark"] .recommendPage .recommendIntentSearch {
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+/* 조건 영역은 큰 네모 박스 대신 페이지 배경과 자연스럽게 이어지게 합니다. */
+html[data-theme="dark"] .recommendPage .conditionCard {
+  background: transparent !important;
+}
+
+/* 결과 카드는 얇은 중립색 선만 사용해 시각적 구획을 최소화합니다. */
+html[data-theme="dark"] .recommendPage .resultCard,
+html[data-theme="dark"] .recommendPage .recommendResultGrid > article {
+  border: 1px solid #302c39 !important;
+  box-shadow: none !important;
+}
+
+/* TOP MATCH만 은은하게 강조하고 강한 보라색 외곽선은 제거합니다. */
+html[data-theme="dark"] .recommendPage .resultCard.best,
+html[data-theme="dark"] .recommendPage .topMatch {
+  border-color: #4a4358 !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,.18) !important;
+}
+
+/* 모바일에서도 큰 외곽 박스를 만들지 않습니다. */
+@media (max-width: 760px) {
+  html[data-theme="dark"] .recommendPage .conditionCard {
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+  }
+}
