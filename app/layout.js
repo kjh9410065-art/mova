@@ -14,8 +14,8 @@ import "./catalog-icon-scale.css";
 import "./mobile-card-readability.css";
 import "./nerding-redesign.css";
 import Script from "next/script";
-import HubTutorial from "./components/hub-tutorial";
-import HubTheme from "./components/hub-theme";
+import NerdingTutorial from "./components/nerding-tutorial";
+import NerdingTheme from "./components/nerding-theme";
 import AdSlot from "./components/ad-slot";
 import SiteFooter from "./components/site-footer";
 
@@ -65,8 +65,8 @@ export default function RootLayout({ children }) {
         {children}
         <AdSlot label="광고" />
         <SiteFooter />
-        <HubTheme />
-        <HubTutorial />
+        <NerdingTheme />
+        <NerdingTutorial />
       </body>
     </html>
   );
