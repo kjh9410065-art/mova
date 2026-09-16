@@ -1,55 +1,55 @@
-/* STEP 03 카테고리 카드 내부 요소를 크게 표시합니다. 카드 자체의 크기와 그리드는 유지합니다. */
+/* 아이콘 이미지만 시각적으로 확대하고 카드의 크기와 내부 배치는 그대로 유지합니다. */
 @media(min-width:761px){
-  /* 카테고리 아이콘 영역과 실제 아이콘을 기존보다 크게 만듭니다. */
+  /* STEP 03 카테고리 카드의 이미지 영역은 기존 크기를 유지하고 실제 이미지만 2배 확대합니다. */
   .homePage .categoryCard > img{
-    width:52px !important;
-    height:52px !important;
-    min-width:52px !important;
-    flex:0 0 52px !important;
+    width:23px !important;
+    height:23px !important;
+    min-width:23px !important;
+    flex:0 0 23px !important;
     object-fit:contain !important;
-    padding:8px !important;
-    border-radius:14px !important;
+    padding:0 !important;
+    border-radius:7px !important;
+    transform:scale(2) !important;
+    transform-origin:center !important;
   }
 
-  /* 카테고리 이름을 크게 하고 진하게 표시합니다. */
+  /* 카테고리 이름은 기존 카드 높이를 유지하면서 읽기 쉽게 진하게 표시합니다. */
   .homePage .categoryCard > span{
-    font-size:20px !important;
-    line-height:1.1 !important;
+    font-size:10px !important;
     font-weight:900 !important;
     color:#111118 !important;
   }
 
-  /* 서비스 개수 배지도 읽기 쉽게 키웁니다. */
+  /* 서비스 개수는 기존 크기를 유지하고 글씨만 조금 진하게 표시합니다. */
   .homePage .categoryCard > b{
-    font-size:14px !important;
-    line-height:1 !important;
+    font-size:8px !important;
     font-weight:800 !important;
-    padding:5px 8px !important;
   }
 
-  /* 우측 화살표도 내부 요소 크기에 맞춰 키웁니다. */
+  /* 우측 화살표는 카드 크기를 늘리지 않고 선명하게 표시합니다. */
   .homePage .categoryCard > i{
-    font-size:30px !important;
+    font-size:19px !important;
     font-weight:700 !important;
   }
 
-  /* STEP 02 추천 카드의 서비스 아이콘 박스를 크게 만듭니다. 카드 크기는 건드리지 않습니다. */
+  /* STEP 02 추천 카드의 아이콘 박스는 기존 크기를 유지합니다. */
   .homePage .serviceIconWrap{
-    width:68px !important;
-    height:68px !important;
-    min-width:68px !important;
-    flex:0 0 68px !important;
-    border-radius:16px !important;
+    width:43px !important;
+    height:43px !important;
+    min-width:43px !important;
+    flex:0 0 43px !important;
   }
 
-  /* 추천 카드의 실제 서비스 아이콘도 함께 확대합니다. */
+  /* 추천 카드에서는 실제 아이콘 이미지만 약 1.7배 확대합니다. */
   .homePage .serviceIconImage{
-    width:52px !important;
-    height:52px !important;
+    width:30px !important;
+    height:30px !important;
     object-fit:contain !important;
+    transform:scale(1.7) !important;
+    transform-origin:center !important;
   }
 
-  /* 추천 카드 제목을 더 크고 진하게 표시합니다. */
+  /* 추천 카드 제목은 진하고 선명하게 표시합니다. */
   .homePage .serviceName{
     font-size:20px !important;
     font-weight:900 !important;
