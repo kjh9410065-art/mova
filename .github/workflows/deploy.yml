@@ -1,4 +1,4 @@
-name: MOVA deploy
+name: NERDING deploy
 
 on:
   push:
@@ -33,14 +33,14 @@ jobs:
       - name: Build Next.js export
         run: npm run build
 
-      # wrangler.jsonc의 MOVA Worker 설정에 따라 Cloudflare Workers에 배포합니다.
+      # wrangler.jsonc의 Worker 설정에 따라 Cloudflare Workers에 배포합니다.
       - name: Deploy to Cloudflare Workers
         run: npx wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # 실제 사용자에게 공개되는 MOVA의 canonical 도메인으로 배포 결과를 검증합니다.
+      # 실제 사용자에게 공개되는 NERDING canonical 도메인으로 배포 결과를 검증합니다.
       - name: Verify public endpoints
         run: |
           set -e
@@ -64,9 +64,9 @@ jobs:
             exit 1
           }
 
-          check_text "$BASE/" "MOVA" /tmp/mova.html
+          check_text "$BASE/" "NERDING" /tmp/nerding.html
           check_text "$BASE/robots.txt" "Sitemap:" /tmp/robots.txt
-          check_text "$BASE/llms.txt" "MOVA" /tmp/llms.txt
+          check_text "$BASE/llms.txt" "NERDING" /tmp/llms.txt
           check_text "$BASE/sitemap.xml" "<urlset" /tmp/sitemap.xml
           grep -q "$BASE/" /tmp/sitemap.xml
           echo "All public endpoint checks passed."
