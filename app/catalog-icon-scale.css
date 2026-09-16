@@ -1,3 +1,5 @@
+@import "./category-scale.css";
+
 /* 서비스 아이콘을 한 단계 크게 보여주고 즐겨찾기 하트는 빨간색으로 강조합니다. */
 .catalogPage .catalogTop img {
   width:68px !important;
