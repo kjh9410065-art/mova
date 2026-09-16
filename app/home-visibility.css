@@ -1,21 +1,28 @@
-/* 홈 화면 밝은 모드의 비교하기 버튼이 비활성처럼 보이지 않도록 가독성을 강제합니다. */
+/* 밝은 모드에서는 기본 상태를 흰색 배경과 검은 글씨로 표시합니다. */
 html:not([data-theme="dark"]) .homePage .compareButton {
-  background: #7055e8 !important;
-  border: 1px solid #7055e8 !important;
-  color: #ffffff !important;
+  background: #ffffff !important;
+  border: 1px solid #d9d9e2 !important;
+  color: #111111 !important;
   opacity: 1 !important;
   text-shadow: none !important;
 }
 
-/* 비교함에 이미 담긴 서비스는 선택 상태를 더 분명하게 표시합니다. */
+/* 클릭해서 선택된 비교 버튼은 보라색 배경과 흰색 글씨로 표시합니다. */
 html:not([data-theme="dark"]) .homePage .compareButton.selected {
-  background: #6049cf !important;
-  border-color: #6049cf !important;
+  background: #7055e8 !important;
+  border-color: #7055e8 !important;
   color: #ffffff !important;
 }
 
-/* 마우스를 올렸을 때도 글자와 버튼 대비를 유지합니다. */
+/* 선택되지 않은 버튼에 마우스를 올려도 기본 흰색 상태를 유지합니다. */
 html:not([data-theme="dark"]) .homePage .compareButton:hover {
+  background: #ffffff !important;
+  border-color: #7055e8 !important;
+  color: #111111 !important;
+}
+
+/* 선택된 버튼에 마우스를 올리면 보라색 상태를 유지합니다. */
+html:not([data-theme="dark"]) .homePage .compareButton.selected:hover {
   background: #6049cf !important;
   border-color: #6049cf !important;
   color: #ffffff !important;
