@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import "./nerding-theme.css";
+import "../home-visibility.css";
 
 const STORAGE_KEY = "hub-theme";
 
