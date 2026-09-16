@@ -30,9 +30,10 @@ export const metadata = {
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
-    icon: "/icon.svg?v=4",
-    shortcut: "/icon.svg?v=4",
-    apple: "/icon.svg?v=4"
+    // 브라우저가 SVG 내부의 외부 PNG를 해석하지 못하는 문제를 피하기 위해 실제 PNG를 favicon으로 직접 지정합니다.
+    icon: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%일%20오후%2011_34_22.png",
+    shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%월%2015%EC%일%20오후%2011_34_22.png",
+    apple: "/ChatGPT%20Image%202026%EB%85%년%209%EC%월%2015%EC%일%20오후%2011_34_22.png"
   },
   robots: { index: true, follow: true },
   openGraph: {
