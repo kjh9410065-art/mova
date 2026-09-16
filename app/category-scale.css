@@ -1,6 +1,6 @@
-/* 아이콘 이미지만 시각적으로 확대하고 카드의 크기와 내부 배치는 그대로 유지합니다. */
+/* STEP 03 아이콘 이미지만 크게 확대하고 카드 크기와 배치는 절대 변경하지 않습니다. */
 @media(min-width:761px){
-  /* STEP 03 카테고리 카드의 이미지 영역은 기존 크기를 유지하고 실제 이미지만 2배 확대합니다. */
+  /* 카테고리 카드의 이미지 슬롯은 23px 그대로 두고 이미지 자체만 2.7배 확대합니다. */
   .homePage .categoryCard > img{
     width:23px !important;
     height:23px !important;
@@ -9,30 +9,30 @@
     object-fit:contain !important;
     padding:0 !important;
     border-radius:7px !important;
-    transform:scale(2) !important;
+    transform:scale(2.7) !important;
     transform-origin:center !important;
   }
 
-  /* 카테고리 이름은 기존 카드 높이를 유지하면서 읽기 쉽게 진하게 표시합니다. */
+  /* 카테고리 이름은 카드 크기를 건드리지 않고 진하게 표시합니다. */
   .homePage .categoryCard > span{
     font-size:10px !important;
     font-weight:900 !important;
     color:#111118 !important;
   }
 
-  /* 서비스 개수는 기존 크기를 유지하고 글씨만 조금 진하게 표시합니다. */
+  /* 서비스 개수는 기존 크기를 유지하고 가독성만 높입니다. */
   .homePage .categoryCard > b{
     font-size:8px !important;
     font-weight:800 !important;
   }
 
-  /* 우측 화살표는 카드 크기를 늘리지 않고 선명하게 표시합니다. */
+  /* 우측 화살표도 카드 크기에 영향을 주지 않도록 유지합니다. */
   .homePage .categoryCard > i{
     font-size:19px !important;
     font-weight:700 !important;
   }
 
-  /* STEP 02 추천 카드의 아이콘 박스는 기존 크기를 유지합니다. */
+  /* STEP 02 추천 카드의 아이콘 슬롯은 기존 크기를 유지합니다. */
   .homePage .serviceIconWrap{
     width:43px !important;
     height:43px !important;
@@ -40,7 +40,7 @@
     flex:0 0 43px !important;
   }
 
-  /* 추천 카드에서는 실제 아이콘 이미지만 1.5배 확대합니다. */
+  /* 추천 카드의 실제 아이콘 이미지만 요청한 1.5배로 확대합니다. */
   .homePage .serviceIconImage{
     width:30px !important;
     height:30px !important;
@@ -49,39 +49,39 @@
     transform-origin:center !important;
   }
 
-  /* 추천 카드 제목은 기존 20px에서 약 1.2배인 24px로 확대하고 진하게 표시합니다. */
+  /* 추천 카드 서비스명은 기존 20px에서 1.2배인 24px로 확대합니다. */
   .homePage .serviceName{
     font-size:24px !important;
     font-weight:900 !important;
     color:#111118 !important;
   }
 
-  /* 추천 카드의 서비스 설명도 제목과 함께 조금 더 진하게 표시합니다. */
+  /* 추천 카드 설명을 진하게 표시합니다. */
   .homePage .serviceBest{
     color:#4f4d58 !important;
     font-weight:650 !important;
   }
 
-  /* 가격·난이도·기능 태그의 글씨를 진하게 만들어 가독성을 높입니다. */
+  /* 가격·난이도·기능 태그를 진하게 표시합니다. */
   .homePage .serviceMetaRow span,
   .homePage .tagList span{
     color:#55525e !important;
     font-weight:750 !important;
   }
 
-  /* 추천 이유 영역도 더 선명하게 표시합니다. */
+  /* 추천 이유 영역을 선명하게 표시합니다. */
   .homePage .recommendReason{
     color:#4b4855 !important;
     font-weight:650 !important;
   }
 
-  /* 추천 이유 제목은 파란색을 유지하면서 더 진하게 표시합니다. */
+  /* 추천 이유 제목은 파란색을 유지하면서 진하게 표시합니다. */
   .homePage .recommendReasonLabel{
     color:#165dff !important;
     font-weight:900 !important;
   }
 
-  /* 저장 버튼 글씨도 진하게 표시합니다. */
+  /* 저장 버튼 글씨를 진하게 표시합니다. */
   .homePage .favoriteButton{
     color:#55525e !important;
     font-weight:800 !important;
