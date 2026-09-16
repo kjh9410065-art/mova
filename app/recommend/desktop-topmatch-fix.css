@@ -1,83 +1,31 @@
-/* NERDING 추천 결과의 PC TOP MATCH가 서비스 아이콘 원본 크기 때문에 화면을 가득 채우지 않도록 제한합니다. */
+/* NERDING 추천 결과의 PC TOP MATCH와 후보 카드가 화면을 과도하게 차지하지 않도록 정리합니다. */
 @media (min-width: 761px) {
   /* TOP MATCH 본문을 가로형 카드로 정리합니다. */
-  .recommendPage .topMatch {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    gap: 32px !important;
-    padding: 28px 30px !important;
-    min-height: 0 !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-  }
+  .recommendPage .topMatch { display:flex !important; align-items:center !important; justify-content:space-between !important; gap:32px !important; padding:28px 30px !important; min-height:0 !important; box-sizing:border-box !important; overflow:hidden !important; }
+  .recommendPage .topMatchMain { flex:1 1 auto !important; min-width:0 !important; }
+  .recommendPage .topMatchService img { width:72px !important; height:72px !important; min-width:72px !important; max-width:72px !important; max-height:72px !important; flex:0 0 72px !important; object-fit:contain !important; object-position:center !important; border-radius:16px !important; }
+  .recommendPage .topMatchService { display:flex !important; align-items:center !important; gap:16px !important; min-width:0 !important; }
+  .recommendPage .topMatchService h3 { margin:0 !important; font-size:24px !important; line-height:1.2 !important; }
+  .recommendPage .topMatchService p { margin:6px 0 0 !important; line-height:1.5 !important; }
+  .recommendPage .topMatchMain > .chips { display:flex !important; flex-wrap:wrap !important; gap:8px !important; margin-top:16px !important; }
+  .recommendPage .topReason { margin:14px 0 0 !important; line-height:1.6 !important; }
+  .recommendPage .topMatchActions { display:flex !important; flex:0 0 auto !important; align-items:center !important; gap:8px !important; }
+  .recommendPage .topMatchActions a { min-height:46px !important; padding:0 16px !important; display:inline-flex !important; align-items:center !important; justify-content:center !important; box-sizing:border-box !important; white-space:nowrap !important; }
 
-  /* 서비스 정보 영역이 남은 공간을 사용하도록 합니다. */
-  .recommendPage .topMatchMain {
-    flex: 1 1 auto !important;
-    min-width: 0 !important;
-  }
+  /* ALTERNATIVES 후보를 PC에서 2열로 나눠 한 카드가 화면 전체를 차지하지 않게 합니다. */
+  .recommendPage .resultGrid { display:grid !important; grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:14px !important; align-items:stretch !important; }
 
-  /* TOP MATCH 서비스 아이콘을 적당한 고정 크기로 제한합니다. */
-  .recommendPage .topMatchService img {
-    width: 72px !important;
-    height: 72px !important;
-    min-width: 72px !important;
-    max-width: 72px !important;
-    max-height: 72px !important;
-    flex: 0 0 72px !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    border-radius: 16px !important;
-  }
+  /* 2열 후보 카드는 서비스 정보와 태그를 좌우로 배치합니다. */
+  .recommendPage .resultGrid .resultCard { display:grid !important; grid-template-columns:minmax(0,1fr) auto !important; grid-template-areas:"service chips" "reason reason" "actions actions" "disclosure disclosure" !important; column-gap:16px !important; row-gap:10px !important; min-width:0 !important; margin:0 !important; padding:18px !important; border-radius:20px !important; box-sizing:border-box !important; align-items:center !important; }
+  .recommendPage .resultGrid .resultServiceTop { grid-area:service !important; min-width:0 !important; }
+  .recommendPage .resultGrid .resultCard > .chips { grid-area:chips !important; width:auto !important; max-width:220px !important; margin:0 !important; justify-content:flex-end !important; align-self:center !important; }
+  .recommendPage .resultGrid .resultCard .reason { grid-area:reason !important; margin:0 !important; }
+  .recommendPage .resultGrid .resultCard .resultActions { grid-area:actions !important; margin-top:2px !important; display:flex !important; gap:7px !important; flex-wrap:wrap !important; }
+  .recommendPage .resultGrid .resultCard .miniDisclosure { grid-area:disclosure !important; }
 
-  /* 서비스 이름과 설명이 아이콘 옆에 자연스럽게 배치되도록 합니다. */
-  .recommendPage .topMatchService {
-    display: flex !important;
-    align-items: center !important;
-    gap: 16px !important;
-    min-width: 0 !important;
-  }
-
-  .recommendPage .topMatchService h3 {
-    margin: 0 !important;
-    font-size: 24px !important;
-    line-height: 1.2 !important;
-  }
-
-  .recommendPage .topMatchService p {
-    margin: 6px 0 0 !important;
-    line-height: 1.5 !important;
-  }
-
-  /* 추천 이유와 태그가 아이콘 아래로 밀리지 않도록 폭을 안정적으로 사용합니다. */
-  .recommendPage .topMatchMain > .chips {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    gap: 8px !important;
-    margin-top: 16px !important;
-  }
-
-  .recommendPage .topReason {
-    margin: 14px 0 0 !important;
-    line-height: 1.6 !important;
-  }
-
-  /* 우측 액션 버튼은 카드 높이를 불필요하게 키우지 않습니다. */
-  .recommendPage .topMatchActions {
-    display: flex !important;
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    gap: 8px !important;
-  }
-
-  .recommendPage .topMatchActions a {
-    min-height: 46px !important;
-    padding: 0 16px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-    white-space: nowrap !important;
-  }
+  /* 후보 서비스 아이콘도 일정 크기로 제한합니다. */
+  .recommendPage .resultGrid .resultIcon { width:56px !important; height:56px !important; min-width:56px !important; max-width:56px !important; min-height:56px !important; max-height:56px !important; object-fit:contain !important; }
+  .recommendPage .resultGrid .resultTitle { font-size:17px !important; line-height:1.25 !important; }
+  .recommendPage .resultGrid .resultCategory { font-size:12px !important; line-height:1.35 !important; }
+  .recommendPage .resultGrid .resultActions > * { flex:1 1 0 !important; min-width:0 !important; }
 }
