@@ -1,101 +1,24 @@
 /* NERDING 추천 화면 최종 UI 보정 */
-
-/* 검색창은 PC에서 전체 폭을 사용합니다. */
 @media (min-width: 761px) {
   .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; min-width: 0 !important; gap: 8px !important; }
-  .recommendPage .recommendSearchRow input {
-    flex: 1 1 auto !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    box-sizing: border-box !important;
-    background: #e5e7eb !important;
-    border: 1px solid #cfd3da !important;
-    color: #20232a !important;
-  }
+  .recommendPage .recommendSearchRow input { flex: 1 1 auto !important; width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; background: #e5e7eb !important; border: 1px solid #cfd3da !important; color: #20232a !important; }
   .recommendPage .recommendSearchRow input::placeholder { color: #6b7280 !important; opacity: 1 !important; }
 }
-
-/* 검색과 조건 초기화 버튼은 검색창 오른쪽에 나란히 배치합니다. */
-.recommendPage .recommendSearchButton,
-.recommendPage .recommendResetButton {
-  flex: 0 0 auto !important;
-  min-height: 42px !important;
-  padding: 0 18px !important;
-  border-radius: 9px !important;
-  font: inherit !important;
-  font-size: 13px !important;
-  font-weight: 800 !important;
-  line-height: 1 !important;
-  white-space: nowrap !important;
-  cursor: pointer !important;
-}
-
-/* 검색 버튼은 기존 NERDING의 포인트 컬러를 사용합니다. */
-.recommendPage .recommendSearchButton {
-  border: 1px solid #7055e8 !important;
-  background: #7055e8 !important;
-  color: #ffffff !important;
-}
-
-.recommendPage .recommendSearchButton:hover {
-  background: #6049cf !important;
-  border-color: #6049cf !important;
-}
-
-/* 초기화 버튼은 검색 버튼과 구분되는 중립색으로 표시합니다. */
-.recommendPage .recommendResetButton {
-  border: 1px solid #cfd3da !important;
-  background: #f3f4f6 !important;
-  color: #30343b !important;
-}
-
-.recommendPage .recommendResetButton:hover {
-  background: #e5e7eb !important;
-  border-color: #b8bdc6 !important;
-}
-
-/* 기존 04번 조건 제목 옆 초기화 버튼 스타일은 새 검색 영역 버튼 구조와 충돌하지 않도록 무력화합니다. */
+.recommendPage .recommendSearchButton,.recommendPage .recommendResetButton { flex: 0 0 auto !important; min-height: 42px !important; padding: 0 18px !important; border-radius: 9px !important; font: inherit !important; font-size: 13px !important; font-weight: 800 !important; line-height: 1 !important; white-space: nowrap !important; cursor: pointer !important; }
+.recommendPage .recommendSearchButton { border: 1px solid #7055e8 !important; background: #7055e8 !important; color: #fff !important; }
+.recommendPage .recommendSearchButton:hover { background: #6049cf !important; border-color: #6049cf !important; }
+.recommendPage .recommendResetButton { border: 1px solid #cfd3da !important; background: #f3f4f6 !important; color: #30343b !important; }
+.recommendPage .recommendResetButton:hover { background: #e5e7eb !important; border-color: #b8bdc6 !important; }
 .recommendPage .featureCondition .conditionTitleRow button { display: none !important; }
-
-/* 결과 제목에는 더 이상 초기화 버튼이 없으므로 기존 시각 이동 규칙도 제거합니다. */
 .recommendPage .recommendResult > .resultHead:first-child { position: relative !important; }
-
 @media (max-width: 760px) {
-  /* 모바일에서는 검색창과 두 버튼이 한 줄에서 자연스럽게 줄어들 수 있도록 합니다. */
   .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; gap: 6px !important; }
   .recommendPage .recommendSearchRow input { flex: 1 1 auto !important; min-width: 0 !important; }
-  .recommendPage .recommendSearchButton,
-  .recommendPage .recommendResetButton { min-height: 40px !important; padding: 0 10px !important; font-size: 11px !important; }
-
-  /* 모바일 TOP MATCH 아이콘은 후보 카드와 같은 64px로 통일합니다. */
+  .recommendPage .recommendSearchButton,.recommendPage .recommendResetButton { min-height: 40px !important; padding: 0 10px !important; font-size: 11px !important; }
   .recommendPage .topMatchService > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
-
-  /* 모바일 후보 아이콘도 64px로 유지합니다. */
-  .recommendPage .resultCard .resultServiceTop .resultIcon,
-  .recommendPage .resultCard .resultServiceTop > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
-
-  /* TOP MATCH와 후보 카드를 같은 2열 구조로 맞춰 서비스 정보와 태그 위치를 통일합니다. */
-  .recommendPage .topMatch {
-    display: block !important;
-    padding: 17px !important;
-    margin: 10px 0 !important;
-    border-radius: 18px !important;
-    box-sizing: border-box !important;
-  }
-
-  .recommendPage .topMatchMain {
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(135px, 0.82fr) !important;
-    grid-template-areas:
-      "label label"
-      "service chips"
-      "reason reason"
-      "disclosure disclosure" !important;
-    column-gap: 10px !important;
-    row-gap: 10px !important;
-    align-items: center !important;
-  }
-
+  .recommendPage .resultCard .resultServiceTop .resultIcon,.recommendPage .resultCard .resultServiceTop > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
+  .recommendPage .topMatch { display: block !important; padding: 17px !important; margin: 10px 0 !important; border-radius: 18px !important; box-sizing: border-box !important; }
+  .recommendPage .topMatchMain { display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(135px, 0.82fr) !important; grid-template-areas: "label label" "service chips" "reason reason" "disclosure disclosure" !important; column-gap: 10px !important; row-gap: 10px !important; align-items: center !important; }
   .recommendPage .topMatchLabel { grid-area: label !important; }
   .recommendPage .topMatchService { grid-area: service !important; min-width: 0 !important; display: flex !important; align-items: center !important; gap: 10px !important; }
   .recommendPage .topMatchService h3 { margin: 0 !important; font-size: 18px !important; line-height: 1.25 !important; }
@@ -103,62 +26,27 @@
   .recommendPage .topMatchMain > .chips { grid-area: chips !important; width: 100% !important; margin: 0 !important; display: flex !important; align-items: center !important; justify-content: flex-end !important; flex-wrap: wrap !important; gap: 6px !important; }
   .recommendPage .topReason { grid-area: reason !important; margin: 0 !important; font-size: 13px !important; line-height: 1.6 !important; }
   .recommendPage .affiliateDisclosure { grid-area: disclosure !important; }
-
-  /* TOP MATCH의 액션도 후보 카드와 같은 하단 버튼 형태로 통일합니다. */
-  .recommendPage .topMatchActions {
-    display: flex !important;
-    gap: 7px !important;
-    margin-top: 10px !important;
-    width: 100% !important;
-  }
-  .recommendPage .topMatchActions > * {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-    min-height: 42px !important;
-    padding: 0 10px !important;
-    border-radius: 11px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    box-sizing: border-box !important;
-    font-size: 13px !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    text-decoration: none !important;
-    white-space: nowrap !important;
-  }
+  .recommendPage .topMatchActions { display: flex !important; gap: 7px !important; margin-top: 10px !important; width: 100% !important; }
+  .recommendPage .topMatchActions > * { flex: 1 1 0 !important; min-width: 0 !important; min-height: 42px !important; padding: 0 10px !important; border-radius: 11px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; box-sizing: border-box !important; font-size: 13px !important; font-weight: 850 !important; line-height: 1 !important; text-decoration: none !important; white-space: nowrap !important; }
   .recommendPage .topMatchActions .primaryAction { background: #f3f1f8 !important; color: #292633 !important; border: 1px solid #e4e0ed !important; }
   .recommendPage .topMatchActions .secondaryAction { background: #25232d !important; color: #fff !important; border: 1px solid #25232d !important; }
-
-  /* 후보 카드도 같은 카드 여백과 모서리를 사용합니다. */
-  .recommendPage .resultCard {
-    padding: 17px !important;
-    margin: 10px 0 !important;
-    border-radius: 18px !important;
-    box-sizing: border-box !important;
-  }
+  .recommendPage .resultCard { padding: 17px !important; margin: 10px 0 !important; border-radius: 18px !important; box-sizing: border-box !important; }
 }
-
-/* 다크모드 검색창과 버튼의 대비를 맞춥니다. */
 html[data-theme="dark"] .recommendPage .recommendSearchRow input { background: #2b2930 !important; border-color: #514b5c !important; color: #f5f1fa !important; }
 html[data-theme="dark"] .recommendPage .recommendSearchRow input::placeholder { color: #aaa5b2 !important; opacity: 1 !important; }
 html[data-theme="dark"] .recommendPage .recommendResetButton { background: #28242f !important; border-color: #514568 !important; color: #d2ccd9 !important; }
 html[data-theme="dark"] .recommendPage .recommendResetButton:hover { background: #342e40 !important; border-color: #625775 !important; }
-
-/* 다크모드의 불필요한 대형 외곽선은 제거합니다. */
-html[data-theme="dark"] .recommendPage .conditionCard,
-html[data-theme="dark"] .recommendPage .recommendResult,
-html[data-theme="dark"] .recommendPage .recommendSearch,
-html[data-theme="dark"] .recommendPage .recommendIntentSearch { border: 0 !important; box-shadow: none !important; }
+html[data-theme="dark"] .recommendPage .conditionCard,html[data-theme="dark"] .recommendPage .recommendResult,html[data-theme="dark"] .recommendPage .recommendSearch,html[data-theme="dark"] .recommendPage .recommendIntentSearch { border: 0 !important; box-shadow: none !important; }
 html[data-theme="dark"] .recommendPage .conditionCard { background: transparent !important; }
-html[data-theme="dark"] .recommendPage .resultCard,
-html[data-theme="dark"] .recommendPage .recommendResultGrid > article { border: 1px solid #302c39 !important; box-shadow: none !important; }
-html[data-theme="dark"] .recommendPage .resultCard.best,
-html[data-theme="dark"] .recommendPage .topMatch { border-color: #4a4358 !important; box-shadow: 0 10px 30px rgba(0,0,0,.18) !important; }
+html[data-theme="dark"] .recommendPage .resultCard,html[data-theme="dark"] .recommendPage .recommendResultGrid > article { border: 1px solid #302c39 !important; box-shadow: none !important; }
+html[data-theme="dark"] .recommendPage .resultCard.best,html[data-theme="dark"] .recommendPage .topMatch { border-color: #4a4358 !important; box-shadow: 0 10px 30px rgba(0,0,0,.18) !important; }
 @media (max-width: 760px) { html[data-theme="dark"] .recommendPage .conditionCard { padding: 0 !important; background: transparent !important; border: 0 !important; } }
+@media (max-width: 760px) { html[data-theme="dark"] .recommendPage .topMatchActions .primaryAction { background: #28242f !important; border-color: #393342 !important; color: #f0ebf5 !important; } html[data-theme="dark"] .recommendPage .topMatchActions .secondaryAction { background: #7055e8 !important; border-color: #7055e8 !important; color: #fff !important; } }
 
-/* 다크모드에서도 TOP MATCH와 후보 카드의 하단 버튼을 동일한 톤으로 맞춥니다. */
+/* 후보 카드의 상세 보기 링크를 버튼으로 통일합니다. */
 @media (max-width: 760px) {
-  html[data-theme="dark"] .recommendPage .topMatchActions .primaryAction { background: #28242f !important; border-color: #393342 !important; color: #f0ebf5 !important; }
-  html[data-theme="dark"] .recommendPage .topMatchActions .secondaryAction { background: #7055e8 !important; border-color: #7055e8 !important; color: #fff !important; }
+  .recommendPage .resultCard .resultActions { display: grid !important; grid-template-columns: 1fr !important; gap: 7px !important; width: 100% !important; }
+  .recommendPage .resultCard .resultActions .compareBtn,.recommendPage .resultCard .resultActions .officialBtn,.recommendPage .resultCard .resultActions .affiliateMiniBtn { width: 100% !important; min-height: 42px !important; box-sizing: border-box !important; border-radius: 11px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; padding: 0 12px !important; font-size: 13px !important; font-weight: 850 !important; line-height: 1 !important; text-decoration: none !important; white-space: nowrap !important; }
+  .recommendPage .resultCard .resultActions .officialBtn { background: #28242f !important; border: 1px solid #393342 !important; color: #f0ebf5 !important; }
+  .recommendPage .resultCard .resultActions .officialBtn:hover { background: #342e40 !important; border-color: #514b5c !important; }
 }
