@@ -54,3 +54,11 @@ html[data-theme="dark"] .recommendPage .resultCard.best,html[data-theme="dark"] 
   .recommendPage .resultCard .resultActions .officialBtn { background: #28242f !important; border: 1px solid #393342 !important; color: #f0ebf5 !important; }
   .recommendPage .resultCard .resultActions .officialBtn:hover { background: #342e40 !important; border-color: #514b5c !important; }
 }
+
+/* 각 섹션 묶음 사이의 외부 여백만 조정합니다. 묶음 내부 간격은 건드리지 않습니다. */
+.recommendPage .recommendShell > section + section { margin-top: 28px !important; }
+/* 결과 영역 내부의 제목과 TOP MATCH 사이에 추가로 넣었던 여백은 제거합니다. */
+.recommendPage .recommendResult > .resultHead:first-child { margin-bottom: 0 !important; }
+@media (max-width: 760px) {
+  .recommendPage .recommendShell > section + section { margin-top: 20px !important; }
+}
