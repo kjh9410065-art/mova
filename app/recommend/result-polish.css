@@ -1,0 +1,9 @@
+/* 추천 결과 영역의 중복된 선과 과한 박스감을 최종 정리합니다. */
+.recommendPage .recommendResult .resultHeadSub { border: 0 !important; }
+.recommendPage .recommendResult .resultHeadSub + .resultGrid { margin-top: 0 !important; }
+
+@media (max-width: 760px) {
+  /* 모바일 결과 묶음은 카드와 제목 사이의 간격만 사용합니다. */
+  .recommendPage .recommendResult > .resultHead:first-child { border: 0 !important; }
+  .recommendPage .recommendResult .resultHeadSub { border: 0 !important; }
+}
