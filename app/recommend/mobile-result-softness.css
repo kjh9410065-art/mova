@@ -1,0 +1,114 @@
+/* 모바일 추천 결과 영역도 PC와 같은 부드러운 카드형 구조로 맞춥니다. */
+@media (max-width: 760px) {
+  .recommendPage .recommendResult {
+    margin-top: 26px !important;
+  }
+
+  /* 결과 제목은 별도 선 없이 여백으로 분리합니다. */
+  .recommendPage .recommendResult > .resultHead:first-child {
+    margin: 0 0 16px !important;
+    padding: 0 2px !important;
+    border: 0 !important;
+  }
+
+  .recommendPage .recommendResult > .resultHead:first-child h2 {
+    font-size: 23px !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  /* TOP MATCH를 둥글고 여유 있는 모바일 카드로 만듭니다. */
+  .recommendPage .recommendResult > .topMatch {
+    margin: 0 !important;
+    padding: 18px !important;
+    border: 1px solid #3a3546 !important;
+    border-radius: 20px !important;
+    background: #1b1922 !important;
+    box-shadow: 0 10px 26px rgba(0,0,0,.14) !important;
+  }
+
+  .recommendPage .topMatchMain {
+    gap: 10px !important;
+  }
+
+  .recommendPage .topMatchLabel {
+    letter-spacing: .03em !important;
+  }
+
+  /* 결과 빠른 변경 영역은 별도 큰 박스 없이 pill 버튼만 표시합니다. */
+  .recommendPage .recommendQuickActions {
+    display: block !important;
+    margin: 16px 2px 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .recommendPage .recommendQuickActions > strong {
+    display: block !important;
+    margin-bottom: 9px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+  }
+
+  .recommendPage .recommendQuickActions > div {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 7px !important;
+  }
+
+  .recommendPage .recommendQuickActions button {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    min-height: 36px !important;
+    padding: 8px 13px !important;
+    border: 1px solid #393343 !important;
+    border-radius: 999px !important;
+    background: #211f28 !important;
+    color: #d8d3df !important;
+    box-shadow: none !important;
+    font-size: 11px !important;
+    font-weight: 750 !important;
+    line-height: 1 !important;
+  }
+
+  .recommendPage .recommendQuickActions button:hover {
+    background: #292532 !important;
+    border-color: #5c526f !important;
+    color: #fff !important;
+  }
+
+  /* 후보 영역도 선보다 여백을 사용해 부드럽게 연결합니다. */
+  .recommendPage .recommendResult .resultHeadSub {
+    margin: 26px 2px 12px !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .recommendPage .recommendResult .resultGrid {
+    gap: 10px !important;
+  }
+
+  .recommendPage .recommendResult .resultCard {
+    margin: 0 !important;
+    padding: 17px !important;
+    border: 1px solid #302c39 !important;
+    border-radius: 18px !important;
+    background: #1b1922 !important;
+    box-shadow: 0 7px 20px rgba(0,0,0,.1) !important;
+  }
+
+  /* 밝은 테마도 동일한 부드러운 카드 구조를 사용합니다. */
+  html:not([data-theme="dark"]) .recommendPage .recommendResult > .topMatch,
+  html:not([data-theme="dark"]) .recommendPage .recommendResult .resultCard {
+    background: #fff !important;
+    border-color: #e3e0ed !important;
+    box-shadow: 0 9px 24px rgba(53,42,111,.07) !important;
+  }
+
+  html:not([data-theme="dark"]) .recommendPage .recommendQuickActions button {
+    background: #f4f2f8 !important;
+    border-color: #ded9e8 !important;
+    color: #4a4553 !important;
+  }
+}
