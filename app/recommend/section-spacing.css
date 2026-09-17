@@ -1,0 +1,6 @@
+/* 추천 페이지의 각 섹션 묶음 사이 외부 여백만 조정합니다. */
+.recommendPage > section + section { margin-top: 28px !important; }
+/* 묶음 내부의 요소 간격은 기존 스타일을 그대로 유지합니다. */
+@media (max-width: 760px) {
+  .recommendPage > section + section { margin-top: 20px !important; }
+}
