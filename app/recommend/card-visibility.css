@@ -1,53 +1,38 @@
-/* 추천 조건 01~04를 실제 카드처럼 보이게 합니다. */
+/* PC에서는 조건 카드의 외곽선과 배경을 부드럽게 만들어 딱딱한 느낌을 줄입니다. */
 html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
 html[data-theme="dark"] .recommendPage .featureCondition {
   background: #1b1921 !important;
-  border: 1px solid #3a3546 !important;
-  border-radius: 22px !important;
-  box-shadow: none !important;
+  border: 1px solid #302c39 !important;
+  border-radius: 24px !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12) !important;
 }
 
-/* 모바일에서도 01~04 카드의 외곽선과 배경을 확실히 표시합니다. */
+/* 02·03·04 카드는 서로 붙어 하나의 조건 영역처럼 보이게 합니다. */
+@media (min-width: 761px) {
+  html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
+  html[data-theme="dark"] .recommendPage .featureCondition {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard:first-child {
+    border-radius: 24px 24px 0 0 !important;
+  }
+  html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard:last-child {
+    border-radius: 0 0 24px 24px !important;
+  }
+  html[data-theme="dark"] .recommendPage .featureCondition {
+    border-radius: 24px !important;
+  }
+}
+
+/* 모바일에서도 카드 외곽선은 유지하되 과하게 각지지 않게 합니다. */
 @media (max-width: 760px) {
   html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
   html[data-theme="dark"] .recommendPage .featureCondition {
     padding: 16px !important;
     background: #1b1921 !important;
-    border: 1px solid #3a3546 !important;
+    border: 1px solid #302c39 !important;
     border-radius: 18px !important;
     box-shadow: none !important;
   }
-}
-
-/* 01~03 카드 사이의 세로 틈을 없애 하나의 연속된 묶음처럼 보이게 합니다. */
-.recommendPage .conditionGrid {
-  row-gap: 0 !important;
-}
-
-/* 03 카드와 04 카드 사이의 세로 틈도 없앱니다. */
-.recommendPage .conditionGrid + .featureCondition {
-  margin-top: 0 !important;
-}
-
-/* 카드가 붙을 때 경계선이 겹쳐 두꺼워 보이지 않도록 조정합니다. */
-.recommendPage .conditionGrid .conditionCard + .conditionCard,
-.recommendPage .conditionGrid + .featureCondition {
-  border-top-left-radius: 0 !important;
-  border-top-right-radius: 0 !important;
-}
-
-.recommendPage .conditionGrid .conditionCard:has(+ .conditionCard),
-.recommendPage .conditionGrid .conditionCard:nth-child(2) {
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
-}
-
-/* 01 카드와 02 카드 사이도 자연스럽게 이어집니다. */
-.recommendPage .conditionGrid .conditionCard + .conditionCard {
-  border-top-color: transparent !important;
-}
-
-/* 03 카드와 04 카드 사이의 중복 경계선도 제거합니다. */
-.recommendPage .conditionGrid + .featureCondition {
-  border-top-color: transparent !important;
 }
