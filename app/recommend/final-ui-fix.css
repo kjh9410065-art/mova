@@ -13,8 +13,8 @@
 .recommendPage .recommendResult > .resultHead:first-child { position: relative !important; }
 /* STEP 02 · RESULT 라벨은 화면을 간결하게 하기 위해 숨깁니다. */
 .recommendPage .recommendResult > .resultHead:first-child > div:first-child > .eyebrow { display: none !important; }
-/* 결과 제목과 TOP MATCH 카드 사이에만 작은 여백을 둡니다. */
-.recommendPage .recommendResult > .resultHead:first-child { margin-bottom: 24px !important; }
+/* '당신에게 맞는 서비스' 제목 영역과 TOP MATCH 카드 사이를 살짝 띄웁니다. */
+.recommendPage .recommendResult > .resultHead:first-child { margin-bottom: 30px !important; }
 @media (max-width: 760px) {
   .recommendPage .recommendSearchRow { display: flex !important; width: 100% !important; gap: 6px !important; }
   .recommendPage .recommendSearchRow input { flex: 1 1 auto !important; min-width: 0 !important; }
