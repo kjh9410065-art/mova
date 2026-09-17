@@ -1,0 +1,20 @@
+/* 추천 조건 01~04를 실제 카드처럼 보이게 합니다. */
+html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
+html[data-theme="dark"] .recommendPage .featureCondition {
+  background: #1b1921 !important;
+  border: 1px solid #3a3546 !important;
+  border-radius: 22px !important;
+  box-shadow: none !important;
+}
+
+/* 모바일에서도 01~04 카드의 외곽선과 배경을 확실히 표시합니다. */
+@media (max-width: 760px) {
+  html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
+  html[data-theme="dark"] .recommendPage .featureCondition {
+    padding: 16px !important;
+    background: #1b1921 !important;
+    border: 1px solid #3a3546 !important;
+    border-radius: 18px !important;
+    box-shadow: none !important;
+  }
+}
