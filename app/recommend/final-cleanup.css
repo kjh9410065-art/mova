@@ -1,0 +1,15 @@
+/* 추천 결과의 과도한 장식과 중복 박스를 정리하고 구조적 여백만 유지합니다. */
+.recommendPage .recommendResult > .resultHead:first-child { border: 0 !important; }
+.recommendPage .recommendResult .resultHeadSub { border: 0 !important; }
+
+@media (min-width: 761px) {
+  /* PC에서 결과 묶음 사이 간격은 충분히 주되 내부 레이아웃은 건드리지 않습니다. */
+  .recommendPage .recommendResult > .resultHead:first-child { margin-bottom: 22px !important; }
+  .recommendPage .recommendResult .resultHeadSub { margin-top: 30px !important; }
+}
+
+@media (max-width: 760px) {
+  /* 모바일에서는 화면 폭을 고려해 결과 묶음 사이 간격을 조금 줄입니다. */
+  .recommendPage .recommendResult > .resultHead:first-child { margin-bottom: 16px !important; }
+  .recommendPage .recommendResult .resultHeadSub { margin-top: 26px !important; }
+}
