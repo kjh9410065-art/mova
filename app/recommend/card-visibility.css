@@ -18,3 +18,36 @@ html[data-theme="dark"] .recommendPage .featureCondition {
     box-shadow: none !important;
   }
 }
+
+/* 01~03 카드 사이의 세로 틈을 없애 하나의 연속된 묶음처럼 보이게 합니다. */
+.recommendPage .conditionGrid {
+  row-gap: 0 !important;
+}
+
+/* 03 카드와 04 카드 사이의 세로 틈도 없앱니다. */
+.recommendPage .conditionGrid + .featureCondition {
+  margin-top: 0 !important;
+}
+
+/* 카드가 붙을 때 경계선이 겹쳐 두꺼워 보이지 않도록 조정합니다. */
+.recommendPage .conditionGrid .conditionCard + .conditionCard,
+.recommendPage .conditionGrid + .featureCondition {
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.recommendPage .conditionGrid .conditionCard:has(+ .conditionCard),
+.recommendPage .conditionGrid .conditionCard:nth-child(2) {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* 01 카드와 02 카드 사이도 자연스럽게 이어집니다. */
+.recommendPage .conditionGrid .conditionCard + .conditionCard {
+  border-top-color: transparent !important;
+}
+
+/* 03 카드와 04 카드 사이의 중복 경계선도 제거합니다. */
+.recommendPage .conditionGrid + .featureCondition {
+  border-top-color: transparent !important;
+}
