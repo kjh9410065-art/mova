@@ -36,7 +36,7 @@ html[data-theme="dark"] .relatedCard span,html[data-theme="dark"] .relatedCard p
 html[data-theme="dark"] .relatedHeading>a{color:#b8a8ff!important}
 html[data-theme="dark"] .guideLinkGrid a{background:#151a22!important;border-color:#303847!important;color:#c5cbd6!important}
 html[data-theme="dark"] .guideLinkGrid a:hover{border-color:#6652a6!important;color:#c9bfff!important}
-html[data-theme="dark"] .serviceBottom a:first-child{background:#f8fafc!important;color:#111827!important}
+html[data-theme="dark"] .serviceBottom a:first-child{background:#151a22!important;color:#f8fafc!important;border:1px solid #303847!important}
 html[data-theme="dark"] .serviceBottom a:not(:first-child){background:#151a22!important;border-color:#303847!important;color:#c5cbd6!important}
 html[data-theme="dark"] .affiliateBottom .serviceOutbound{background:#7055e8!important;border-color:#7055e8!important;color:#fff!important}
 html[data-theme="dark"] .serviceBottom .affiliateDisclosure{color:#8f99a8!important}
