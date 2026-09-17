@@ -1,3 +1,5 @@
+@import "./mobile-result-softness.css";
+
 /* PC 추천 결과 영역을 각진 박스보다 부드러운 카드형 UI로 보이게 합니다. */
 @media (min-width: 761px) {
   .recommendPage .recommendResult { margin-top: 34px !important; }
@@ -11,8 +13,6 @@
   .recommendPage .topMatchService h3 { font-size: 23px !important; letter-spacing: -.035em !important; }
   .recommendPage .topMatchActions { gap: 10px !important; margin-top: 6px !important; }
   .recommendPage .topMatchActions > * { min-height: 46px !important; padding: 0 18px !important; border-radius: 13px !important; }
-
-  /* 빠른 조건 영역을 별도 박스가 아니라 TOP MATCH 아래의 가벼운 컨트롤 행으로 정리합니다. */
   .recommendPage .recommendQuickActions { margin: 22px 2px 0 !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 24px !important; }
   .recommendPage .recommendQuickActions > strong { flex: 0 0 auto !important; font-size: 13px !important; font-weight: 800 !important; }
   .recommendPage .recommendQuickActions > div { display: flex !important; align-items: center !important; justify-content: flex-end !important; flex-wrap: wrap !important; gap: 8px !important; }
@@ -23,7 +23,6 @@
   .recommendPage .recommendResult .resultGrid { gap: 14px !important; }
   .recommendPage .recommendResult .resultCard { margin: 0 !important; padding: 22px !important; border: 1px solid #302c39 !important; border-radius: 20px !important; background: #1b1922 !important; box-shadow: 0 8px 24px rgba(0,0,0,.11) !important; }
 }
-
 @media (min-width: 761px) {
   html:not([data-theme="dark"]) .recommendPage .recommendResult > .topMatch,
   html:not([data-theme="dark"]) .recommendPage .recommendResult .resultCard { background: #ffffff !important; border-color: #e3e0ed !important; box-shadow: 0 12px 32px rgba(53,42,111,.08) !important; }
