@@ -67,12 +67,76 @@
   .recommendPage .recommendSearchButton,
   .recommendPage .recommendResetButton { min-height: 40px !important; padding: 0 10px !important; font-size: 11px !important; }
 
-  /* 모바일 TOP MATCH 아이콘은 72px로 제한합니다. */
-  .recommendPage .topMatchService > img { width: 72px !important; height: 72px !important; min-width: 72px !important; max-width: 72px !important; min-height: 72px !important; max-height: 72px !important; flex: 0 0 72px !important; object-fit: contain !important; border-radius: 18px !important; }
+  /* 모바일 TOP MATCH 아이콘은 후보 카드와 같은 64px로 통일합니다. */
+  .recommendPage .topMatchService > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
 
-  /* 모바일 후보 아이콘은 64px로 제한합니다. */
+  /* 모바일 후보 아이콘도 64px로 유지합니다. */
   .recommendPage .resultCard .resultServiceTop .resultIcon,
   .recommendPage .resultCard .resultServiceTop > img { width: 64px !important; height: 64px !important; min-width: 64px !important; max-width: 64px !important; min-height: 64px !important; max-height: 64px !important; flex: 0 0 64px !important; object-fit: contain !important; border-radius: 16px !important; }
+
+  /* TOP MATCH와 후보 카드를 같은 2열 구조로 맞춰 서비스 정보와 태그 위치를 통일합니다. */
+  .recommendPage .topMatch {
+    display: block !important;
+    padding: 17px !important;
+    margin: 10px 0 !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+  }
+
+  .recommendPage .topMatchMain {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(135px, 0.82fr) !important;
+    grid-template-areas:
+      "label label"
+      "service chips"
+      "reason reason"
+      "disclosure disclosure" !important;
+    column-gap: 10px !important;
+    row-gap: 10px !important;
+    align-items: center !important;
+  }
+
+  .recommendPage .topMatchLabel { grid-area: label !important; }
+  .recommendPage .topMatchService { grid-area: service !important; min-width: 0 !important; display: flex !important; align-items: center !important; gap: 10px !important; }
+  .recommendPage .topMatchService h3 { margin: 0 !important; font-size: 18px !important; line-height: 1.25 !important; }
+  .recommendPage .topMatchService p { margin: 4px 0 0 !important; font-size: 13px !important; line-height: 1.4 !important; }
+  .recommendPage .topMatchMain > .chips { grid-area: chips !important; width: 100% !important; margin: 0 !important; display: flex !important; align-items: center !important; justify-content: flex-end !important; flex-wrap: wrap !important; gap: 6px !important; }
+  .recommendPage .topReason { grid-area: reason !important; margin: 0 !important; font-size: 13px !important; line-height: 1.6 !important; }
+  .recommendPage .affiliateDisclosure { grid-area: disclosure !important; }
+
+  /* TOP MATCH의 액션도 후보 카드와 같은 하단 버튼 형태로 통일합니다. */
+  .recommendPage .topMatchActions {
+    display: flex !important;
+    gap: 7px !important;
+    margin-top: 10px !important;
+    width: 100% !important;
+  }
+  .recommendPage .topMatchActions > * {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    min-height: 42px !important;
+    padding: 0 10px !important;
+    border-radius: 11px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    text-decoration: none !important;
+    white-space: nowrap !important;
+  }
+  .recommendPage .topMatchActions .primaryAction { background: #f3f1f8 !important; color: #292633 !important; border: 1px solid #e4e0ed !important; }
+  .recommendPage .topMatchActions .secondaryAction { background: #25232d !important; color: #fff !important; border: 1px solid #25232d !important; }
+
+  /* 후보 카드도 같은 카드 여백과 모서리를 사용합니다. */
+  .recommendPage .resultCard {
+    padding: 17px !important;
+    margin: 10px 0 !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+  }
 }
 
 /* 다크모드 검색창과 버튼의 대비를 맞춥니다. */
@@ -92,3 +156,9 @@ html[data-theme="dark"] .recommendPage .recommendResultGrid > article { border: 
 html[data-theme="dark"] .recommendPage .resultCard.best,
 html[data-theme="dark"] .recommendPage .topMatch { border-color: #4a4358 !important; box-shadow: 0 10px 30px rgba(0,0,0,.18) !important; }
 @media (max-width: 760px) { html[data-theme="dark"] .recommendPage .conditionCard { padding: 0 !important; background: transparent !important; border: 0 !important; } }
+
+/* 다크모드에서도 TOP MATCH와 후보 카드의 하단 버튼을 동일한 톤으로 맞춥니다. */
+@media (max-width: 760px) {
+  html[data-theme="dark"] .recommendPage .topMatchActions .primaryAction { background: #28242f !important; border-color: #393342 !important; color: #f0ebf5 !important; }
+  html[data-theme="dark"] .recommendPage .topMatchActions .secondaryAction { background: #7055e8 !important; border-color: #7055e8 !important; color: #fff !important; }
+}
