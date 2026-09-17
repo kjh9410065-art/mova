@@ -1,4 +1,4 @@
-/* MOVA 서비스 상세 화면: 서비스 선택에 필요한 정보와 대안을 한 화면에서 보여줍니다. */
+/* NERDING 서비스 상세 화면: 서비스 선택에 필요한 정보와 대안을 한 화면에서 보여줍니다. */
 import Link from "next/link";
 import { catalog, catalogMap } from "../../lib/catalog";
 import { scoreService } from "../../lib/recommendation";
@@ -16,8 +16,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { id } = await params;
   const service = catalogMap[id];
-  if (!service) return { title: "서비스를 찾을 수 없습니다. | MOVA" };
-  return { title: `${service.name} — 기능·비용·추천 용도 | MOVA`, description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.` };
+  if (!service) return { title: "서비스를 찾을 수 없습니다. | NERDING" };
+  return { title: `${service.name} — 기능·비용·추천 용도 | NERDING`, description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.` };
 }
 
 function getPrimaryGoal(service) {
@@ -51,7 +51,7 @@ export default async function ServiceDetail({ params }) {
 
   return (
     <main className="serviceDetail">
-      <header className="header serviceHeader"><Link className="logo" href="/">MOVA</Link><nav><Link href="/catalog">전체 서비스</Link><Link href="/recommend">추천받기</Link><Link href="/compare">비교하기</Link></nav></header>
+      <header className="header serviceHeader"><Link className="logo" href="/" aria-label="NERDING 홈">NERDING</Link><nav><Link href="/catalog">전체 서비스</Link><Link href="/recommend">추천받기</Link><Link href="/compare">비교하기</Link></nav></header>
       <section className="serviceHero">
         <div className="serviceIdentity"><img src={service.icon} alt="" /><div><div className="eyebrow">{service.category}</div><h1>{service.name}</h1></div></div>
         <p>{description}</p>
@@ -60,7 +60,7 @@ export default async function ServiceDetail({ params }) {
         <ServicePersonalTools serviceId={service.id} />
       </section>
 
-      <section className="serviceVerdict"><div><div className="eyebrow">MOVA QUICK VERDICT</div><h2>{primaryGoal.label} 목적에 특히 잘 맞습니다.</h2><p>{service.bestFor || description}. {service.api ? "개발 단계에서 API로 연결하기에도 적합합니다." : "개발용 API가 핵심이라면 API 제공 서비스를 함께 비교하는 것이 좋습니다."}</p></div><div className="verdictScore"><strong>{primaryResult.score}</strong><span>추천 기준점</span></div></section>
+      <section className="serviceVerdict"><div><div className="eyebrow">NERDING QUICK VERDICT</div><h2>{primaryGoal.label} 목적에 특히 잘 맞습니다.</h2><p>{service.bestFor || description}. {service.api ? "개발 단계에서 API로 연결하기에도 적합합니다." : "개발용 API가 핵심이라면 API 제공 서비스를 함께 비교하는 것이 좋습니다."}</p></div><div className="verdictScore"><strong>{primaryResult.score}</strong><span>추천 기준점</span></div></section>
 
       <section className="suitableSection"><div className="sectionTitle"><div><div className="eyebrow">GOOD FOR</div><h2>추천 대상</h2><p>{service.bestFor || description}</p></div></div><div className="suitableGrid">{suitableFor.map((item) => <span key={item}>{item} 제작</span>)}{service.free && <span>비용을 아끼며 테스트</span>}{service.difficulty === "쉬움" && <span>처음 시작하는 경우</span>}{service.api && <span>서비스에 API 연결</span>}</div></section>
 
