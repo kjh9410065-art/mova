@@ -10,6 +10,7 @@ import "./card-visibility.css";
 import "./pc-result-softness.css";
 import "./mobile-result-softness.css";
 import "./section-spacing.css";
+import "./result-polish.css";
 import { catalog, catalogMap } from "../lib/catalog";
 import { rankServices } from "../lib/recommendation";
 import { rankSearchResults, scoreSearch } from "../lib/search";
