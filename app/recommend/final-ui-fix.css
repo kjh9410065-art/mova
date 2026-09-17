@@ -62,3 +62,16 @@ html[data-theme="dark"] .recommendPage .resultCard.best,html[data-theme="dark"] 
 @media (max-width: 760px) {
   .recommendPage .recommendShell > section + section { margin-top: 20px !important; }
 }
+
+/* 모바일 다크 모드에서도 01·02·03·04 조건 묶음 카드를 다시 표시합니다. */
+@media (max-width: 760px) {
+  html[data-theme="dark"] .recommendPage .conditionGrid .conditionCard,
+  html[data-theme="dark"] .recommendPage .featureCondition {
+    padding: 18px !important;
+    background: #1d1a23 !important;
+    border: 1px solid #302c39 !important;
+    border-radius: 18px !important;
+    box-sizing: border-box !important;
+    box-shadow: none !important;
+  }
+}
