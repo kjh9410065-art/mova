@@ -1,11 +1,11 @@
-// HUB 무료 도구 모음: 방문자가 서비스 선택 전에 직접 계산하고 판단할 수 있는 실용 도구를 제공합니다.
+// NERDING 무료 도구 모음: 방문자가 서비스 선택 전에 직접 계산하고 판단할 수 있는 실용 도구를 제공합니다.
 import Link from "next/link";
 import "./tools-icons.css";
 
-export const metadata = { title: "AI 무료 도구 | HUB", description: "AI 서비스 선택에 도움이 되는 무료 계산기와 개발자용 실용 도구를 HUB에서 이용하세요." };
+export const metadata = { title: "AI 무료 도구 | NERDING", description: "AI 서비스 선택에 도움이 되는 무료 계산기와 개발자용 실용 도구를 NERDING에서 이용하세요." };
 
 // 카드 아이콘은 모두 SVG 스프라이트의 ID를 가리킵니다.
-// 이렇게 하면 운영체제마다 모양이 달라지는 이모지 대신 HUB에서 통일한 아이콘이 표시됩니다.
+// 이렇게 하면 운영체제마다 모양이 달라지는 이모지 대신 NERDING에서 통일한 아이콘이 표시됩니다.
 const tools = [
  {href:"/tools/cost",icon:"calculator",title:"AI API 비용 계산기",desc:"예상 사용량을 입력하고 월간 API 비용을 빠르게 계산합니다."},
  {href:"/tools/token",icon:"token",title:"AI 토큰 추정기",desc:"프롬프트를 붙여 넣고 대략적인 토큰 사용량을 확인합니다."},
@@ -41,8 +41,8 @@ const tools = [
 export default function ToolsPage(){
   return (
     <main className="page toolPage">
-      <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/guides">가이드</Link><Link href="/compare">비교하기</Link></nav></header>
-      <section className="guideHero"><div className="eyebrow">HUB TOOLS</div><h1>서비스를 고르기 전에,<br/><span>직접 계산하고 비교하세요.</span></h1><p>무료 도구를 이용해 필요한 서비스와 예상 비용을 먼저 확인할 수 있습니다.</p></section>
+      <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/guides">가이드</Link><Link href="/compare">비교하기</Link></nav></header>
+      <section className="guideHero"><div className="eyebrow">NERDING TOOLS</div><h1>서비스를 고르기 전에,<br/><span>직접 계산하고 비교하세요.</span></h1><p>무료 도구를 이용해 필요한 서비스와 예상 비용을 먼저 확인할 수 있습니다.</p></section>
       <section className="section"><div className="guideGrid">
         {tools.map((tool) => (
           <Link className="guideCard" href={tool.href} key={tool.href}>
