@@ -30,10 +30,10 @@ export const metadata = {
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
-    // 실제 PNG 파일을 favicon으로 직접 지정해 브라우저 호환성을 확보합니다.
-    icon: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
-    shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
-    apple: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"
+    // Google과 브라우저가 안정적으로 인식하도록 저장소의 고정된 NERDING 아이콘 경로를 사용합니다.
+    icon: [{ url: "/icon.svg?v=nerding-20260918", type: "image/svg+xml" }],
+    shortcut: "/icon.svg?v=nerding-20260918",
+    apple: "/icon.svg?v=nerding-20260918"
   },
   robots: { index: true, follow: true },
   openGraph: {
