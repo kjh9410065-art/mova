@@ -100,7 +100,7 @@ export default function HomePage() {
   return (
     <main className="homePage">
       <header className="homeHeader">
-        <Link className="brand" href="/" aria-label="NERDING 홈">NERDING</Link>
+        <Link className="brand" href="/" aria-label="NERDING 너딩 홈">NERDING <span>· 너딩</span></Link>
         <nav className="topNav" aria-label="주요 메뉴">
           <Link href="/recommend">추천</Link><Link href="/catalog">전체 서비스</Link><Link href="/tools">무료 도구</Link><Link href="/compare">비교함{compare.length ? ` ${compare.length}` : ""}</Link>
         </nav>
@@ -153,7 +153,7 @@ export default function HomePage() {
       <section className="stepSection categoryStep"><div className="stepHeading compactHeading"><p className="sectionKicker">STEP 03</p><h2>서비스를 한눈에 둘러보세요.</h2><p>인기 있는 AI 서비스를 카테고리별로 확인하세요.</p></div><div className="categoryList">{categories.map((group) => <Link key={group.id} href={`/catalog?category=${group.id}`} className="categoryCard"><img src={tasks.find((task) => task.id === ({ llm: "chat", image: "image", video: "video", voice: "voice", search: "api", developer: "api", infra: "api", design: "image" }[group.id] || "api"))?.icon || "/icon.svg"} alt="" /><span>{group.label}</span><b>{getCategoryCount(group.id)}개</b><i aria-hidden="true">›</i></Link>)}</div></section>
       <section className="stepSection compareStep"><div className="stepHeading compactHeading"><p className="sectionKicker">STEP 04</p><h2>서비스를 고르기 전에<br />비교부터 해보세요.</h2><p>최대 4개의 서비스를 한 번에 비교해서 나에게 가장 잘 맞는 서비스를 찾아보세요.</p></div><Link href="/compare" className="compareCta"><span className="compareCtaIcon" aria-hidden="true">+</span><span><strong>서비스 비교하기</strong><small>최대 4개의 서비스를 한 번에 비교</small></span><b aria-hidden="true">›</b></Link></section>
       {compare.length > 0 && <div className="compareBar"><div className="compareBarInfo"><div className="compareBarTitle"><strong>비교함</strong><span>{compare.length}/4개 선택</span></div><div className="compareBarHint">{compare.length < 4 ? "서비스를 더 추가해 비교해보세요!" : "선택한 서비스를 비교해보세요."}</div><div className="compareSelectedIcons" aria-label="선택한 서비스">{compare.map((id) => <span className="compareSelectedIcon" key={id} title={catalogMap[id]?.name}><img src={catalogMap[id]?.icon} alt={catalogMap[id]?.name || ""}/></span>)}{compare.length < 4 && <span className="compareSelectedIcon compareAddIcon" aria-hidden="true">+</span>}</div></div><div className="compareBarActions"><button type="button" className="compareReset" onClick={() => setCompare([])}>전체 해제</button><Link className="compareGo" href="/compare">비교 화면 열기</Link></div></div>}
-      <footer className="homeFooter"><div><strong>NERDING</strong><span>목적에 맞는 AI·개발 서비스 탐색</span></div><div className="footerLinks"><Link href="/recommend">추천</Link><Link href="/catalog">카탈로그</Link><Link href="/tools">무료 도구</Link><Link href="/compare">비교</Link></div></footer>
+      <footer className="homeFooter"><div><strong>NERDING · 너딩</strong><span>목적에 맞는 AI·개발 서비스 탐색</span></div><div className="footerLinks"><Link href="/recommend">추천</Link><Link href="/catalog">카탈로그</Link><Link href="/tools">무료 도구</Link><Link href="/compare">비교</Link></div></footer>
     </main>
   );
 }
