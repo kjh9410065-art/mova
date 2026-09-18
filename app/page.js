@@ -100,7 +100,7 @@ export default function HomePage() {
   return (
     <main className="homePage">
       <header className="homeHeader">
-        <Link className="brand" href="/" aria-label="NERDING 너딩 홈">NERDING <span>· 너딩</span></Link>
+        <Link className="brand" href="/" aria-label="NERDING 너딩 홈"><strong>NERDING</strong><span>· 너딩</span></Link>
         <nav className="topNav" aria-label="주요 메뉴">
           <Link href="/recommend">추천</Link><Link href="/catalog">전체 서비스</Link><Link href="/tools">무료 도구</Link><Link href="/compare">비교함{compare.length ? ` ${compare.length}` : ""}</Link>
         </nav>
