@@ -33,7 +33,7 @@ export const metadata = {
     // PNG 파일을 직접 지정해 브라우저와 검색엔진의 favicon 인식을 안정화합니다.
     icon: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", type: "image/png" }],
     shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
-    apple: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9일%20오후%2011_34_22.png"
+    apple: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"
   },
   robots: { index: true, follow: true },
   openGraph: {
@@ -44,7 +44,7 @@ export const metadata = {
     locale: "ko_KR",
     type: "website",
     images: [{
-      url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9일%20오후%2011_34_22.png",
+      url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
       alt: "NERDING AI 서비스 찾기"
     }]
   },
@@ -53,7 +53,7 @@ export const metadata = {
     title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
     description: "AI 서비스와 개발 도구를 목적에 맞게 찾고 비교하는 NERDING.",
     // 실제 public 파일명과 정확히 일치하도록 수정합니다.
-    images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC% 9B%94%2015%EC%9일%20오후%2011_34_22.png"]
+    images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"]
   },
   verification: { google: "hAHkcvWFhoATFOdphua3yECySUCnJXT2IC9gfm0cYew" }
 };
