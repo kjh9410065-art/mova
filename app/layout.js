@@ -30,7 +30,6 @@ export const metadata = {
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
-    // Google과 브라우저가 안정적으로 인식하도록 저장소의 고정된 NERDING 아이콘 경로를 사용합니다.
     icon: [{ url: "/icon.svg?v=nerding-20260918", type: "image/svg+xml" }],
     shortcut: "/icon.svg?v=nerding-20260918",
     apple: "/icon.svg?v=nerding-20260918"
@@ -43,7 +42,10 @@ export const metadata = {
     siteName: "NERDING",
     locale: "ko_KR",
     type: "website",
-    images: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", width: 716, height: 716, alt: "NERDING AI 서비스 찾기" }]
+    images: [{
+      url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
+      alt: "NERDING AI 서비스 찾기"
+    }]
   },
   twitter: {
     card: "summary_large_image",
@@ -61,9 +63,7 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <head>
         <link rel="stylesheet" href="/illustrations.css" />
-        {/* 네이버 소유확인용 메타 태그를 head에 직접 넣습니다. */}
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
-        {/* 기존 데이터와 기능에는 영향을 주지 않고 화면에 남은 이전 브랜드명을 새 이름으로 표시합니다. */}
         <script dangerouslySetInnerHTML={{ __html: `(() => { const start = () => { const replaceBrand = () => { if (!document.body) return; const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode); nodes.forEach((node) => { if (node.nodeValue.includes("MOVA")) node.nodeValue = node.nodeValue.replaceAll("MOVA", "NERDING"); if (node.nodeValue.includes("HUB")) node.nodeValue = node.nodeValue.replaceAll("HUB", "NERDING"); }); document.querySelectorAll("[aria-label], [title]").forEach((el) => { ["aria-label", "title"].forEach((attr) => { const value = el.getAttribute(attr); if (value) el.setAttribute(attr, value.replaceAll("MOVA", "NERDING").replaceAll("HUB", "NERDING")); }); }); }; replaceBrand(); new MutationObserver(replaceBrand).observe(document.body, { childList: true, subtree: true, characterData: true }); }; if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true }); else start(); })();` }} />
       </head>
       <body>
