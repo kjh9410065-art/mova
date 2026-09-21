@@ -17,7 +17,27 @@ export async function generateMetadata({ params }) {
   const { id } = await params;
   const service = catalogMap[id];
   if (!service) return { title: "서비스를 찾을 수 없습니다. | NERDING" };
-  return { title: `${service.name} — 기능·비용·추천 용도 | NERDING`, description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.` };
+  const description = service.description || service.bestFor || `${service.name}의 주요 기능과 활용 정보를 확인하세요.`;
+  const canonicalPath = `/services/${encodeURIComponent(service.id)}`;
+  return {
+    title: `${service.name} — 기능·비용·추천 용도 | NERDING`,
+    description: `${service.name}의 주요 기능, 비용, 난이도, API 제공 여부와 어떤 작업에 잘 맞는지 확인하세요.`,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      title: `${service.name} — 기능·비용·추천 용도 | NERDING`,
+      description,
+      url: `https://mova.tcflick.com${canonicalPath}`,
+      siteName: "NERDING",
+      locale: "ko_KR",
+      type: "website",
+      images: service.icon ? [{ url: service.icon, alt: `${service.name} 아이콘` }] : undefined
+    },
+    twitter: {
+      card: "summary",
+      title: `${service.name} — 기능·비용·추천 용도 | NERDING`,
+      description
+    }
+  };
 }
 
 function getPrimaryGoal(service) {
