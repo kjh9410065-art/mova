@@ -66,7 +66,43 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="/illustrations.css" />
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
-        <script dangerouslySetInnerHTML={{ __html: `(() => { const start = () => { const replaceBrand = () => { if (!document.body) return; const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT); const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode); nodes.forEach((node) => { if (node.nodeValue.includes("MOVA")) node.nodeValue = node.nodeValue.replaceAll("MOVA", "NERDING"); if (node.nodeValue.includes("HUB")) node.nodeValue = node.nodeValue.replaceAll("HUB", "NERDING"); }); document.querySelectorAll("[aria-label], [title]").forEach((el) => { ["aria-label", "title"].forEach((attr) => { const value = el.getAttribute(attr); if (value) el.setAttribute(attr, value.replaceAll("MOVA", "NERDING").replaceAll("HUB", "NERDING")); }); }); }; replaceBrand(); new MutationObserver(replaceBrand).observe(document.body, { childList: true, subtree: true, characterData: true }); }; if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true }); else start(); })();` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(() => {
+          const start = () => {
+            if (!document.body) return;
+            let observer;
+            let frame = 0;
+            const replaceBrand = () => {
+              if (!document.body) return;
+              observer?.disconnect();
+              const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+              const nodes = [];
+              while (walker.nextNode()) nodes.push(walker.currentNode);
+              nodes.forEach((node) => {
+                if (node.nodeValue.includes("MOVA")) node.nodeValue = node.nodeValue.replaceAll("MOVA", "NERDING");
+                if (node.nodeValue.includes("HUB")) node.nodeValue = node.nodeValue.replaceAll("HUB", "NERDING");
+              });
+              document.querySelectorAll("[aria-label], [title]").forEach((el) => {
+                ["aria-label", "title"].forEach((attr) => {
+                  const value = el.getAttribute(attr);
+                  if (value) el.setAttribute(attr, value.replaceAll("MOVA", "NERDING").replaceAll("HUB", "NERDING"));
+                });
+              });
+              observer?.observe(document.body, { childList: true, subtree: true, characterData: true });
+            };
+            const scheduleReplace = () => {
+              if (frame) return;
+              frame = requestAnimationFrame(() => {
+                frame = 0;
+                replaceBrand();
+              });
+            };
+            replaceBrand();
+            observer = new MutationObserver(scheduleReplace);
+            observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+          };
+          if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
+          else start();
+        })();` }} />
       </head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
