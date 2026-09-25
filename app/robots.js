@@ -1,4 +1,4 @@
-// MOVA의 공개 페이지를 검색엔진이 정상적으로 크롤링할 수 있도록 설정합니다.
+// 공개 페이지를 검색엔진이 정상적으로 크롤링할 수 있도록 설정합니다.
 export const dynamic = "force-static";
 
 export default function robots() {
