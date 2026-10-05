@@ -30,10 +30,10 @@ export const metadata = {
   metadataBase: new URL("https://mova.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
-    // PNG 파일을 직접 지정해 브라우저와 검색엔진의 favicon 인식을 안정화합니다.
-    icon: [{ url: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png", type: "image/png" }],
-    shortcut: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png",
-    apple: "/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"
+    // 실제 서비스 아이콘을 favicon으로 사용해 대형 홍보 이미지를 favicon으로 불러오지 않도록 합니다.
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg"
   },
   robots: { index: true, follow: true },
   openGraph: {
