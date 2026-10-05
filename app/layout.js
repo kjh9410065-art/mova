@@ -74,7 +74,7 @@ export default function RootLayout({ children }) {
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
         {/* 기존 상단 광고 칸에 승인된 Yandex.RTB 광고를 표시합니다. */}
-        <div className="movaAdSlot movaAdSlotEnabled" aria-label="광고 영역" style={{ maxHeight: "190px", height: "190px", overflow: "hidden" }}>
+        <div className="movaAdSlot movaAdSlotEnabled" aria-label="광고 영역">
           <div id="yandex_rtb_R-A-20181662-1" />
         </div>
         <script
