@@ -66,11 +66,26 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="/illustrations.css" />
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
+        {/* Yandex.RTB 공통 광고 로더를 불러옵니다. */}
+        <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
+        <script src="https://yandex.ru/ads/system/context.js" async />
 
       </head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
         <AdSlot label="광고" />
+        {/* NERDING 상단 Yandex.RTB 광고 영역입니다. */}
+        <div id="yandex_rtb_R-A-20181662-1" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.yaContextCb.push(() => {
+              Ya.Context.AdvManager.render({
+                "blockId": "R-A-20181662-1",
+                "renderTo": "yandex_rtb_R-A-20181662-1"
+              })
+            })`
+          }}
+        />
         {children}
         <AdSlot label="광고" />
         <SiteFooter />
