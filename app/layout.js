@@ -73,9 +73,10 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
-        <AdSlot label="광고" />
-        {/* NERDING 상단 Yandex.RTB 광고 영역입니다. */}
-        <div id="yandex_rtb_R-A-20181662-1" />
+        {/* 기존 상단 광고 칸에 승인된 Yandex.RTB 광고를 표시합니다. */}
+        <div className="movaAdSlot movaAdSlotEnabled" aria-label="광고 영역">
+          <div id="yandex_rtb_R-A-20181662-1" />
+        </div>
         <script
           dangerouslySetInnerHTML={{
             __html: `window.yaContextCb.push(() => {
