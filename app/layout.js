@@ -18,7 +18,6 @@ import "./recommend/desktop-topmatch-fix.css";
 import Script from "next/script";
 import NerdingTutorial from "./components/nerding-tutorial";
 import NerdingTheme from "./components/nerding-theme";
-import AdSlot from "./components/ad-slot";
 import SiteFooter from "./components/site-footer";
 
 const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim();
@@ -88,7 +87,6 @@ export default function RootLayout({ children }) {
           }}
         />
         {children}
-        <AdSlot label="광고" />
         <SiteFooter />
         <NerdingTheme />
         <NerdingTutorial />
