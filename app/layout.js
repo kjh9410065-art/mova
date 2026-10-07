@@ -68,8 +68,9 @@ export default function RootLayout({ children }) {
         {/* Yandex.RTB 공통 광고 로더를 불러옵니다. */}
         <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
         <script src="https://yandex.ru/ads/system/context.js" async />
-
-      <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+        {/* 자동광고가 활성화되어 있어도 이 수동 Yandex unit은 계속 노출되도록 예외 처리합니다. */}
+        <script dangerouslySetInnerHTML={{ __html: `window.APExceptionBlocks = window.APExceptionBlocks || ["R-A-20181662-1"];` }} />
+        <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
