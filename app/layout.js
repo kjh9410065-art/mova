@@ -68,7 +68,6 @@ export default function RootLayout({ children }) {
         {/* Yandex.RTB 공통 광고 로더를 불러옵니다. */}
         <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
         <script src="https://yandex.ru/ads/system/context.js" async />
-        <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async />
 
       </head>
       <body>
