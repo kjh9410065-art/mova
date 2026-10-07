@@ -69,7 +69,8 @@ export default function RootLayout({ children }) {
         <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
         <script src="https://yandex.ru/ads/system/context.js" async />
 
-      </head>
+      <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
+</head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
         {/* 기존 상단 광고 칸에 승인된 Yandex.RTB 광고를 표시합니다. */}
