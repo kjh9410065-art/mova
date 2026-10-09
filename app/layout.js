@@ -81,10 +81,49 @@ export default function RootLayout({ children }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `window.yaContextCb.push(() => {
+              const blockId = "R-A-20181662-1";
+              const targetId = "yandex_rtb_R-A-20181662-1";
+              const target = document.getElementById(targetId);
+
+              if (!target) {
+                console.error("[NERDING Yandex] 광고 대상 요소를 찾지 못했습니다:", targetId);
+                return;
+              }
+
+              const before = target.getBoundingClientRect();
+              console.info("[NERDING Yandex] 렌더 요청", {
+                blockId, targetId,
+                width: Math.round(before.width),
+                height: Math.round(before.height),
+                connected: target.isConnected
+              });
+
               Ya.Context.AdvManager.render({
-                "blockId": "R-A-20181662-1",
-                "renderTo": "yandex_rtb_R-A-20181662-1"
-              })
+                blockId,
+                renderTo: targetId,
+                onError: (data) => {
+                  const node = document.getElementById(targetId);
+                  const rect = node?.getBoundingClientRect();
+                  console.error("[NERDING Yandex] 광고 요청/렌더 오류", {
+                    type: data?.type ?? "unknown",
+                    code: data?.code ?? "unknown",
+                    text: data?.text ?? "unknown",
+                    targetExists: Boolean(node),
+                    width: rect ? Math.round(rect.width) : 0,
+                    height: rect ? Math.round(rect.height) : 0
+                  });
+                },
+                onRender: (data) => {
+                  const node = document.getElementById(targetId);
+                  const rect = node?.getBoundingClientRect();
+                  console.info("[NERDING Yandex] 광고 렌더 콜백", {
+                    product: data?.product ?? "unknown",
+                    targetExists: Boolean(node),
+                    width: rect ? Math.round(rect.width) : 0,
+                    height: rect ? Math.round(rect.height) : 0
+                  });
+                }
+              });
             })`
           }}
         />
