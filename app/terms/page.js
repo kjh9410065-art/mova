@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../legal.css";
 
 export const metadata = {
+  alternates: { canonical: "/terms" },
   title: "이용약관 | NERDING",
   description: "NERDING 이용약관"
 };

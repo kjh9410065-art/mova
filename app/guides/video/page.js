@@ -3,6 +3,7 @@ import { catalog } from "../../lib/catalog";
 import "../guide.css";
 
 export const metadata = {
+  alternates: { canonical: "/guides/video" },
   title: "AI 영상 생성 서비스 선택 가이드 | HUB",
   description: "AI 영상 생성 목적에 따라 어떤 서비스를 먼저 비교하면 좋은지 정리한 HUB 가이드입니다."
 };

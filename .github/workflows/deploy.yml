@@ -20,7 +20,7 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       # 배포에 필요한 두 개의 GitHub Secret이 비어 있으면 배포 전에 즉시 실패시킵니다.
       - name: Verify Cloudflare secrets

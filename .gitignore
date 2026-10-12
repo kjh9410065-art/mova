@@ -1,0 +1,8 @@
+# 빌드 결과, 의존성과 개인 환경값은 저장소에 올리지 않습니다.
+node_modules/
+.next/
+out/
+dist/
+.env*
+!.env.example
+*.tsbuildinfo

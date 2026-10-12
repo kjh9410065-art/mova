@@ -2,7 +2,8 @@
 import Link from "next/link";
 import "./tools-icons.css";
 
-export const metadata = { title: "AI 무료 도구 | NERDING", description: "AI 서비스 선택에 도움이 되는 무료 계산기와 개발자용 실용 도구를 NERDING에서 이용하세요." };
+export const metadata = {
+  alternates: { canonical: "/tools" }, title: "AI 무료 도구 | NERDING", description: "AI 서비스 선택에 도움이 되는 무료 계산기와 개발자용 실용 도구를 NERDING에서 이용하세요." };
 
 // 카드 아이콘은 모두 SVG 스프라이트의 ID를 가리킵니다.
 // 이렇게 하면 운영체제마다 모양이 달라지는 이모지 대신 NERDING에서 통일한 아이콘이 표시됩니다.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../legal.css";
 
 export const metadata = {
+  alternates: { canonical: "/privacy" },
   title: "개인정보처리방침 | NERDING",
   description: "NERDING 개인정보처리방침"
 };

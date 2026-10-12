@@ -4,6 +4,7 @@ import { guides } from "./data";
 import "./guide.css";
 
 export const metadata = {
+  alternates: { canonical: "/guides" },
   title: "AI 서비스 선택 가이드 | NERDING",
   description: "무엇을 만들지에 따라 어떤 AI 서비스를 선택하면 좋은지 목적별로 정리한 NERDING 가이드입니다."
 };

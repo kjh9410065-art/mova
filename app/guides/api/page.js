@@ -3,6 +3,7 @@ import { catalog } from "../../lib/catalog";
 import "../guide.css";
 
 export const metadata = {
+  alternates: { canonical: "/guides/api" },
   title: "개발용 AI API 선택 가이드 | NERDING",
   description: "챗봇, 검색, 이미지, 음성 등 개발 목적에 맞는 AI API 선택 기준을 정리한 NERDING 가이드입니다."
 };

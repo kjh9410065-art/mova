@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../legal.css";
 
 export const metadata = {
+  alternates: { canonical: "/affiliate" },
   title: "제휴·광고 안내 | NERDING",
   description: "NERDING 제휴 링크와 광고 운영 안내"
 };

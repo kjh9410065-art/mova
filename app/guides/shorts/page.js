@@ -1,7 +1,8 @@
 // 쇼츠 제작 가이드: 실제 제작 흐름을 기준으로 서비스 선택 기준을 설명합니다.
 import Link from "next/link";
 
-export const metadata = { title: "쇼츠 만들기 AI 서비스 선택 가이드 | HUB", description: "쇼츠를 만들 때 필요한 이미지·영상·음성 AI 서비스를 어떤 기준으로 선택할지 정리했습니다." };
+export const metadata = {
+  alternates: { canonical: "/guides/shorts" }, title: "쇼츠 만들기 AI 서비스 선택 가이드 | HUB", description: "쇼츠를 만들 때 필요한 이미지·영상·음성 AI 서비스를 어떤 기준으로 선택할지 정리했습니다." };
 
 const rows = [
   ["이미지", "Replicate / fal", "장면 이미지나 생성형 이미지를 만들 때"],
