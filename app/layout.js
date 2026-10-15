@@ -67,9 +67,9 @@ export default function RootLayout({ children }) {
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
         {/* Yandex.RTB 공통 광고 로더를 불러옵니다. */}
         <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
-        <script src="https://yandex.ru/ads/system/context.js" async />
-        {/* 자동광고가 활성화되어 있어도 이 수동 Yandex unit은 계속 노출되도록 예외 처리합니다. */}
+        {/* 자동광고 로더보다 먼저 수동 블록 예외를 설정합니다. */}
         <script dangerouslySetInnerHTML={{ __html: `window.APExceptionBlocks = Array.from(new Set([...(window.APExceptionBlocks || []), "R-A-20181662-1"]));` }} />
+        <script src="https://yandex.ru/ads/system/context.js" async />
         <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
 </head>
       <body>
