@@ -20,7 +20,7 @@ import NerdingTutorial from "./components/nerding-tutorial";
 import NerdingTheme from "./components/nerding-theme";
 import SiteFooter from "./components/site-footer";
 
-const adsenseClient = process.env.NEXT_PUBLIC_ADSENSE_CLIENT?.trim();
+const adsenseClient = "ca-pub-6943939077344765";
 
 export const metadata = {
   title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
@@ -64,69 +64,9 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <head>
         <link rel="stylesheet" href="/illustrations.css" />
-        <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" />
-        {/* Yandex.RTB 공통 광고 로더를 불러옵니다. */}
-        <script dangerouslySetInnerHTML={{ __html: "window.yaContextCb=window.yaContextCb||[]" }} />
-        {/* 자동광고 로더보다 먼저 수동 블록 예외를 설정합니다. */}
-        <script dangerouslySetInnerHTML={{ __html: `window.APExceptionBlocks = Array.from(new Set([...(window.APExceptionBlocks || []), "R-A-20181662-1"]));` }} />
-        <script src="https://yandex.ru/ads/system/context.js" async />
-        <script data-page-id="20181662" src="https://yandex.ru/ads/system/ap-loader.js" async></script>
-</head>
+        <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" /></head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
-        {/* 기존 상단 광고 칸에 승인된 Yandex.RTB 광고를 표시합니다. */}
-        <div className="movaAdSlot movaAdSlotEnabled" aria-label="광고 영역">
-          <div id="yandex_rtb_R-A-20181662-1" />
-        </div>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `window.yaContextCb.push(() => {
-              const blockId = "R-A-20181662-1";
-              const targetId = "yandex_rtb_R-A-20181662-1";
-              const target = document.getElementById(targetId);
-
-              if (!target) {
-                console.error("[NERDING Yandex] 광고 대상 요소를 찾지 못했습니다:", targetId);
-                return;
-              }
-
-              const before = target.getBoundingClientRect();
-              console.info("[NERDING Yandex] 렌더 요청", {
-                blockId, targetId,
-                width: Math.round(before.width),
-                height: Math.round(before.height),
-                connected: target.isConnected
-              });
-
-              Ya.Context.AdvManager.render({
-                blockId,
-                renderTo: targetId,
-                onError: (data) => {
-                  const node = document.getElementById(targetId);
-                  const rect = node?.getBoundingClientRect();
-                  console.error("[NERDING Yandex] 광고 요청/렌더 오류", {
-                    type: data?.type ?? "unknown",
-                    code: data?.code ?? "unknown",
-                    text: data?.text ?? "unknown",
-                    targetExists: Boolean(node),
-                    width: rect ? Math.round(rect.width) : 0,
-                    height: rect ? Math.round(rect.height) : 0
-                  });
-                },
-                onRender: (data) => {
-                  const node = document.getElementById(targetId);
-                  const rect = node?.getBoundingClientRect();
-                  console.info("[NERDING Yandex] 광고 렌더 콜백", {
-                    product: data?.product ?? "unknown",
-                    targetExists: Boolean(node),
-                    width: rect ? Math.round(rect.width) : 0,
-                    height: rect ? Math.round(rect.height) : 0
-                  });
-                }
-              });
-            })`
-          }}
-        />
         {children}
         <SiteFooter />
         <NerdingTheme />
