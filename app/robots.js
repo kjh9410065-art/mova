@@ -2,7 +2,7 @@
 export const dynamic = "force-static";
 
 export default function robots() {
-  const baseUrl = "https://mova.tcflick.com";
+  const baseUrl = "https://nerding.tcflick.com";
   const crawlers = ["*", "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai", "PerplexityBot", "Google-Extended"];
 
   return {
