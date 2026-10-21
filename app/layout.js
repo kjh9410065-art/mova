@@ -26,7 +26,7 @@ export const metadata = {
   title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
   description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교할 수 있습니다.",
   keywords: ["NERDING", "너딩", "AI 서비스", "AI 도구", "AI 추천", "AI 비교", "생성형 AI", "이미지 생성 AI", "영상 생성 AI", "개발 도구", "개발 서비스"],
-  metadataBase: new URL("https://mova.tcflick.com"),
+  metadataBase: new URL("https://nerding.tcflick.com"),
   alternates: { canonical: "/" },
   icons: {
     // 실제 서비스 아이콘을 favicon으로 사용해 대형 홍보 이미지를 favicon으로 불러오지 않도록 합니다.
@@ -38,7 +38,7 @@ export const metadata = {
   openGraph: {
     title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
     description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교해보세요.",
-    url: "https://mova.tcflick.com",
+    url: "https://nerding.tcflick.com",
     siteName: "NERDING",
     locale: "ko_KR",
     type: "website",
