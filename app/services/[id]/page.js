@@ -26,7 +26,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: `${service.name} — 기능·비용·추천 용도 | NERDING`,
       description,
-      url: `https://mova.tcflick.com${canonicalPath}`,
+      url: `https://nerding.tcflick.com${canonicalPath}`,
       siteName: "NERDING",
       locale: "ko_KR",
       type: "website",
