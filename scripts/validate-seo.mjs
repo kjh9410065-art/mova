@@ -36,4 +36,21 @@ for (const entry of fs.readdirSync(toolDir, { withFileTypes:true })) {
   assert(urls.includes(site + "/tools/" + entry.name), "사이트맵 도구 누락: " + entry.name);
   toolPages++;
 }
+// Prevent old public hostnames from resurfacing in pages, metadata or assets.
+const publicRoots = ["app", "public"];
+const legacyHostname = /(?:mova[.]tcflick[.]com|mova[.]carpick[.]workers[.]dev)/i;
+const textExtensions = /\\.(?:js|jsx|mjs|json|jsonc|css|html|xml|txt|md|svg|webmanifest)$/i;
+function scanPublicSources(directory) {
+  for (const item of fs.readdirSync(directory, { withFileTypes: true })) {
+    const filename = path.join(directory, item.name);
+    if (item.isDirectory()) scanPublicSources(filename);
+    else if (textExtensions.test(item.name)) {
+      assert(!legacyHostname.test(fs.readFileSync(filename, "utf8")), "구 도메인이 남아 있습니다: " + filename);
+    }
+  }
+}
+for (const directory of publicRoots) scanPublicSources(path.join(process.cwd(), directory));
+assert(layout.includes('alternates: { canonical: "https://nerding.tcflick.com/" }'), "NERDING 홈 canonical 주소");
+assert(layout.includes('url: "https://nerding.tcflick.com/"'), "NERDING OpenGraph 공식 도메인");
+
 console.log("NERDING SEO checks passed: " + urls.length + " sitemap URLs, " + ids.length + " services, " + slugs.length + " guides, " + toolPages + " tools.");

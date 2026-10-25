@@ -70,6 +70,7 @@ jobs:
           }
 
           check_text "$BASE/" "NERDING" /tmp/nerding.html
+          check_text "$BASE/" "https://nerding.tcflick.com/" /tmp/nerding-home-url.html
           check_text "$BASE/robots.txt" "Sitemap: $BASE/sitemap.xml" /tmp/nerding-robots.txt
           check_text "$BASE/llms.txt" "NERDING" /tmp/nerding-llms.txt
           check_text "$BASE/sitemap.xml" "<urlset" /tmp/nerding-sitemap.xml
