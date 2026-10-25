@@ -1,10 +1,11 @@
-/* MOVA 서비스 카탈로그: 전체 서비스를 검색·분류·기능·비용 기준으로 탐색합니다. */
+/* NERDING 서비스 카탈로그: 전체 서비스를 검색·분류·기능·비용 기준으로 탐색합니다. */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { catalog, catalogMap, categoryGroups, matchesCategory } from "../lib/catalog";
 import { getSearchSuggestions, rankSearchResults } from "../lib/search";
+import { FAVORITES_KEY, COMPARE_KEY, loadFavorites, readStoredList } from "../lib/personal-storage";
 import { getOutboundUrl, hasAffiliateLink, trackOutboundClick } from "../lib/affiliate-programs";
 import "./catalog.css";
 import "./catalog-visual-cleanup.css";
@@ -15,11 +16,6 @@ const filters = categoryGroups.map((group) => [group.id, group.label]);
 // 서비스 유형은 기존 데이터의 기능·용도·카테고리를 기준으로 분류해 별도 데이터를 만들지 않습니다.
 const featureFilters = [["전체", "전체"], ["image", "이미지"], ["video", "영상"], ["music", "음악"], ["text", "글/문서"], ["voice", "음성"], ["chat", "챗봇"], ["search", "검색"], ["developer", "코딩"], ["productivity", "생산성"], ["other", "기타"]];
 const featureLabels = { text: "글/문서", image: "이미지", video: "영상", voice: "음성", search: "검색", chat: "챗봇", developer: "코딩", music: "음악", productivity: "생산성" };
-
-function readStoredList(key) {
-  try { const value = JSON.parse(localStorage.getItem(key) || "[]"); return Array.isArray(value) ? value : []; }
-  catch { return []; }
-}
 
 function serviceSupportsFeature(service, feature) {
   if (feature === "other") return !["image", "video", "music", "text", "voice", "chat", "search", "developer", "productivity"].some((type) => serviceSupportsFeature(service, type));
@@ -41,14 +37,19 @@ export default function CatalogPage() {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [compare, setCompare] = useState([]);
+  const [storageReady, setStorageReady] = useState(false);
 
   useEffect(() => {
     const requestedCategory = new URLSearchParams(window.location.search).get("category");
     if (requestedCategory && categoryGroups.some((group) => group.id === requestedCategory)) setCategory(requestedCategory);
   }, []);
-  useEffect(() => { setFavorites(readStoredList("hub-favorites-v2")); setCompare(readStoredList("hub-compare").slice(0, 4)); }, []);
-  useEffect(() => { localStorage.setItem("hub-favorites-v2", JSON.stringify(favorites)); }, [favorites]);
-  useEffect(() => { localStorage.setItem("hub-compare", JSON.stringify(compare)); }, [compare]);
+  useEffect(() => {
+    setFavorites(loadFavorites().filter((id) => catalogMap[id]));
+    setCompare(readStoredList(COMPARE_KEY).filter((id) => catalogMap[id]).slice(0, 4));
+    setStorageReady(true);
+  }, []);
+  useEffect(() => { if (storageReady) localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites)); }, [favorites, storageReady]);
+  useEffect(() => { if (storageReady) localStorage.setItem(COMPARE_KEY, JSON.stringify(compare)); }, [compare, storageReady]);
 
   const list = useMemo(() => {
     const searched = rankSearchResults(catalog, query);

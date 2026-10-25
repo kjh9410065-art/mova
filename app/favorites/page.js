@@ -1,12 +1,12 @@
-/* MOVA 개인화 화면: 로그인 없이 즐겨찾기와 최근 본 서비스를 관리합니다. */
+/* NERDING 개인화 화면: 로그인 없이 즐겨찾기와 최근 본 서비스를 관리합니다. */
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { catalog, catalogMap } from "../lib/catalog";
+import { FAVORITES_KEY, loadFavorites } from "../lib/personal-storage";
 import "./favorites.css";
 
-const FAVORITES_KEY = "hub-favorites-v2";
 const RECENT_KEY = "mova-recent-services";
 
 function readList(key) {
@@ -38,7 +38,7 @@ export default function FavoritesPage() {
   const [recent, setRecent] = useState([]);
 
   const sync = () => {
-    setFavorites(readList(FAVORITES_KEY));
+    setFavorites(loadFavorites());
     setRecent(readList(RECENT_KEY).slice(0, 10));
   };
 
@@ -65,12 +65,12 @@ export default function FavoritesPage() {
   return (
     <main className="favoritesPage">
       <header className="header favoritesHeader">
-        <Link className="logo" href="/">MOVA</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/compare">비교하기</Link></nav>
       </header>
 
       <section className="favoritesHero">
-        <div className="eyebrow">MY MOVA</div>
+        <div className="eyebrow">MY NERDING</div>
         <h1>관심 있는 서비스를<br /><span>다시 찾아보세요.</span></h1>
         <p>로그인 없이 이 기기의 브라우저에 즐겨찾기와 최근 본 서비스를 저장합니다.</p>
       </section>
@@ -85,7 +85,7 @@ export default function FavoritesPage() {
         {recentServices.length > 0 ? <div className="personalGrid">{recentServices.map((service) => <ServiceCard key={service.id} service={service} />)}</div> : <div className="personalEmpty"><strong>최근 본 서비스가 없습니다.</strong><p>서비스 상세 페이지를 열면 최대 10개까지 자동으로 기록됩니다.</p></div>}
       </section>
 
-      <section className="personalFooter"><Link href="/catalog">서비스 전체 보기</Link><Link href="/compare">서비스 비교하기</Link><Link href="/">MOVA 홈</Link></section>
+      <section className="personalFooter"><Link href="/catalog">서비스 전체 보기</Link><Link href="/compare">서비스 비교하기</Link><Link href="/">NERDING 홈</Link></section>
     </main>
   );
 }

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { FAVORITES_KEY, loadFavorites } from "../lib/personal-storage";
 
-const FAVORITES_KEY = "hub-favorites-v2";
 const RECENT_KEY = "mova-recent-services";
 
 function readList(key) {
@@ -19,7 +19,7 @@ export function ServicePersonalTools({ serviceId }) {
   const [favorite, setFavorite] = useState(false);
 
   useEffect(() => {
-    const favorites = readList(FAVORITES_KEY);
+    const favorites = loadFavorites();
     setFavorite(favorites.includes(serviceId));
 
     // 상세 페이지를 열 때 최근 본 서비스를 최신순으로 저장합니다.
@@ -28,7 +28,7 @@ export function ServicePersonalTools({ serviceId }) {
   }, [serviceId]);
 
   const toggleFavorite = () => {
-    const favorites = readList(FAVORITES_KEY);
+    const favorites = loadFavorites();
     const next = favorites.includes(serviceId)
       ? favorites.filter((id) => id !== serviceId)
       : [...favorites, serviceId];

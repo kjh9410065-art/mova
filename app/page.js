@@ -5,6 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { catalog, catalogMap, categoryGroups, matchesCategory } from "./lib/catalog";
 import { rankServices } from "./lib/recommendation";
 import { matchesSearch, rankSearchResults, scoreSearch, getSearchSuggestions } from "./lib/search";
+import { FAVORITES_KEY, COMPARE_KEY, loadFavorites, readStoredList } from "./lib/personal-storage";
 import "./home.css";
 import "./home-responsive.css";
 import "./home-polish.css";
@@ -48,19 +49,17 @@ export default function HomePage() {
   const [onlyApi, setOnlyApi] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [compare, setCompare] = useState([]);
+  const [storageReady, setStorageReady] = useState(false);
 
   useEffect(() => {
-    try {
-      setFavorites(JSON.parse(localStorage.getItem("hub-favorites") || "[]"));
-      setCompare(JSON.parse(localStorage.getItem("hub-compare") || "[]").slice(0, 4));
-    } catch {
-      setFavorites([]);
-      setCompare([]);
-    }
+    setFavorites(loadFavorites().filter((id) => catalogMap[id]));
+    setCompare(readStoredList(COMPARE_KEY).filter((id) => catalogMap[id]).slice(0, 4));
+    setStorageReady(true);
   }, []);
 
-  useEffect(() => { localStorage.setItem("hub-favorites", JSON.stringify(favorites)); }, [favorites]);
-  useEffect(() => { localStorage.setItem("hub-compare", JSON.stringify(compare)); }, [compare]);
+  // Avoid replacing existing browser data with empty state before hydration completes.
+  useEffect(() => { if (storageReady) localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites)); }, [favorites, storageReady]);
+  useEffect(() => { if (storageReady) localStorage.setItem(COMPARE_KEY, JSON.stringify(compare)); }, [compare, storageReady]);
 
   const ranked = useMemo(() => rankServices(catalog, {
     goal: selectedTask,
