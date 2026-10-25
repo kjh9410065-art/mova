@@ -64,6 +64,15 @@ export default function RootLayout({ children }) {
     <html lang="ko">
       <head>
         <link rel="stylesheet" href="/illustrations.css" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "너딩",
+          alternateName: "NERDING",
+          url: "https://nerding.tcflick.com/",
+          inLanguage: "ko-KR",
+          description: "한국어로 AI 서비스와 개발 도구를 검색하고 기능과 비용을 비교하는 서비스"
+        }) }} />
         <meta name="naver-site-verification" content="470f41c9c7c695bedafdedaa15bf205009b0b1e1" /></head>
       <body>
         {adsenseClient && <Script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`} crossOrigin="anonymous" strategy="afterInteractive" />}
