@@ -74,4 +74,17 @@ jobs:
           check_text "$BASE/llms.txt" "NERDING" /tmp/nerding-llms.txt
           check_text "$BASE/sitemap.xml" "<urlset" /tmp/nerding-sitemap.xml
           grep -Fq "$BASE/" /tmp/nerding-sitemap.xml
+
+          # Check important user-facing pages, not just the homepage.
+          check_text "$BASE/catalog" "NERDING" /tmp/nerding-catalog.html
+          check_text "$BASE/recommend" "NERDING" /tmp/nerding-recommend.html
+          check_text "$BASE/compare" "NERDING" /tmp/nerding-compare.html
+          check_text "$BASE/tools/url" "URL" /tmp/nerding-url.html
+          check_text "$BASE/guides/ai-image-generator" "AI 이미지" /tmp/nerding-guide.html
+          check_text "$BASE/services/openai" "OpenAI" /tmp/nerding-service.html
+          check_text "$BASE/favorites" "즐겨찾기" /tmp/nerding-favorites.html
+          if grep -Eq "https://mova[.]tcflick[.]com" /tmp/nerding-catalog.html; then
+            echo "::error::Catalog still links to the retired MOVA hostname."
+            exit 1
+          fi
           echo "Official NERDING domain checks passed."
