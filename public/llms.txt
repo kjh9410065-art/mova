@@ -4,28 +4,28 @@ NERDING is an AI service discovery and comparison site.
 
 ## Main pages
 
-- Home: https://mova.tcflick.com/
-- Recommendation: https://mova.tcflick.com/recommend
-- Catalog: https://mova.tcflick.com/catalog
-- Compare: https://mova.tcflick.com/compare
-- Guides: https://mova.tcflick.com/guides
-- Tools: https://mova.tcflick.com/tools
+- Home: https://nerding.tcflick.com/
+- Recommendation: https://nerding.tcflick.com/recommend
+- Catalog: https://nerding.tcflick.com/catalog
+- Compare: https://nerding.tcflick.com/compare
+- Guides: https://nerding.tcflick.com/guides
+- Tools: https://nerding.tcflick.com/tools
 
 ## Service directory
 
 Service detail pages are available under:
-https://mova.tcflick.com/services/
+https://nerding.tcflick.com/services/
 
 ## Guides
 
-- AI image generation: https://mova.tcflick.com/guides/ai-image-generator
-- AI video generation: https://mova.tcflick.com/guides/ai-video-generator
-- AI voice generation: https://mova.tcflick.com/guides/ai-voice-generator
-- AI chatbot API: https://mova.tcflick.com/guides/ai-chatbot-api
-- AI tools for Shorts: https://mova.tcflick.com/guides/ai-tools-for-shorts
-- Free AI tools: https://mova.tcflick.com/guides/free-ai-tools
+- AI image generation: https://nerding.tcflick.com/guides/ai-image-generator
+- AI video generation: https://nerding.tcflick.com/guides/ai-video-generator
+- AI voice generation: https://nerding.tcflick.com/guides/ai-voice-generator
+- AI chatbot API: https://nerding.tcflick.com/guides/ai-chatbot-api
+- AI tools for Shorts: https://nerding.tcflick.com/guides/ai-tools-for-shorts
+- Free AI tools: https://nerding.tcflick.com/guides/free-ai-tools
 
 ## Machine-readable discovery
 
-- Sitemap: https://mova.tcflick.com/sitemap.xml
-- Robots: https://mova.tcflick.com/robots.txt
+- Sitemap: https://nerding.tcflick.com/sitemap.xml
+- Robots: https://nerding.tcflick.com/robots.txt

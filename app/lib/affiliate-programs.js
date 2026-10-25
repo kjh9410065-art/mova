@@ -1,6 +1,6 @@
-// HUB 제휴 프로그램 정보입니다.
+// NERDING 제휴 프로그램 정보입니다.
 // 승인 전에는 서비스의 고유 제휴 링크를 임의로 만들지 않습니다.
-// 승인 후 발급받은 개인 링크만 affiliateUrl에 입력하면 HUB의 CTA가 자동으로 제휴 링크를 사용합니다.
+// 승인 후 발급받은 개인 링크만 affiliateUrl에 입력하면 NERDING의 CTA가 자동으로 제휴 링크를 사용합니다.
 export const affiliatePrograms = {
   elevenlabs: {
     provider: "ElevenLabs",
@@ -9,7 +9,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://elevenlabs.io/affiliates",
     status: "active",
     commissionNote: "개인 제휴 링크를 통한 가입/결제에 대해 제휴 수익이 발생할 수 있습니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   runway: {
     provider: "Runway",
@@ -17,7 +17,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://runway.com/affiliate-program",
     status: "pending",
     commissionNote: "제휴 신청 후 승인되면 개인 제휴 링크를 연결합니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   descript: {
     provider: "Descript",
@@ -25,7 +25,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://www.descript.com/affiliate",
     status: "apply",
     commissionNote: "승인 후 고유 affiliate link를 발급받습니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   heygen: {
     provider: "HeyGen",
@@ -33,7 +33,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://www.heygen.com/affiliate-program",
     status: "pending",
     commissionNote: "제휴 신청 후 승인되면 개인 referral link를 연결합니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   synthesia: {
     provider: "Synthesia",
@@ -42,7 +42,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://www.synthesia.io/partners/affiliates",
     status: "active",
     commissionNote: "개인 제휴 링크를 통한 결제에 대해 제휴 수익이 발생할 수 있습니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   leonardo: {
     provider: "Leonardo AI",
@@ -50,7 +50,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://www.leonardo.ai/leonardo-creator-program/",
     status: "hold",
     commissionNote: "현재 Creator Program 신청이 보류된 상태라 링크를 연결하지 않습니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   },
   jasper: {
     provider: "Jasper",
@@ -58,7 +58,7 @@ export const affiliatePrograms = {
     applicationUrl: "https://www.jasper.ai/partners",
     status: "apply",
     commissionNote: "공식 제휴 프로그램 승인 후 개인 affiliate link를 사용합니다.",
-    disclosure: "이 링크를 통해 가입하면 HUB가 제휴 수수료를 받을 수 있습니다."
+    disclosure: "이 링크를 통해 가입하면 NERDING가 제휴 수수료를 받을 수 있습니다."
   }
 };
 

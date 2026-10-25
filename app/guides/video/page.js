@@ -4,15 +4,15 @@ import "../guide.css";
 
 export const metadata = {
   alternates: { canonical: "/guides/video" },
-  title: "AI 영상 생성 서비스 선택 가이드 | HUB",
-  description: "AI 영상 생성 목적에 따라 어떤 서비스를 먼저 비교하면 좋은지 정리한 HUB 가이드입니다."
+  title: "AI 영상 생성 서비스 선택 가이드 | NERDING",
+  description: "AI 영상 생성 목적에 따라 어떤 서비스를 먼저 비교하면 좋은지 정리한 NERDING 가이드입니다."
 };
 
 const services = catalog.filter((service) => service.features?.video).slice(0, 6);
 
 export default function VideoGuide() {
   return <main className="guideArticle">
-    <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/guides">가이드</Link></nav></header>
+    <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/catalog">서비스 찾기</Link><Link href="/recommend">추천받기</Link><Link href="/guides">가이드</Link></nav></header>
     <section className="guideArticleHero"><div className="eyebrow">AI VIDEO GUIDE</div><h1>AI 영상은<br /><span>무엇을 만들지부터 정하세요.</span></h1><p>짧은 영상, 이미지 기반 영상, 생성형 영상은 필요한 서비스가 다릅니다.</p></section>
     <section className="guideArticleBody">
       <article><h2>먼저 확인할 것</h2><p>텍스트만으로 영상을 만들지, 이미지를 움직일지, 쇼츠처럼 빠르게 여러 장면을 만들지에 따라 선택지가 달라집니다. 처음이라면 사용 난도가 낮고 무료 구간을 제공하는 서비스를 먼저 테스트하는 편이 좋습니다.</p></article>
