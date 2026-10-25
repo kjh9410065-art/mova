@@ -42,33 +42,36 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
-      # 실제 사용자에게 공개되는 NERDING canonical 도메인으로 배포 결과를 검증합니다.
-      - name: Verify public endpoints
+      # 배포 성공과 실제 공식 도메인의 가용성을 별도로 검증합니다.
+      # Cloudflare DNS·인증서가 없으면 실패 원인을 명확하게 표시합니다.
+      - name: Verify official NERDING domain
         run: |
-          set -e
-          BASE="https://mova.tcflick.com"
+          set -euo pipefail
+          BASE="https://nerding.tcflick.com"
+
+          echo "DNS lookup for nerding.tcflick.com"
+          if ! getent ahosts nerding.tcflick.com; then
+            echo "::error::nerding.tcflick.com DNS is not configured or not yet propagated. Check Cloudflare custom domain settings."
+            exit 1
+          fi
 
           check_text() {
-            URL="$1"
-            NEEDLE="$2"
-            OUT="$3"
-            echo "Checking $URL"
-            for i in 1 2 3 4 5; do
-              if curl -fsSL --retry 2 --connect-timeout 10 --max-time 30 "$URL" -o "$OUT"; then
-                grep -q "$NEEDLE" "$OUT"
-                echo "Passed: $URL"
-                return 0
-              fi
-              echo "Attempt $i failed; waiting 10 seconds for Cloudflare propagation..."
-              sleep 10
-            done
-            echo "Public endpoint check failed: $URL"
-            exit 1
+            local url="$1" needle="$2" outfile="$3"
+            echo "Checking $url"
+            if ! curl --fail --silent --show-error --location --retry 4 --retry-delay 3 --connect-timeout 10 --max-time 45 "$url" -o "$outfile"; then
+              echo "::error::Request failed: $url. Check Workers custom domain, DNS, SSL, and routes."
+              return 1
+            fi
+            if ! grep -Fq "$needle" "$outfile"; then
+              echo "::error::Missing required content in $url: $needle"
+              return 1
+            fi
+            echo "Passed: $url"
           }
 
           check_text "$BASE/" "NERDING" /tmp/nerding.html
-          check_text "$BASE/robots.txt" "Sitemap:" /tmp/robots.txt
-          check_text "$BASE/llms.txt" "NERDING" /tmp/llms.txt
-          check_text "$BASE/sitemap.xml" "<urlset" /tmp/sitemap.xml
-          grep -q "$BASE/" /tmp/sitemap.xml
-          echo "All public endpoint checks passed."
+          check_text "$BASE/robots.txt" "Sitemap: $BASE/sitemap.xml" /tmp/nerding-robots.txt
+          check_text "$BASE/llms.txt" "NERDING" /tmp/nerding-llms.txt
+          check_text "$BASE/sitemap.xml" "<urlset" /tmp/nerding-sitemap.xml
+          grep -Fq "$BASE/" /tmp/nerding-sitemap.xml
+          echo "Official NERDING domain checks passed."
