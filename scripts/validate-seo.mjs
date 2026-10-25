@@ -39,7 +39,7 @@ for (const entry of fs.readdirSync(toolDir, { withFileTypes:true })) {
 // Prevent old public hostnames from resurfacing in pages, metadata or assets.
 const publicRoots = ["app", "public"];
 const legacyHostname = /(?:mova[.]tcflick[.]com|mova[.]carpick[.]workers[.]dev)/i;
-const textExtensions = /\\.(?:js|jsx|mjs|json|jsonc|css|html|xml|txt|md|svg|webmanifest)$/i;
+const textExtensions = /\.(?:js|jsx|mjs|json|jsonc|css|html|xml|txt|md|svg|webmanifest)$/i;
 function scanPublicSources(directory) {
   for (const item of fs.readdirSync(directory, { withFileTypes: true })) {
     const filename = path.join(directory, item.name);
