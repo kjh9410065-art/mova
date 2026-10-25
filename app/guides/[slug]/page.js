@@ -17,7 +17,7 @@ export async function generateMetadata({ params }) {
     title: `${guide.title} | NERDING`,
     description: guide.description,
     keywords: [guide.keyword, "AI 서비스 추천", "NERDING"],
-    alternates: { canonical: `https://mova.tcflick.com/guides/${guide.slug}` }
+    alternates: { canonical: `https://nerding.tcflick.com/guides/${guide.slug}` }
   };
 }
 
