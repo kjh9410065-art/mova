@@ -24,7 +24,7 @@ const featureKeywords = {
 };
 
 export function parseRecommendationIntent(query = "") {
-  const text = String(query).trim().toLowerCase();
+  const text = String(query).normalize("NFKC").trim().toLowerCase();
   if (!text) return { goal: null, budget: null, skill: null, feature: null, labels: [] };
 
   let goal = null;

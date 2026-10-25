@@ -1,6 +1,7 @@
-// MOVA 전체 화면이 동일한 서비스 카탈로그와 분류 체계를 사용하도록 한 곳에서 관리합니다.
+// NERDING 전체 화면이 동일한 서비스 카탈로그와 분류 체계를 사용하도록 한 곳에서 관리합니다.
 import { services as coreServices } from "./services";
 import { additionalServices } from "../data/service-catalog";
+import { rankSearchResults } from "./search";
 
 export const catalog = [...coreServices, ...additionalServices];
 export const catalogMap = Object.fromEntries(catalog.map((service) => [service.id, service]));
@@ -31,7 +32,5 @@ export function matchesCategory(service, categoryId) {
 }
 
 export function findServices(query = "") {
-  const keyword = query.trim().toLowerCase();
-  if (!keyword) return catalog;
-  return catalog.filter((service) => [service.name, service.category, service.bestFor, service.caveat, ...(service.tags || []), ...(service.uses || []), ...(service.strengths || [])].filter(Boolean).join(" ").toLowerCase().includes(keyword));
+  return rankSearchResults(catalog, query);
 }
