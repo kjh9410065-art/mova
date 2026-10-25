@@ -6,7 +6,7 @@ const conditionTerms=new Set(["무료","공짜","api","개발"]);
 const purposeAliases={쇼츠:"shorts",숏츠:"shorts",릴스:"shorts",틱톡:"shorts",숏폼:"shorts",이미지:"image",사진:"image",상품사진:"image",상품이미지:"image",썸네일:"image",영상:"video",비디오:"video",음성:"voice",목소리:"voice",더빙:"voice",tts:"voice",stt:"voice",챗봇:"chat",채팅봇:"chat",llm:"chat",모델:"chat",검색:"search",크롤링:"search",스크래핑:"search",리서치:"search"};
 const fieldWeights={name:18,category:8,bestFor:7,tags:6,strengths:4,uses:5};
 
-function clean(value=""){return String(value).trim().toLowerCase().replace(/[·,./|()[\]{}:_-]+/g," ").replace(/\s+/g," ");}
+function clean(value=""){return String(value).normalize("NFKC").trim().toLowerCase().replace(/[·,./|()[\]{}:_-]+/g," ").replace(/\s+/g," ");}
 function buildTerms(query){
   const raw=clean(query);if(!raw)return{raw:"",terms:[],expanded:[],purposes:[],conditions:[]};
   const terms=raw.split(/\s+/).filter(Boolean),expanded=new Set(terms),purposes=new Set(),conditions=new Set();
