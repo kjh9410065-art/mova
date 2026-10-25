@@ -24,7 +24,7 @@ export default function PromptToolPage() {
   return (
     <main className="page toolPage">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">무료 도구</Link><Link href="/compare">비교하기</Link></nav>
       </header>
 

@@ -28,11 +28,11 @@ export default function UrlToolPage() {
   return (
     <main className="page guideArticle">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">무료 도구</Link><Link href="/compare">비교하기</Link></nav>
       </header>
       <article>
-        <div className="eyebrow">HUB TOOLS</div>
+        <div className="eyebrow">NERDING TOOLS</div>
         <h1>URL <span>인코더·디코더</span></h1>
         <p className="lead">공백, 한글, 특수문자가 포함된 문자열을 URL에서 안전하게 사용할 수 있는 형태로 변환하거나 다시 복원합니다.</p>
         <div className="calculatorCard">
@@ -56,7 +56,7 @@ export default function UrlToolPage() {
             <button className="toolSecondary" onClick={() => { setInput(""); setCopied(false); }}>초기화</button>
           </div>
         </div>
-        <p className="calcNote">브라우저에서만 처리하므로 입력한 문자열은 HUB 서버로 전송되지 않습니다. URL 인코딩은 암호화가 아니며 비밀번호나 비밀정보 보호 수단으로 사용하면 안 됩니다.</p>
+        <p className="calcNote">브라우저에서만 처리하므로 입력한 문자열은 NERDING 서버로 전송되지 않습니다. URL 인코딩은 암호화가 아니며 비밀번호나 비밀정보 보호 수단으로 사용하면 안 됩니다.</p>
         <Link className="primaryLink" href="/tools">← 무료 도구 모음으로</Link>
       </article>
     </main>

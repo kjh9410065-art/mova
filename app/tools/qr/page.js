@@ -11,11 +11,11 @@ export default function QRTool() {
   ];
   return (
     <main className="page guideArticle">
-      <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/tools">무료 도구</Link><Link href="/">홈</Link></nav></header>
+      <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/tools">무료 도구</Link><Link href="/">홈</Link></nav></header>
       <article>
         <div className="eyebrow">QR QUICK TOOL</div>
         <h1>QR을 이용한<br /><span>빠른 공유 가이드.</span></h1>
-        <p className="lead">HUB의 개발자용 도구 모음에서 QR 공유에 필요한 내용을 간단히 확인할 수 있습니다.</p>
+        <p className="lead">NERDING의 개발자용 도구 모음에서 QR 공유에 필요한 내용을 간단히 확인할 수 있습니다.</p>
         <div className="miniGrid toolInfoGrid">
           {services.map(([title, desc]) => <div className="miniCard" key={title}><span>▣</span><div><strong>{title}</strong><small>{desc}</small></div></div>)}
         </div>

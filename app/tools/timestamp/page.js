@@ -16,7 +16,7 @@ export default function TimestampTool() {
   const now = () => setValue(String(Math.floor(Date.now()/1000)));
   return (
     <main className="page guideArticle">
-      <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/tools">무료 도구</Link><Link href="/guides">가이드</Link></nav></header>
+      <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/tools">무료 도구</Link><Link href="/guides">가이드</Link></nav></header>
       <article>
         <div className="eyebrow">TIMESTAMP CONVERTER</div>
         <h1>Unix 시간을<br /><span>날짜로 바꿔보세요.</span></h1>

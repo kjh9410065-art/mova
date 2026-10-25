@@ -33,11 +33,11 @@ export default function UuidToolPage() {
   return (
     <main className="page guideArticle">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">무료 도구</Link><Link href="/compare">비교하기</Link></nav>
       </header>
       <article>
-        <div className="eyebrow">HUB TOOLS</div>
+        <div className="eyebrow">NERDING TOOLS</div>
         <h1>UUID <span>생성기</span></h1>
         <p className="lead">회원·게시물·작업 등의 데이터를 구분할 때 사용할 UUID를 한 번에 최대 20개까지 생성합니다.</p>
         <div className="calculatorCard">

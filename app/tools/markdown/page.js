@@ -35,11 +35,11 @@ export default function MarkdownToolPage() {
   return (
     <main className="page guideArticle">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">무료 도구</Link><Link href="/compare">비교하기</Link></nav>
       </header>
       <article>
-        <div className="eyebrow">HUB TOOLS</div>
+        <div className="eyebrow">NERDING TOOLS</div>
         <h1>Markdown <span>정리기</span></h1>
         <p className="lead">AI가 만들어 준 Markdown 문서를 붙여 넣으면 불필요한 공백과 과도한 빈 줄을 정리해 복사하기 좋은 형태로 만들어줍니다.</p>
         <div className="calculatorCard">
