@@ -21,7 +21,7 @@ export default function ColorTool() {
   }, [rgb]);
   return (
     <main className="page guideArticle">
-      <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/tools">무료 도구</Link><Link href="/">홈</Link></nav></header>
+      <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/tools">무료 도구</Link><Link href="/">홈</Link></nav></header>
       <article>
         <div className="eyebrow">COLOR CONVERTER</div>
         <h1>색상값을<br /><span>쉽게 변환하세요.</span></h1>

@@ -41,7 +41,7 @@ export default function CostPage() {
   // 계산 결과를 클립보드에 복사해 다른 곳에 바로 붙여넣을 수 있게 합니다.
   async function copyResult() {
     if (result === null) return;
-    const text = `HUB AI API 예상 월 비용: $${result.toFixed(2)}`;
+    const text = `NERDING AI API 예상 월 비용: $${result.toFixed(2)}`;
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
@@ -54,7 +54,7 @@ export default function CostPage() {
   return (
     <main className="page guideArticle">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">도구</Link><Link href="/guides">가이드</Link><Link href="/compare">비교하기</Link></nav>
       </header>
 

@@ -27,9 +27,9 @@ export default function Calculator() {
 
   return (
     <main className="page">
-      <header className="header"><Link className="logo" href="/">HUB</Link><nav><Link href="/guides">가이드</Link><Link href="/compare">서비스 비교</Link><Link href="/">추천받기</Link></nav></header>
+      <header className="header"><Link className="logo" href="/">NERDING</Link><nav><Link href="/guides">가이드</Link><Link href="/compare">서비스 비교</Link><Link href="/">추천받기</Link></nav></header>
       <section className="hero" style={{ textAlign: "left", padding: "55px 30px" }}>
-        <div className="badge">HUB TOOL</div>
+        <div className="badge">NERDING TOOL</div>
         <h1 style={{ fontSize: "clamp(36px,5vw,58px)" }}>AI API 비용을<br /><span>미리 계산해보세요.</span></h1>
         <p>월간 요청량과 토큰 사용량을 입력하면 예상 비용을 계산합니다.</p>
       </section>

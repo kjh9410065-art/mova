@@ -37,7 +37,7 @@ export default function Base64Page() {
   return (
     <main className="page guideArticle">
       <header className="header">
-        <Link className="logo" href="/">HUB</Link>
+        <Link className="logo" href="/">NERDING</Link>
         <nav><Link href="/tools">도구</Link><Link href="/guides">가이드</Link><Link href="/compare">비교하기</Link></nav>
       </header>
 
