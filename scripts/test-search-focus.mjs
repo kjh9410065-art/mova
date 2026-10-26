@@ -28,4 +28,8 @@ assert(catalog.includes('aria-label="서비스 검색"'), "catalog search access
 assert(localStorage.includes('export const FAVORITES_KEY = "hub-favorites-v2"'), "favorites storage key must not change");
 assert(localStorage.includes('export const COMPARE_KEY = "hub-compare"'), "compare storage key must not change");
 assert(packageJson.scripts["test:search"], "search regression suite missing");
+const nextLock = JSON.parse(read("package-lock.json")).packages["node_modules/next"].version;
+assert.equal(packageJson.dependencies.next, "16.4.3", "patched Next.js must be declared in package.json");
+assert.equal(nextLock, packageJson.dependencies.next, "Next.js lockfile must be on patched release");
+
 console.log("NERDING search focus/keyboard/dark-mode/mobile regression checks passed; original design and storage keys retained.");
