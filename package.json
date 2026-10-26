@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "validate:catalog": "node scripts/validate-catalog.mjs",
-    "build": "npm run validate:catalog && npm run test:search && npm run validate:seo && next build",
+    "build": "npm run validate:catalog && npm run test:search && npm run test:focus && npm run validate:seo && next build",
     "start": "next start",
     "deploy": "npx wrangler deploy",
     "test:search": "node scripts/test-search.mjs",
-    "validate:seo": "node scripts/validate-seo.mjs"
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "test:focus": "node scripts/test-search-focus.mjs"
   },
   "dependencies": {
     "next": "^16.3.3",

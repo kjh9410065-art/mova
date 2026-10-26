@@ -12,6 +12,7 @@ import "./ui-visibility-polish.css";
 import "./button-clarity.css";
 import "./catalog-icon-scale.css";
 import "./category-scale.css";
+import "./search-focus-fix.css";
 import "./mobile-card-readability.css";
 import "./nerding-redesign.css";
 import "./recommend/desktop-topmatch-fix.css";

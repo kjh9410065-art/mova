@@ -1,0 +1,90 @@
+/* 2026-10-26 - NERDING search input focus repair.
+ * Keep the existing layout, colors and responsive typography.
+ * Draw the focus state on the rounded SEARCH WRAPPER only: the inner input
+ * must never paint a second rectangular outline/border/shadow.
+ */
+
+/* globals.css changes generic .searchBox to column on narrow screens.
+   Homepage search is a single-line input, so preserve its intended row layout. */
+.homePage .searchBox.compactSearch {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.homePage .searchBox.compactSearch input {
+  flex: 1 1 0% !important;
+  width: 0 !important;
+  min-width: 0 !important;
+  min-height: 0;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 6px 0 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  appearance: none;
+  -webkit-appearance: none;
+  caret-color: #6854d9;
+}
+
+/* Override input-level :focus-visible inherited from generic UI styles,
+   while preserving a visible accessible focus indication on the parent. */
+.homePage .searchBox.compactSearch input:focus,
+.homePage .searchBox.compactSearch input:focus-visible {
+  border: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.homePage .searchBox.compactSearch:focus-within {
+  border-color: #8471df !important;
+  box-shadow: 0 0 0 1px rgba(104,84,217,.27), 0 5px 18px rgba(39,31,82,.045) !important;
+}
+
+/* Catalog search uses the same principle: one rounded focus surface, not
+   a 3px square ring around an inner text field. */
+.catalogPage .catalogSearch input,
+.catalogPage .catalogSearch input:focus,
+.catalogPage .catalogSearch input:focus-visible {
+  min-width: 0 !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: 0 !important;
+  background: transparent;
+  caret-color: #6854d9;
+}
+.catalogPage .catalogSearch:focus-within {
+  box-shadow: 0 0 0 2px rgba(104,84,217,.22), 0 7px 22px rgba(42,31,80,.055) !important;
+}
+
+/* Dark mode: do not reintroduce a light rectangular input background. */
+html[data-theme="dark"] .homePage .searchBox.compactSearch input,
+html[data-theme="dark"] .catalogPage .catalogSearch input {
+  background: transparent !important;
+  color: #f8fafc !important;
+  caret-color: #b5a4ff;
+}
+html[data-theme="dark"] .homePage .searchBox.compactSearch:focus-within {
+  border-color: #9280ee !important;
+  box-shadow: 0 0 0 1px rgba(181,164,255,.4), 0 5px 18px rgba(0,0,0,.22) !important;
+}
+html[data-theme="dark"] .catalogPage .catalogSearch:focus-within {
+  box-shadow: 0 0 0 2px rgba(181,164,255,.4), 0 6px 18px rgba(0,0,0,.2) !important;
+}
+
+@media (max-width: 430px) {
+  .homePage .searchBox.compactSearch {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .homePage .searchBox.compactSearch input { font-size: 16px !important; }
+}
