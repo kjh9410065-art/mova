@@ -92,4 +92,5 @@
   <url><loc>https://nerding.tcflick.com/tools/url</loc></url>
   <url><loc>https://nerding.tcflick.com/tools/uuid</loc></url>
   <url><loc>https://nerding.tcflick.com/tools/word</loc></url>
+  <url><loc>https://nerding.tcflick.com/ai-workflow.html</loc><priority>0.8</priority></url>
 </urlset>

@@ -13,7 +13,7 @@ export default function SiteFooter() {
           <Link href="/terms">이용약관</Link>
           <Link href="/privacy">개인정보처리방침</Link>
           <Link href="/contact">문의하기</Link>
-          <Link href="/external-links">외부 링크 안내</Link>
+          <Link href="/external-links">외부 링크 안내</Link><Link href="/ai-workflow.html">AI 도구 조합·비용</Link>
           <Link href="/affiliate">제휴·광고 안내</Link>
         </nav>
         <div className="siteFooterInfo">

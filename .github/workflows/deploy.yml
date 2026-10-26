@@ -78,6 +78,7 @@ jobs:
 
           # Check important user-facing pages, not just the homepage.
           check_text "$BASE/catalog" "NERDING" /tmp/nerding-catalog.html
+          check_text "$BASE/ai-workflow.html" "AI WORKFLOW BUILDER" /tmp/nerding-workflow.html
           check_text "$BASE/recommend" "NERDING" /tmp/nerding-recommend.html
           check_text "$BASE/compare" "NERDING" /tmp/nerding-compare.html
           check_text "$BASE/tools/url" "URL" /tmp/nerding-url.html
