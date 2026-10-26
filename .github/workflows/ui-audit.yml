@@ -1,0 +1,46 @@
+name: NERDING real-browser UI audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+      - "scripts/test-ui-browser.mjs"
+      - "scripts/test-search-focus.mjs"
+      - "package.json"
+      - ".github/workflows/ui-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chromium:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install fixed dependencies
+        run: npm ci
+      - name: Build and run existing catalog/search/SEO/focus suites
+        run: npm run build
+      - name: Install browser driver for audit only
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.55.1
+          if command -v google-chrome >/dev/null; then
+            echo "CHROME_BIN=$(command -v google-chrome)" >> "$GITHUB_ENV"
+          elif command -v chromium >/dev/null; then
+            echo "CHROME_BIN=$(command -v chromium)" >> "$GITHUB_ENV"
+          else
+            npx playwright install chromium
+          fi
+      - name: Check 280–1280px, keyboard focus, dark mode and routes in Chromium
+        run: node scripts/test-ui-browser.mjs
+      - name: Keep before/after inspection screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nerding-ui-audit-screenshots
+          path: ui-audit-screenshots/
+          if-no-files-found: ignore
+          retention-days: 14
