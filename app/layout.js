@@ -24,8 +24,8 @@ import SiteFooter from "./components/site-footer";
 const adsenseClient = "ca-pub-6943939077344765";
 
 export const metadata = {
-  title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
-  description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교할 수 있습니다.",
+  title: "너딩(NERDING) — AI 서비스·AI 도구·개발 도구 찾기",
+  description: "너딩(NERDING)에서 AI 서비스, 이미지·영상 생성 AI, 개발 도구를 목적에 맞게 찾고 비교할 수 있습니다.",
   keywords: ["NERDING", "너딩", "AI 서비스", "AI 도구", "AI 추천", "AI 비교", "생성형 AI", "이미지 생성 AI", "영상 생성 AI", "개발 도구", "개발 서비스"],
   metadataBase: new URL("https://nerding.tcflick.com/"),
   alternates: { canonical: "https://nerding.tcflick.com/" },
@@ -37,10 +37,10 @@ export const metadata = {
   },
   robots: { index: true, follow: true },
   openGraph: {
-    title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
-    description: "AI 서비스, AI 도구, 이미지 생성, 영상 생성, 개발 도구 등 목적에 맞는 서비스를 한곳에서 찾고 비교해보세요.",
+    title: "너딩(NERDING) — AI 서비스·AI 도구·개발 도구 찾기",
+    description: "너딩(NERDING)에서 AI 서비스, 이미지·영상 생성 AI, 개발 도구를 찾아 비교해보세요.",
     url: "https://nerding.tcflick.com/",
-    siteName: "NERDING",
+    siteName: "너딩 NERDING",
     locale: "ko_KR",
     type: "website",
     images: [{
@@ -50,8 +50,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NERDING — AI 서비스·AI 도구·개발 도구 찾기",
-    description: "AI 서비스와 개발 도구를 목적에 맞게 찾고 비교하는 NERDING.",
+    title: "너딩(NERDING) — AI 서비스·AI 도구·개발 도구 찾기",
+    description: "너딩(NERDING)에서 AI 서비스와 개발 도구를 목적에 맞게 찾고 비교하세요.",
     // 실제 public 파일명과 정확히 일치하도록 수정합니다.
     images: ["/ChatGPT%20Image%202026%EB%85%84%209%EC%9B%94%2015%EC%9D%BC%20%EC%98%A4%ED%9B%84%2011_34_22.png"]
   },

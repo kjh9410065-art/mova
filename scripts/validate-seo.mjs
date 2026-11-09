@@ -51,6 +51,9 @@ function scanPublicSources(directory) {
 }
 for (const directory of publicRoots) scanPublicSources(path.join(process.cwd(), directory));
 assert(layout.includes('alternates: { canonical: "https://nerding.tcflick.com/" }'), "NERDING 홈 canonical 주소");
+assert(layout.includes('title: "너딩(NERDING) —'), "홈 검색 제목에 한국어 브랜드명이 없습니다");
+assert(layout.includes('description: "너딩(NERDING)에서'), "홈 검색 설명에 한국어 브랜드명이 없습니다");
+assert(layout.includes('siteName: "너딩 NERDING"'), "공유 미리보기 사이트 브랜드 한글명 누락");
 assert(layout.includes('url: "https://nerding.tcflick.com/"'), "NERDING OpenGraph 공식 도메인");
 
 console.log("NERDING SEO checks passed: " + urls.length + " sitemap URLs, " + ids.length + " services, " + slugs.length + " guides, " + toolPages + " tools.");
